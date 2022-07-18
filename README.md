@@ -1,4 +1,4 @@
- # *The Task to Solve by next Wednesday (07/27)*
+ # *The Task to Solve by Wednesday (07/27)*
  
 ### Task overview
 
