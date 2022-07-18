@@ -99,6 +99,7 @@ Requirements for the first service:
 
 Upon task completion:
 
--   Write an instruction on how to run the project (preferably a Makefile with a predefined launch command)
+- Write an instruction on how to run the project (preferably a Makefile with a predefined launch command)
     
--   Zip the whole project and its files and send it to both darius.baltakys@cybercare.cc and tomas.vilcinskas@cybercare.cc
+- Zip the whole project and its files and send it to both darius.baltakys@cybercare.cc and tomas.vilcinskas@cybercare.cc
+
