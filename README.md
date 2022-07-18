@@ -1,13 +1,13 @@
-The Task to Solve by 07/27:
+ # *The Task to Solve by next Wednesday (07/27)*
 
 
-# Task overview
+## Task overview
 
 Create two services that communicate with each other. One that periodically sends out predefined event payloads and another one that consumes them.  
   
 The code for the task must be written in Python.  
 
-## The first service (Event propagator)
+### The first service (Event propagator)
 
 Description: The service should periodically (every N seconds) send a predefined JSON object to a specific HTTP API endpoint.
 
@@ -77,7 +77,7 @@ The array of JSON objects(events) that can be sent individually:
 
   
 
-## The second service (Event consumer)
+### The second service (Event consumer)
 
 Description: The service should expose a HTTP API endpoint that accepts incoming JSON payloads and persists them to a file.
 
