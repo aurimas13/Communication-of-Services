@@ -1,8 +1,6 @@
  # *The Task to Solve by next Wednesday (07/27)*
-
----
-
-## Task overview
+ 
+### Task overview
 
 Create two services that communicate with each other. One that periodically sends out predefined event payloads and another one that consumes them.  
   
