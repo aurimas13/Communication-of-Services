@@ -1,16 +1,15 @@
-# This is a sample Python script.
+import os
+from routes import routes
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+from dotenv import load_dotenv
+from flask import Flask
 
+load_dotenv()
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+api = Flask(__name__)
+api.config.from_pyfile("config.py") # +
 
+api.register_blueprint(routes)
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+if __name__ == "__main__":
+    api.run()
