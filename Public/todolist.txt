@@ -1,0 +1,2 @@
+1) Do tests for Flask (Event(Consumer))
+2) Update and make nice README.md

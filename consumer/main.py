@@ -6,10 +6,10 @@ from flask import Flask
 
 load_dotenv()
 
-api = Flask(__name__)
-api.config.from_pyfile("config.py") # +
+app = Flask(__name__)
+app.config.from_pyfile("config.py") # +
 
-api.register_blueprint(routes)
+app.register_blueprint(routes)
 
 if __name__ == "__main__":
-    api.run()
+    app.run()
