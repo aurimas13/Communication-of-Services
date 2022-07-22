@@ -1,4 +1,12 @@
- # *The Task to Solve by Wednesday (07/27)*
+Paleisti Flask galima per python main.py nuejus i ta flasko direktorija
+arba per
+konsoleje pradzioje rasai export FLASK_APP=main.py kai esi toje direktorijoje
+ir po to paleidi flask run
+Kai changinti direktorija folderi palikti ta pati bet keisti json ar kita failo formata kaip events.json
+
+
+
+# *The Task to Solve by Wednesday (07/27)*
  
 ### Task overview
 
@@ -18,11 +26,11 @@ Requirements for the first service:
     
 3.  The HTTP API endpoint that the payloads are sent to should be configurable via a configuration file or startup arguments.
     
-4.  The predefined JSON objects(events) that can be sent should be read from a file.
+4.  DONE The predefined JSON objects(events) that can be sent should be read from a file.
     
 5.  The location of the JSON objects(events) file should be configurable via a configuration file or startup arguments.
     
-6.  The algorithm for choosing a specific JSON object(event) to send at each period from all the objects read from file, should be random.
+6.  DONE The algorithm for choosing a specific JSON object(event) to send at each period from all the objects read from file, should be random.
         
 The array of JSON objects(events) that can be sent individually:  
 
@@ -82,19 +90,19 @@ Description: The service should expose a HTTP API endpoint that accepts incoming
 
 Requirements for the first service:
 
-7.  The service should expose a HTTP API endpoint that accepts incoming POST requests on the path `/event`
+7. DONE The service should expose a HTTP API endpoint that accepts incoming POST requests on the path `/event`
     
-8.  The port for running HTTP API should be configurable via a configuration file or startup arguments.
+8. DONE The port for running HTTP API should be configurable via a configuration file or startup arguments.
     
-9.  The location of the file for the incoming payloads should be configurable via a configuration file or startup arguments.
+9. DONE  The location of the file for the incoming payloads should be configurable via a configuration file or startup arguments.
     
-10.  The service should only accept payloads matching this JSON template:
+10. DONE The service should only accept payloads matching this JSON template:
 
     [
-	    {
-		    "event_type": string,
-		    "event_payload": string
-	    }
+        {
+            "event_type": string,
+            "event_payload": string
+        }
     ]
 
 Upon task completion:
