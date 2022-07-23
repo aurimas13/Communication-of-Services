@@ -3,7 +3,8 @@ import logging
 import sys
 from data_validation import Event
 from marshmallow import ValidationError
-from config import TARGET_FILE_LOCATION
+# from Event_Consumer/config import UR:
+from config import TARGET_FILE_LOCATION, CONFIGURABLE_ENDPOINT, SERVER_NAME, ENDPOINT
 from output import persist_output
 from flask import Blueprint
 from flask import request, Response, jsonify
@@ -13,17 +14,12 @@ routes = Blueprint("routes", __name__)
 target_path = TARGET_FILE_LOCATION
 
 
-@routes.route("/event", methods=["POST"])
+@routes.route(CONFIGURABLE_ENDPOINT, methods=["POST"])
 def validate():
     try:
         request_json = request.get_json(force=True)
-        # print(request_json)
-        # print(type(request_json))
         Event().load(request_json)
-        # print(Event().load(request_json))
         persist_output(request_json, target_path)
-        # print(persist_output(request_json, target_path))
-        # print(jsonify(request_json))
         return jsonify(request_json)
 
     except ValidationError as err:
