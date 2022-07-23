@@ -20,17 +20,17 @@ Description: The service should periodically (every N seconds) send a predefined
 
 Requirements for the first service:
 
-1. DONE? The period of time should be measured in seconds.
+1. DONE The period of time should be measured in seconds.
 
-2. DONE? The period of time between sent JSON objects(events) should be configurable via a configuration file or startup arguments.
+2. DONE The period of time between sent JSON objects(events) should be configurable via a configuration file or startup arguments. config.py -> WAIT_SECONDS | configuration file taking environment variables
     
-3.  DONE? The HTTP API endpoint that the payloads are sent to should be configurable via a configuration file or startup arguments.
+3. DONE The HTTP API endpoint that the payloads are sent to should be configurable via a configuration file or startup arguments.
     
-4.  DONE The predefined JSON objects(events) that can be sent should be read from a file.
+4. DONE The predefined JSON objects(events) that can be sent should be read from a file. INPUT_FILE_LOCATION
     
-5.  DONE? The location of the JSON objects(events) file should be configurable via a configuration file or startup arguments.
+5. DONE The location of the JSON objects(events) file should be configurable via a configuration file or startup arguments. config.py -> INPUT_FILE_LOCATION
     
-6.  DONE The algorithm for choosing a specific JSON object(event) to send at each period from all the objects read from file, should be random.
+6. DONE The algorithm for choosing a specific JSON object(event) to send at each period from all the objects read from file, should be random.
         
 The array of JSON objects(events) that can be sent individually:  
 
@@ -92,9 +92,9 @@ Requirements for the first service:
 
 7. DONE The service should expose a HTTP API endpoint that accepts incoming POST requests on the path `/event`
     
-8. DONE The port for running HTTP API should be configurable via a configuration file or startup arguments.
+8. DONE The port for running HTTP API should be configurable via a configuration file or startup arguments. config.py -> SERVER_NAME 
     
-9. DONE  The location of the file for the incoming payloads should be configurable via a configuration file or startup arguments.
+9. DONE The location of the file for the incoming payloads should be configurable via a configuration file or startup arguments. config.py -> TARGET_FILE_LOCATION 
     
 10. DONE The service should only accept payloads matching this JSON template:
 

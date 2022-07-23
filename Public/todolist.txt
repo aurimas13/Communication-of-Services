@@ -3,3 +3,4 @@
 3) Run with Docker
 4) Investigate Makefile
 5) Make tests
+6) Solve the CONFIGURABLE_ENDPOINT issue for it to be delivered to flask api from propogator or say in README that changing the i
