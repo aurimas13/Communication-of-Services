@@ -20,15 +20,15 @@ Description: The service should periodically (every N seconds) send a predefined
 
 Requirements for the first service:
 
-1. The period of time should be measured in seconds.
+1. DONE? The period of time should be measured in seconds.
 
-2. The period of time between sent JSON objects(events) should be configurable via a configuration file or startup arguments.
+2. DONE? The period of time between sent JSON objects(events) should be configurable via a configuration file or startup arguments.
     
-3.  The HTTP API endpoint that the payloads are sent to should be configurable via a configuration file or startup arguments.
+3.  DONE? The HTTP API endpoint that the payloads are sent to should be configurable via a configuration file or startup arguments.
     
 4.  DONE The predefined JSON objects(events) that can be sent should be read from a file.
     
-5.  The location of the JSON objects(events) file should be configurable via a configuration file or startup arguments.
+5.  DONE? The location of the JSON objects(events) file should be configurable via a configuration file or startup arguments.
     
 6.  DONE The algorithm for choosing a specific JSON object(event) to send at each period from all the objects read from file, should be random.
         

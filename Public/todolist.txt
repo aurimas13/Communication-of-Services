@@ -1,2 +1,5 @@
 1) Do tests for Flask (Event(Consumer))
 2) Update and make nice README.md
+3) Run with Docker
+4) Investigate Makefile
+5) Make tests
