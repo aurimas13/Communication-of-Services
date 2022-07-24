@@ -14,9 +14,12 @@ routes = Blueprint("routes", __name__)
 def validate():
     try:
         request_json = request.get_json(force=True)
+        print(request_json)
         Event().load(request_json)
         persist_output(request_json, TARGET_FILE_LOCATION)
-        return jsonify(request_json)
+        print(request_json)
+        # print(jsonify(request_json))
+        return request_json
 
     except ValidationError as err:
         logging.error(f"Bad request was sent with {err}")
