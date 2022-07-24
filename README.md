@@ -1,3 +1,9 @@
+docker build -t services .  
+docker run -p 4444:4444 services
+
+Enter directories of api: docker exec -it api_service bash
+
+
 Paleisti Flask galima per python main.py nuejus i ta flasko direktorija
 arba per
 konsoleje pradzioje rasai export FLASK_APP=main.py kai esi toje direktorijoje

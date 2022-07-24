@@ -11,13 +11,13 @@ from flask import request, Response, jsonify
 
 routes = Blueprint("routes", __name__)
 @routes.route('/event', methods=["POST"])
-def validate():
+def event_endpoint():
     try:
         request_json = request.get_json(force=True)
-        print(request_json)
+        print("hello", request_json)
         Event().load(request_json)
         persist_output(request_json, TARGET_FILE_LOCATION)
-        print(request_json)
+        print("hi", request_json)
         # print(jsonify(request_json))
         return request_json
 

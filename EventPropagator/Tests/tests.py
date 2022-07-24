@@ -3,12 +3,12 @@
 
 
 import sys
-sys.path.insert(0, '/Users/aurimasnausedas/Documents/Python/ServicesCommunication/Event_Propagator')
-from Event_Propagator.propagate import send_events
-# sys.path.insert(0, '/Users/aurimasnausedas/Documents/Python/ServicesCommunication/Event_Consumer')
-# from Event_Consumer import routes, main, output, data_validation
-# from Event_Consumer.data_validation import Event
-# from Event_Consumer.routes import validate
+sys.path.insert(0, '/EventPropagator')
+from EventPropagator.propagate import send_events
+# sys.path.insert(0, '/Users/aurimasnausedas/Documents/Python/ServicesCommunication/EventConsumer')
+# from EventConsumer import routes, main, output, data_validation
+# from EventConsumer.data_validation import Event
+# from EventConsumer.routes import validate
 
 def test_correct_send_event():
     data = {

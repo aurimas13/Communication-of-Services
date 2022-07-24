@@ -1,6 +1,7 @@
-1) Do tests for Flask (Event(Consumer))
-2) Make tests
-3) Run with Docker
-4) Investigate Makefile
-5) Update and make nice README.md
+DONE 1) Do tests for Flask (Event(Consumer))
+DONE 2) Make tests
+DONE 3) Run with Docker
+4) Update and make nice README.md
+5) Investigate Makefile
 6) Solve the CONFIGURABLE_ENDPOINT issue for it to be delivered to flask api from propogator or say in README that changing the i
+7) Write to do with docker and locally without. Aprasyti viska.

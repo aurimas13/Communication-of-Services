@@ -9,4 +9,4 @@ RUN conda install -c conda-forge python-dotenv
 RUN conda install -c conda-forge marshmallow
 RUN conda install -c anaconda flask
 COPY . .
-CMD ["python", "/Event_Consumer/main.py"]
+CMD ["python", "main.py"]
