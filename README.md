@@ -20,8 +20,8 @@ Please refer to [Requirements](#requirements) for importing libraries, packages 
 - [Event Consumer](#event-consumer)
 - [Event Propagator](#event-propagator)
 - [Requirements](#requirements)
+- [Configuration](#configuration)
 - [Environment variables](#environment-variables)
-- [Authentication](#authentication)
 - [Usage](#usage)
 - [Functions](#functions)
 - [Datasets](#datasets)
@@ -37,7 +37,6 @@ Please refer to [Requirements](#requirements) for importing libraries, packages 
 
 The [Event Consumer](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer) sends a POST request to the terminal while validating the incoming request through [data_validation.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/data_validation.py).
 The program also involves [main file](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/main.py) that creates a FLASK API, [output.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/output.py) that opens a json data file, [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/config.py) with [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) that define constant VARIABLES & [routes.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/routes.py) that sends a request to an event endpoint as defined like **/event** as API endpoint.
-The tests to check functionality of created API event can be found [here](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer/Tests).
 
 # Event Propagator
 
@@ -46,9 +45,13 @@ while VARIABLES that can be modified are mentioned in [config.py](https://github
 
 # Requirements
 
-**Python 3.9.12** is required to properly execute package's modules, imported libraries and defined functions. Imports of several libraries like dotnet, pytest to name a few are also needed. Some required versions are found [here](https://github.com/aurimas13/BirthdayReminderApp/blob/main/requirements.txt) while those that are not mentioned come with the used Python version. Also inspect [environment variables](#environment-variables) and [authentication](#authentication) before proceeding further. For proper usage of the program you might need to run **python3** rather than proposed **python** as shown in the [Usage](#usage).<sup>1</sup>
+**Python 3.10.5** is required to properly execute package's modules, imported libraries, defined functions snf built-ins. Imports of several libraries like flask, dotnet, marshmallow, pytest to name a few are also needed. 
+Some required versions are found under specific requirements.txt files for consumer [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/requirements.txt) and for propagator [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/requirements.txt) while those that are not mentioned come with the used Python version.
+Also inspect [configuration](#configuration) and [environment variables](#environment-variables) before proceeding further. 
+For proper usage of the program you might need to run **python3** rather than proposed **python** as shown in the [Usage](#usage).<sup>1</sup>
 
-<br><sup>1</sup>**python** or **python3** depends on the way how you installed python on your machine. </br>
+<br><sup>1</sup>**python** or **python3** depends on the way how you installed python of version 3.* on your machine. </br>
+
 # Environment variables
 To be able to send emails you will need to set up environment variables. To do this locally, please create a `.env` file and add two env variables to it with valid values, like this:<sup>1</sup>
 ```
@@ -127,10 +130,6 @@ An overview of functions found inside a module - ***bdayreminder.py***:
 - **run(read_path, cron_value)** takes the csv data file and runs the script without as choices are passed as arguments (*read_path*,*cron_value*).
 - **choose_options(read_path)** asks for input (*read_path*) and chooses option to run.
 
-[//]: # (- **convert_birthday_file&#40;file_path&#41;** converts a data file &#40;*file_path*&#41; to the csv format that can be read.)
-[//]: # (- **is_birthdate_in_7_days&#40;&#41;** finds the date for the upcoming birthdays in a week.)
-[//]: # (- **is_not_empty_name&#40;name&#41;** checks *name* is not empty.)
-
 In depth explanations of the functions can be found inside a module - [bdayreminder.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/bdayreminder.py).
 
 # Datasets
@@ -139,7 +138,8 @@ There are three possible datasets to use. These are [data_20](https://github.com
 
 # Tests
 
-An overview of functions found inside a module - [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py):
+Test folder to check the functionality of created API event can be found [here](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer/Tests). 
+An overview of functions found inside a module - [tests.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/Tests/tests.py) are:
 - *test_correct_parse_date_ymd()* tests if the correct date is parsed.
 - *test_correct_parse_date_md()* tests if the correct date is parsed.
 - *test_is_date_in_past_old()* tests if the old date is in the past.
@@ -206,7 +206,7 @@ Argument passed not an integer
 
 There are more yet these would be the most common.
 
-# Cron Job
+# Docker
 
 To build cron job in mac terminal run:
 ``` 
@@ -227,7 +227,7 @@ Syntax customization for Cron Job can be checked [here](https://crontab.guru/).
 # Public
 
 Public folder contains three files: 
-- [task](https://github.com/aurimas13/Communication-of-services/blob/main/Public/Task.md) - the problem or task overview that was solved through developing this program.
+- [task](https://github.com/aurimas13/Communication-of-services/blob/main/Public/Task.md) - the problem or task overview.
 - [todolist](https://github.com/aurimas13/Communication-of-services/blob/main/Public/todolist.txt) - the TO DO List.
 - [photo](https://github.com/aurimas13/Communication-of-services/blob/main/Public/Photo) - the Photo folder.
 
@@ -235,7 +235,7 @@ Public folder contains three files:
 
 # Logo
 
-The logo of the Communication between two services can be found [here](https://github.com/aurimas13/Communication-of-services/blob/main/Public/Photo/communication.jpeg).
+The logo of the communication between two services can be found [here](https://github.com/aurimas13/Communication-of-services/blob/main/Public/Photo/communication.jpeg).
 
 # License
 
