@@ -47,15 +47,25 @@ while VARIABLES that can be modified are mentioned in [config.py](https://github
 
 # Requirements
 
-**Python 3.10.5** is required to properly execute package's modules, imported libraries, defined functions snf built-ins. Imports of several libraries like flask, dotnet, marshmallow, pytest to name a few are also needed. 
-Some required versions are found under specific requirements.txt files for consumer [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/requirements.txt) and for propagator [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/requirements.txt) while those that are not mentioned come with the used Python version.
+**Python 3.10.5** is required to properly execute package's modules, imported libraries, defined functions and built-ins. Imports of libraries like flask, dotnet, marshmallow, pytest to name a few are needed. 
+Some required versions are found under specific requirements.txt files for Consumer Event - [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/requirements.txt) and for the Propagator Event - [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/requirements.txt) while those that are not mentioned come with the used Python version.
 Also inspect [configuration](#configuration) and [environment variables](#environment-variables) before proceeding further. 
+
 For proper usage of the program you might need to run **python3** rather than proposed **python** as shown in the [Usage](#usage).<sup>1</sup>
+
+
 
 <br><sup>1</sup>**python** or **python3** depends on the way how you installed python of version 3.* on your machine. </br>
 
+# Configuration
+
+Some VARIABLES can be changed as instructed through the task. Such are WAIT_SECONDS, ENDPOINT, INPUT_FILE_LOCATION of Propagator Event &
+PORT, TARGET_FILE_LOCATION of Consumer Event. 
+WAIT_SECONDS & PORT are configurable as defined through [Environment Variables](#environment-variables) section.
+
 # Environment variables
-To be able to send emails you will need to set up environment variables. To do this locally, please create a `.env` file and add two env variables to it with valid values, like this:<sup>1</sup>
+WAIT_SECONDS & PORT for the time to randomly send events and the port number are configurable through `.env` files found on specific event folder, respectively.
+To change these values please go into a `.env` file and add two env variables to it with valid values, like this:<sup>1</sup>
 ```
 USR=<youremail>
 PSW=<yourpassword> or <token>
