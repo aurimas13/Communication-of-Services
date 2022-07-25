@@ -64,11 +64,11 @@ PORT, TARGET_FILE_LOCATION of [Consumer Event](#event-consumer).
 WAIT_SECONDS & PORT VARIABLES are configurable as defined through [Environment Variables](#environment-variables) section.
 
 To run events locally through `on your computer as shown at [Usage](#usage) through 1 and 2 steps these changes will have to be made:
-1) At Event Propagator's [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/config.py) needs to be set on 1.
+1) At Event Propagator's [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/config.py) ENDPOINT needs to be set on 1<sup>st</sup> option.
 2) At Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) PORT has to be assigned to the same as in 1<sup>st</sup> step
 
 To run events by calling `flask run` on Event Consumer:
-1) At Event Propagator's [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/config.py) needs to be set on 2.
+1) At Event Propagator's [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/config.py) ENDPOINT needs to be set on 2<sup>nd</sup> option.
 2) At Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) PORT has to be assigned to the same as in 2<sup>nd</sup> step
 
 To run events through Docker refer to [here](#docker).
@@ -152,6 +152,9 @@ INFO:werkzeug:127.0.0.1 - - [25/Jul/2022 16:16:52] "POST /event HTTP/1.1" 400 -
 # Docker
 Setup up of dockerfiles can be found [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/Dockerfile) for Consumer Event and [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/Dockerfile) for Propagator Event.
 After the requirements are met, the package is set at your directory and two Docker terminal windows are run, follow this<sup>1</sup>:
+Before running events on Docker, you will need to make a bit of changes in `config.py` & `.env` files:
+1) At Event Propagator's [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/config.py) ENDPOINT needs to be set on 3<sup>rd</sup> option.
+2) At Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) PORT has to be assigned to the same as in 3<sup>rd</sup> step
 
 1) You need o build docker image on terminal run:
 ``` python
