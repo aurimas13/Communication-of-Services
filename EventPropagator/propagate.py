@@ -12,9 +12,9 @@ from config import WAIT_SECONDS, INPUT_FILE_LOCATION, ENDPOINT
 def send_events():
     with open(INPUT_FILE_LOCATION) as f:
         data = ast.literal_eval(f.read())
-        l = json.dumps(random.choice(data))
-        r = requests.post(url=ENDPOINT, data=l)
-        print(r.text)
+        random_data = json.dumps(random.choice(data))
+        response = requests.post(url=ENDPOINT, data=random_data)
+        print(response.text)
     threading.Timer(int(WAIT_SECONDS), send_events).start()
 
 

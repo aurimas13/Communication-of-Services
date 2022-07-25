@@ -4,9 +4,14 @@ from flask import Flask
 
 
 def create_app():
+    '''
+
+    :return:
+    '''
     app = Flask(__name__)
     app.config.from_pyfile("config.py") # +
     app.register_blueprint(routes)
+    print(type(app))
     return app
 
 

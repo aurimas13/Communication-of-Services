@@ -193,8 +193,8 @@ Overview of functions found inside modules - ***main.py***, ***routes.py***, ***
 
 - **create_app()** creates a FLASK API.
 - **event_endpoint():** takes a request and returns json event.
-- **persist_output(json_string, target_path)** validates inputs (*date_format*,*item*,*index*,*to_print*).
-- **send_events()** sends emails to recipients of *to_send* list.
+- **persist_output(json_string, target_path)** takes a request as **json_string** and writes it to **target_path** file.
+- **send_events()** opens a data from an input file, reads data from it, randomly converts it to JSON data and sends a POST request.
 
 In depth explanations of the functions can be found inside modules.
 
