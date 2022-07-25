@@ -59,17 +59,19 @@ For proper usage of the program you might need to run **python3** rather than pr
 
 # Configuration
 
-Some VARIABLES can be changed as instructed through the task. Such are WAIT_SECONDS, ENDPOINT, INPUT_FILE_LOCATION of Propagator Event &
-PORT, TARGET_FILE_LOCATION of Consumer Event. 
-WAIT_SECONDS & PORT are configurable as defined through [Environment Variables](#environment-variables) section.
+Some VARIABLES can be changed as instructed through the task. Such are WAIT_SECONDS, ENDPOINT, INPUT_FILE_LOCATION of [Propagator Event](#event-propagator) &
+PORT, TARGET_FILE_LOCATION of [Consumer Event](#event-consumer). 
+WAIT_SECONDS & PORT VARIABLES are configurable as defined through [Environment Variables](#environment-variables) section.
 
 # Environment variables
-WAIT_SECONDS & PORT for the time to randomly send events and the port number are configurable through `.env` files found on specific event folder, respectively.
-To change these values please go into a `.env` file and add two env variables to it with valid values, like this:<sup>1</sup>
+WAIT_SECONDS & PORT variables (*for the time to randomly send events* and *define the port number*) are configurable through `.env` files found on a specific event folder, respectively.
+To change these values please go into a `.env` file and add or change the value, like this:<sup>1</sup>
 ```
-USR=<youremail>
-PSW=<yourpassword> or <token>
+WAIT_SECONDS = '<int value in seconds>'
+PORT='<port number like 4444>'
 ```
+<br><sup>1</sup> WAIT_SECONDS are at `.env` file of Event Propagator while PORT is at `.env` file of Event Consumer [authentication](#authentication) section. </br>
+
 # Usage
 After the requirements are met, the app package is set at your directory and terminal is run you have four options<sup>1,2,3</sup>:
 1) To allow yourself to run **validation** or **check & send** providing the Python file and data file as arguments. You will then be prompted choose either option 1 (validate) or 2 (validate and send): 
