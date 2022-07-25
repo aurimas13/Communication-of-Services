@@ -1,5 +1,5 @@
 <p align=center>
-  <img height="222px" src="https://github.com/aurimas13/Communication-of-services/blob/main/Public/communication.jpeg"/>
+  <img height="222px" src="https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/Photo/communication.jpeg"/>
 </p>
 
 <p align="center" > <b> Communication between two services. </b> </p>
@@ -227,18 +227,19 @@ Syntax customization for Cron Job can be checked [here](https://crontab.guru/).
 # Public
 
 Public folder contains three files: 
-- [birthdays.txt](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/birthdays.txt) - the output of a Cron Job after implementing the [Optional] command as given at [Cron Job](#cron-job) field.
-- [todolist](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/todolist) - the TO DO List.
+- [Task](https://github.com/aurimas13/Communication-of-services/blob/main/Public/Task.md) - the problem or task overview that was solved through developing this program.
+- [todolist](https://github.com/aurimas13/Communication-of-services/blob/main/Public/todolist.txt) - the TO DO List.
+- [Photo](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/Photo/communication.jpeg) - the Photo folder.
 
 [//]: # (- [task.pdf]&#40;https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/task.pdf&#41; - the problem for which this program was implemented.)
 
 # Logo
 
-The logo of the Birthday Reminder Application can be found [here](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/Photo/birthdaylogo.png).
+The logo of the Communication between two services can be found [here](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/Photo/communication.jpeg).
 
 # License
 
-The MIT [LICENSE](https://github.com/aurimas13/BirthdayReminderApp/blob/main/LICENSE)
+The MIT [LICENSE](https://github.com/aurimas13/Communication-of-services/blob/main/LICENSE)
 
 
 
