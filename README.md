@@ -150,7 +150,18 @@ INFO:werkzeug:127.0.0.1 - - [25/Jul/2022 16:16:52] "POST /event HTTP/1.1" 400 -
 <br><sup>3</sup> The output of Event Consumer can differ from example above as it might print output in different sequence.</br>
 
 # Docker
+Setup up of dockerfiles can be found [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/Dockerfile) for Consumer Event and [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/Dockerfile) for Propagator Event.
+After the requirements are met, the package is set at your directory and two Docker terminal windows are run, follow this<sup>1</sup>:
 
+1) You need o build docker image on terminal run:
+``` python
+> docker build -t calculatorapp .
+```
+To enter python prompt through docker:
+``` python
+> docker run -it calculatorapp python 
+```
+The commands to run in it are shown in [(Usage)](#usage)
 To build cron job in mac terminal run:
 ``` 
 >>> crontab -e
