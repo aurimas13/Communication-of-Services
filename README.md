@@ -1,5 +1,5 @@
 <p align=center>
-  <img height="222px" src="https://github.com/aurimas13/Communication-of-services/blob/main/Public/solve.png"/>
+  <img height="222px" src="https://github.com/aurimas13/Communication-of-services/blob/main/Public/communication.jpeg"/>
 </p>
 
 <p align="center" > <b> Solutions </b> to <b> LeetCode </b> & HackerRank problems. </p>
