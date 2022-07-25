@@ -67,7 +67,7 @@ To run events locally through `on your computer as shown at [Usage](#usage) thro
 1) At Event Propagator's [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/config.py) ENDPOINT needs to be set on 1<sup>st</sup> option.
 2) At Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) PORT has to be assigned to the same as in 1<sup>st</sup> step
 
-To run events by calling `flask run` on Event Consumer:
+??????? NEVEIKIA To run events by calling `flask run` on Event Consumer:
 1) At Event Propagator's [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/config.py) ENDPOINT needs to be set on 2<sup>nd</sup> option.
 2) At Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) PORT has to be assigned to the same as in 2<sup>nd</sup> step
 
