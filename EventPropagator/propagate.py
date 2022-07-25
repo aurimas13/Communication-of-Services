@@ -1,12 +1,10 @@
 #!/usr/bin/env python
-
-
 # Program to run INFINITELY
 import json
 import ast
 import random
 import requests
-import time, threading
+import threading
 import sys
 from config import WAIT_SECONDS, INPUT_FILE_LOCATION, ENDPOINT
 
@@ -26,4 +24,5 @@ if __name__ == '__main__':
     if input == '0':
         send_events()
     else:
+        print("Exiting Propagator Event")
         sys.exit()

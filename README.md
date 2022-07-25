@@ -73,58 +73,63 @@ PORT='<port number like 4444>'
 <br><sup>1</sup> WAIT_SECONDS are at `.env` file of Event Propagator while PORT is at `.env` file of Event Consumer [authentication](#authentication) section. </br>
 
 # Usage
-After the requirements are met, the app package is set at your directory and terminal is run you have four options<sup>1,2,3</sup>:
-1) To allow yourself to run **validation** or **check & send** providing the Python file and data file as arguments. You will then be prompted choose either option 1 (validate) or 2 (validate and send): 
+After the requirements are met, the package is set at your directory and two terminal windows are run, for the first terminal window you have to follow this<sup>1,2,3</sup>:
+1) To run an Event Consumer (FLASK API) you need to provide the Python file with no arguments: 
 ```
->>> python bdayreminder.py <data_file_path>
-Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails
->>> 1
-ERROR: Invalid email for Laura Dreyfuss at row 6 
-ERROR: Empty name field is for email TheoGermaine@goal.com at row 7 
-ERROR: Invalid date for Anna Higgins at row 11. Date given is 02-30 
-ERROR: Date is in the future for Tom Brady at row 12. Date given is 2075-10-22 
-ERROR: Invalid email for Ching Yeung Michael Tam at row 19
-'''
-'''
->>> python bdayreminder.py <data_file_path>
-Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails
->>> 2
-Kai Yuen Leung will have birthday in a week.
-Patrick Kienzle will have birthday in a week.
-Emails sent successfully.
+>>> python main.py
+* Serving Flask app 'main' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://192.168.0.156:4444/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 269-212-227
 ```
-2) To run **validation** or **check & send** providing the Python file, data file and any number other than 1 or 2 as arguments. You will then be prompted choose either option 1 (validate) or 2 (validate and send), as no other numbers are options: 
+2) To run Event Propagator to send an event to the Event Consumer API you need to provide python file and an argument 0  to send events and in the terminal you will see:
+```
+>>>  python propagate.py 0
+{
+  "event_payload": "yes, please", 
+  "event_type": "message"
+}
+
+{
+  "event_payload": "Thomas", 
+  "event_type": "user_left"
+}
+
+{"error": "Validation error - {'event_type': ['Not a valid string.'], 'event_payload': ['Not a valid string.']}"}
+{
+  "event_payload": "no, thanks", 
+  "event_type": "message"
+}
+
 
 ```
->>> python bdayreminder.py <data_file_path> 3
-Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails
->>> 3
-Please choose either 1 or 2
->>> 1
-ERROR: Invalid email for Laura Dreyfuss at row 6 
-ERROR: Empty name field is for email TheoGermaine@goal.com at row 7 
-ERROR: Invalid date for Anna Higgins at row 11. Date given is 02-30 
-ERROR: Date is in the future for Tom Brady at row 12. Date given is 2075-10-22 
-ERROR: Invalid email for Ching Yeung Michael Tam at row 19 
-```
 
-3) You can avoid having the prompt displayed to you altogether. To **validate** birthday persons **data file** for errors set the second argument to be **1**:
+3) If you try running Event Propagator by giving a wrong argument like any other number rather than 0 or other argument - you will exit the program:
 
 ```
->>> python bdayreminder.py <data_file_path> 1
-ERROR: Invalid email for Laura Dreyfuss at row 6 
-ERROR: Empty name field is for email TheoGermaine@goal.com at row 7 
-ERROR: Invalid date for Anna Higgins at row 11. Date given is 02-30 
-ERROR: Date is in the future for Tom Brady at row 12. Date given is 2075-10-22 
-ERROR: Invalid email for Ching Yeung Michael Tam at row 19
+>>> python propagate.py 5
+Exiting Propagator Event
+>>> python propagate.py *
+Exiting Propagator Event
 ``` 
-4) To **check** birthday persons **data file** and **send emails** set the second argument to be **2**:
+4) When Event Consumer and Event Propagator are run on two terminals, the output of Event Consumer (when running it from 1) on terminal will look like this:
 
 ```
->>> python bdayreminder.py <data_file_path> 2
-Kai Yuen Leung will have birthday in a week.
-Patrick Kienzle will have birthday in a week.
-Emails sent successfully.
+127.0.0.1 - - [25/Jul/2022 16:16:32] "POST /event HTTP/1.1" 200 -
+127.0.0.1 - - [25/Jul/2022 16:16:37] "POST /event HTTP/1.1" 200 -
+127.0.0.1 - - [25/Jul/2022 16:16:42] "POST /event HTTP/1.1" 200 -
+127.0.0.1 - - [25/Jul/2022 16:16:47] "POST /event HTTP/1.1" 200 -
+ERROR:root:Bad request was sent with {'event_type': ['Not a valid string.'], 'event_payload': ['Not a valid string.']}
+127.0.0.1 - - [25/Jul/2022 16:16:52] "POST /event HTTP/1.1" 400 -
+INFO:werkzeug:127.0.0.1 - - [25/Jul/2022 16:16:52] "POST /event HTTP/1.1" 400 -
+127.0.0.1 - - [25/Jul/2022 16:16:57] "POST /event HTTP/1.1" 200 -
 ```
 <br><sup>1</sup> **<data_file_path>** should look like this - Datasets/data_20.csv, but in your directory. The full path for me would be /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/data_20.csv </br>
 <br><sup>2</sup> Main module takes two arguments when run from console. </br>
