@@ -49,7 +49,7 @@ while VARIABLES that can be modified are mentioned in [config.py](https://github
 
 **Python 3.10.5** is required to properly execute package's modules, imported libraries, defined functions and built-ins. Imports of libraries like flask, dotnet, marshmallow, pytest to name a few are needed. 
 Some required versions are found under specific requirements.txt files for Consumer Event - [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/requirements.txt) and for the Propagator Event - [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/requirements.txt) while those that are not mentioned come with the used Python version.
-Also inspect [configuration](#configuration) and [environment variables](#environment-variables) before proceeding further. 
+Also inspect [Configuration](#configuration) and [Environment variables](#environment-variables) before proceeding further. 
 
 For proper usage of the program you might need to run **python3** rather than proposed **python** as shown in the [Usage](#usage).<sup>1</sup>
 
@@ -181,30 +181,6 @@ Before running events on Docker, you will need to make a bit of changes in `conf
 > cat events.json
 ```
 
-Paleisti Flask galima per python main.py nuejus i ta flasko direktorija
-arba per
-konsoleje pradzioje rasai export FLASK_APP=main.py kai esi toje direktorijoje
-ir po to paleidi flask run
-Kai changinti direktorija folderi palikti ta pati bet keisti json ar kita failo formata kaip events.json
-
-``` python
-> docker build -t calculatorapp .
-```
-To enter python prompt through docker:
-``` python
-> docker run -it calculatorapp python 
-```
-The commands to run in it are shown in [(Usage)](#usage)
-To build cron job in mac terminal run:
-``` 
->>> crontab -e
-```
-
-The syntax for cronjob when entering terminal could look like this:<sup>1,2,3</sup>
-``` 
->>> 0 6 * * * cd <directory_to_app> && <directory_to_python> bdayreminder.py <data_file_path> 2
-[Optional] >>> 0 6 * * * cd <directory_to_app> && <directory_to_python> bdayreminder.py <data_file_path> 2 >> Public/birthdays.txt
-```
 <br><sup>1</sup> **<directory_to_app>** - should be the directory where BirthdayReminderApp folder is like /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp </br>
 <br><sup>2</sup> **<directory_to_python>** should be where you installed python on your machine like /Users/aurimasnausedas/opt/miniconda3/envs/symmetric/bin/python </br>
 <br><sup>3</sup> **<data_file_path>** should be the dataset in the directory of app like in /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp by setting it to Datasets/data_20.csv </br>
