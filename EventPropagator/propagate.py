@@ -28,13 +28,13 @@ def send_events():
         print(r.status_code, r.text)
     threading.Timer(int(WAIT_SECONDS), send_events).start()
 
-send_events()
-# if __name__ == '__main__':
-#     input = sys.argv[1]
-#     if input == '0':
-#         send_events()
-#     else:
-#         sys.exit()
+# send_events()
+if __name__ == '__main__':
+    input = sys.argv[1]
+    if input == '0':
+        send_events()
+    else:
+        sys.exit()
 
 
 # # Opening JSON file

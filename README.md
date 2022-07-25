@@ -1,8 +1,20 @@
+Apkeisti Propagator'yje config.py ENDPOINT jei docker arba locally
+
+Need two dockerfiles
+
 docker build -t services .  
 docker run -p 4444:4444 services
 
 Enter directories of api: docker exec -it api_service bash
+docker exec -it api_service bash (FLASK stuff)
 
+FLASK api:
+docker build -t api .  
+docker run --name api_service --network some_network -p 4444:4444 api 
+
+Propagator:
+docker build -t propagator .   
+docker run -p 6444:6444 --name propagator_name --network some_network propagator
 
 Paleisti Flask galima per python main.py nuejus i ta flasko direktorija
 arba per

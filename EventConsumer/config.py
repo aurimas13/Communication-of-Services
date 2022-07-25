@@ -12,4 +12,4 @@ SECRET_KEY = environ.get('SECRET_KEY')
 # SERVER_NAME = environ.get('SERVER_NAME')
 PORT = environ.get('PORT')
 TARGET_FILE_LOCATION = path.dirname(path.abspath(__file__)) + '/output/events.json'
-# FLASK_APP = 'main.py'
+FLASK_APP = 'main.py'
