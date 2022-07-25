@@ -63,7 +63,10 @@ Some VARIABLES can be changed as instructed through the task. Such are WAIT_SECO
 PORT, TARGET_FILE_LOCATION of [Consumer Event](#event-consumer). 
 WAIT_SECONDS & PORT VARIABLES are configurable as defined through [Environment Variables](#environment-variables) section.
 
+To run events locally these changes will have to be made:
+1) At Event Propogator [config.py]()
 # Environment variables
+
 WAIT_SECONDS & PORT variables (*for the time to randomly send events* and *define the port number*) are configurable through `.env` files found on a specific event folder, respectively.
 To change these values please go into a `.env` file and add or change the value, like this:<sup>1</sup>
 ```
