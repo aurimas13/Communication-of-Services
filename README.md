@@ -27,7 +27,7 @@ Please refer to [Requirements](#requirements) for importing libraries, packages 
 - [Datasets](#datasets)
 - [Tests](#tests)
 - [Error](#errors)
-- [Cron Job](#cron-job)
+- [Docker](#docker)
 - [Public](#public)
 - [Logo](#photo)
 - [License](#license)
@@ -37,11 +37,12 @@ Please refer to [Requirements](#requirements) for importing libraries, packages 
 
 The [Event Consumer](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer) sends a POST request to the terminal while validating the incoming request through [data_validation.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/data_validation.py).
 The program also involves [main file](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/main.py) that creates a FLASK API, [output.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/output.py) that opens a json data file, [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/config.py) with [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) that define constant VARIABLES & [routes.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/routes.py) that sends a request to an event endpoint as defined like **/event** as API endpoint.
-The tests to check functionality of created API event can be found [here](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer/Tests)
+The tests to check functionality of created API event can be found [here](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer/Tests).
 
 # Event Propagator
 
-The [Event Propagator](https://github.com/aurimas13/Communication-of-services/tree/main/EventPropagator) sends 
+The [Event Propagator](https://github.com/aurimas13/Communication-of-services/tree/main/EventPropagator) send events as JSON files randomly. The only function (*send_events()*), imports and other functionalities are written in [propagator.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) module 
+while VARIABLES that can be modified are mentioned in [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/config.py) and refered to change the [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) file.
 
 # Requirements
 
