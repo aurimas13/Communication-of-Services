@@ -10,14 +10,14 @@
 
 ------
 
-The program communicates between two events - [Event Consumer](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer) & [Event Propagator](https://github.com/aurimas13/Communication-of-services/tree/main/EventPropagator). The created Event Consumer program is a FLASK API that receives requests from event propagator program. whether a person has a birthday in a week and optionally sends reminders to the rest of the group. It involves the necessary functionalities for validating the input and sending emails.
+The program communicates between two events - [Event Consumer](#event-consumer) & [Event Propagator](#event-propagator). The created Event Consumer program is a FLASK API that receives requests from Event Propagator program. 
 This repository contains **2** **modules** where [bdayreminder.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/bdayreminder.py) involves these functionalities while [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py) tests the package. Please refer to [Requirements](#requirements) for importing libraries, packages and addtional modules before looking at the [Usage](#usage) of the app or [Functions](#functions), [Tests](#tests), [Cron Job](#cron-job) and other fields.
 
 # Table of contents
 
-[//]: # (- [Birthday Reminder App]&#40;#birthday-reminder-app&#41;)
-
 - [Table of contents](#table-of-contents)
+- [Event Consumer](#event-consumer)
+- [Event Propagator](#event-propagator)
 - [Requirements](#requirements)
 - [Environment variables](#environment-variables)
 - [Authentication](#authentication)
@@ -30,6 +30,16 @@ This repository contains **2** **modules** where [bdayreminder.py](https://githu
 - [Public](#public)
 - [Logo](#photo)
 - [License](#license)
+
+
+# Event Consumer
+
+The [Event Consumer](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer) sends a POST request to the terminal while validating the incoming request through [data_validation.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/data_validation.py).
+The program also involves [main file]() that creates a FLASK API, [output.py]() that opens a json data file, [config.py]() with [.env]() which defines constant VARIABLES that can be changed and [routes.py]() that sends a request to an event endpoint as defined like **/event** as API endpoint.
+
+# Event Propagator
+
+The [Event Propagator](https://github.com/aurimas13/Communication-of-services/tree/main/EventPropagator)
 
 # Requirements
 
