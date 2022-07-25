@@ -6,7 +6,7 @@ from marshmallow import ValidationError
 from config import TARGET_FILE_LOCATION
 from output import persist_output
 from flask import Blueprint
-from flask import request, Response, jsonify
+from flask import request, Response
 
 
 routes = Blueprint("routes", __name__)
@@ -14,11 +14,8 @@ routes = Blueprint("routes", __name__)
 def event_endpoint():
     try:
         request_json = request.get_json(force=True)
-        print("hello", request_json)
         Event().load(request_json)
         persist_output(request_json, TARGET_FILE_LOCATION)
-        print("hi", request_json)
-        # print(jsonify(request_json))
         return request_json
 
     except ValidationError as err:
