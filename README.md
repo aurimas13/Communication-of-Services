@@ -42,14 +42,18 @@ The program also involves [main file](https://github.com/aurimas13/Communication
 
 # Event Propagator
 
-The [Event Propagator](https://github.com/aurimas13/Communication-of-services/tree/main/EventPropagator) send events taking JSON files randomly. The function (*send_events()*), imports and other functionalities are written in [propagator.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) module 
+The [Event Propagator](https://github.com/aurimas13/Communication-of-services/tree/main/EventPropagator) send events to the Consumer API using the **/events** endpoint. It randomly takes one if the events from a given JSON file. The function (*send_events()*), imports and other functionalities are written in [propagator.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) module 
 while VARIABLES that can be modified are mentioned in [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/config.py) that can be changed through the [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) file.
 
 # Requirements
 
+Python 3.10.5 is required to properly execute package's modules, imported libraries, defined functions and built-ins. To install the necessary libraries for Event Consumer API  and Event Propagator run their respective requirements.txt file like this:
+To install the necessary libraries for Event Consumer API  and Event Propagator run their respective requirements.txt file like this:
+`pip install -r requirements.txt`
+Also inspect [Configuration](#configuration) and [Environment variables](#environment-variable) before proceeding further.
+
 **Python 3.10.5** is required to properly execute package's modules, imported libraries, defined functions and built-ins. Imports of libraries like flask, dotnet, marshmallow, pytest to name a few are needed. 
 Some required versions are found under specific requirements.txt files for Consumer Event - [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/requirements.txt) and for the Propagator Event - [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/requirements.txt) while those that are not mentioned come with the used Python version.
-Also inspect [Configuration](#configuration) and [Environment variables](#environment-variables) before proceeding further. 
 
 For proper usage of the program you might need to run **python3** rather than proposed **python** as shown in the [Usage](#usage).<sup>1</sup>
 
@@ -61,6 +65,15 @@ For proper usage of the program you might need to run **python3** rather than pr
 
 Some VARIABLES can be changed as instructed through the task. Such are WAIT_SECONDS, ENDPOINT, INPUT_FILE_LOCATION of [Propagator Event](#event-propagator) &
 PORT, TARGET_FILE_LOCATION of [Consumer Event](#event-consumer). 
+Some VARIABLES can be changed as instructed through the task. For [Event Propagator]((#event-propagator)):
+WAIT_SECONDS
+ENDPOINT
+INPUT_FILE_LOCATION
+
+and for [Event Consumer API]((#event-consumer)):
+PORT
+TARGET_FILE_LOCATION
+
 WAIT_SECONDS & PORT VARIABLES are configurable as defined through [Environment Variables](#environment-variables) section.
 
 To run events locally through `on your computer as shown at [Usage](#usage) through 1 and 2 steps these changes will have to be made:
