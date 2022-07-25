@@ -35,11 +35,12 @@ This repository contains **2** **modules** where [bdayreminder.py](https://githu
 # Event Consumer
 
 The [Event Consumer](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer) sends a POST request to the terminal while validating the incoming request through [data_validation.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/data_validation.py).
-The program also involves [main file]() that creates a FLASK API, [output.py]() that opens a json data file, [config.py]() with [.env]() which defines constant VARIABLES that can be changed and [routes.py]() that sends a request to an event endpoint as defined like **/event** as API endpoint.
+The program also involves [main file](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/main.py) that creates a FLASK API, [output.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/output.py) that opens a json data file, [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/config.py) with [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) that define constant VARIABLES & [routes.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/routes.py) that sends a request to an event endpoint as defined like **/event** as API endpoint.
+The tests to check functionality of created API event can be found [here](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer/Tests)
 
 # Event Propagator
 
-The [Event Propagator](https://github.com/aurimas13/Communication-of-services/tree/main/EventPropagator)
+The [Event Propagator](https://github.com/aurimas13/Communication-of-services/tree/main/EventPropagator) sends 
 
 # Requirements
 
