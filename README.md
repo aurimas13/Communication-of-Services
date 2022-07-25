@@ -4,11 +4,44 @@
 
 <p align="center" > <b> Communication between two services. </b> </p>
 <p align=center>
-  <a href="https://github.com/aurimas13/LeetCode-HackerRank-MAANG/tree/main/LeetCode/Python%20Solutions"><img alt="python" src="https://img.shields.io/badge/language-python-blue.svg?style=social&logo=python")></a>
+  <a href="https://github.com/aurimas13/Communication-of-services"><img alt="python" src="https://img.shields.io/badge/language-python-blue.svg?style=social&logo=python")></a>
   <a href="https://twitter.com/aurimasnausedas"><img alt="twitter" src="https://img.shields.io/twitter/follow/aurimasnausedas?style=social"/></a>
 </p>
 
 ------
+
+The program checks whether a person has a birthday in a week and optionally sends reminders to the rest of the group. It involves the necessary functionalities for validating the input and sending emails.
+This repository contains **2** **modules** where [bdayreminder.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/bdayreminder.py) involves these functionalities while [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py) tests the package. Please refer to [Requirements](#requirements) for importing libraries, packages and addtional modules before looking at the [Usage](#usage) of the app or [Functions](#functions), [Tests](#tests), [Cron Job](#cron-job) and other fields.
+
+# Table of contents
+
+[//]: # (- [Birthday Reminder App]&#40;#birthday-reminder-app&#41;)
+
+- [Table of contents](#table-of-contents)
+- [Requirements](#requirements)
+- [Environment variables](#environment-variables)
+- [Authentication](#authentication)
+- [Usage](#usage)
+- [Functions](#functions)
+- [Datasets](#datasets)
+- [Tests](#tests)
+- [Error](#errors)
+- [Cron Job](#cron-job)
+- [Public](#public)
+- [Logo](#photo)
+- [License](#license)
+
+# Requirements
+
+**Python 3.9.12** is required to properly execute package's modules, imported libraries and defined functions. Imports of several libraries like dotnet, pytest to name a few are also needed. Some required versions are found [here](https://github.com/aurimas13/BirthdayReminderApp/blob/main/requirements.txt) while those that are not mentioned come with the used Python version. Also inspect [environment variables](#environment-variables) and [authentication](#authentication) before proceeding further. For proper usage of the program you might need to run **python3** rather than proposed **python** as shown in the [Usage](#usage).<sup>1</sup>
+
+<br><sup>1</sup>**python** or **python3** depends on the way how you installed python on your machine. </br>
+# Environment variables
+To be able to send emails you will need to set up environment variables. To do this locally, please create a `.env` file and add two env variables to it with valid values, like this:<sup>1</sup>
+```
+USR=<youremail>
+PSW=<yourpassword> or <token>
+```
 Apkeisti Propagator'yje config.py ENDPOINT jei docker arba locally
 
 Need two dockerfiles
