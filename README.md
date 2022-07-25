@@ -155,8 +155,39 @@ After the requirements are met, the package is set at your directory and two Doc
 Before running events on Docker, you will need to make a bit of changes in `config.py` & `.env` files:
 1) At Event Propagator's [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/config.py) ENDPOINT needs to be set on 3<sup>rd</sup> option.
 2) At Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) PORT has to be assigned to the same as in 3<sup>rd</sup> step
+3) Then you will need to build docker image on the 1<sup>st</sup> terminal window for Event Consumer by going to the EventConsumer folder locally and running:
+``` python
+>>> docker build -t eventconsumer .  
+```
+4) Followed by a Docker run on the same window:
+```
+>>> docker run --name api_service --network some_network -p 4444:4444 eventconsumer 
+```
+5) Then you will have to build docker image on the 2<sup>nd</sup> terminal window for Event Propagator by going to EventPropagator folder locally and running:
+``` python
+>>> docker build -t eventpropagator .  
+```
+6) Followed by a Docker run on the 2<sup>nd</sup> window:
+```
+>>> docker run -p 3333:3333 --name propagator_name --network some_network eventpropagator
+```
+Enter directories of api: docker exec -it api_service bash
+docker exec -it api_service bash (FLASK stuff)
 
-1) You need o build docker image on terminal run:
+FLASK api:
+docker build -t api .  
+docker run --name api_service --network some_network -p 4444:4444 api 
+
+Propagator:
+docker build -t propagator .   
+docker run -p 6444:6444 --name propagator_name --network some_network propagator
+
+Paleisti Flask galima per python main.py nuejus i ta flasko direktorija
+arba per
+konsoleje pradzioje rasai export FLASK_APP=main.py kai esi toje direktorijoje
+ir po to paleidi flask run
+Kai changinti direktorija folderi palikti ta pati bet keisti json ar kita failo formata kaip events.json
+
 ``` python
 > docker build -t calculatorapp .
 ```
