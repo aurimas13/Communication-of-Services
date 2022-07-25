@@ -23,11 +23,11 @@ Please refer to [Requirements](#requirements) for importing libraries, packages 
 - [Configuration](#configuration)
 - [Environment variables](#environment-variables)
 - [Usage](#usage)
+- [Docker](#docker)
 - [Functions](#functions)
 - [Datasets](#datasets)
 - [Tests](#tests)
 - [Error](#errors)
-- [Docker](#docker)
 - [Public](#public)
 - [Logo](#photo)
 - [License](#license)
@@ -130,6 +130,24 @@ Emails sent successfully.
 <br><sup>2</sup> Main module takes two arguments when run from console. </br>
 <br><sup>3</sup> The data used for examples was data_20.csv on 23<sup>th</sup> of June 2022.</br>
 
+# Docker
+
+To build cron job in mac terminal run:
+``` 
+>>> crontab -e
+```
+
+The syntax for cronjob when entering terminal could look like this:<sup>1,2,3</sup>
+``` 
+>>> 0 6 * * * cd <directory_to_app> && <directory_to_python> bdayreminder.py <data_file_path> 2
+[Optional] >>> 0 6 * * * cd <directory_to_app> && <directory_to_python> bdayreminder.py <data_file_path> 2 >> Public/birthdays.txt
+```
+<br><sup>1</sup> **<directory_to_app>** - should be the directory where BirthdayReminderApp folder is like /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp </br>
+<br><sup>2</sup> **<directory_to_python>** should be where you installed python on your machine like /Users/aurimasnausedas/opt/miniconda3/envs/symmetric/bin/python </br>
+<br><sup>3</sup> **<data_file_path>** should be the dataset in the directory of app like in /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp by setting it to Datasets/data_20.csv </br>
+
+Syntax customization for Cron Job can be checked [here](https://crontab.guru/).
+
 # Functions
 
 An overview of functions found inside a module - ***bdayreminder.py***:
@@ -219,24 +237,6 @@ Argument passed not an integer
 ```
 
 There are more yet these would be the most common.
-
-# Docker
-
-To build cron job in mac terminal run:
-``` 
->>> crontab -e
-```
-
-The syntax for cronjob when entering terminal could look like this:<sup>1,2,3</sup>
-``` 
->>> 0 6 * * * cd <directory_to_app> && <directory_to_python> bdayreminder.py <data_file_path> 2
-[Optional] >>> 0 6 * * * cd <directory_to_app> && <directory_to_python> bdayreminder.py <data_file_path> 2 >> Public/birthdays.txt
-```
-<br><sup>1</sup> **<directory_to_app>** - should be the directory where BirthdayReminderApp folder is like /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp </br>
-<br><sup>2</sup> **<directory_to_python>** should be where you installed python on your machine like /Users/aurimasnausedas/opt/miniconda3/envs/symmetric/bin/python </br>
-<br><sup>3</sup> **<data_file_path>** should be the dataset in the directory of app like in /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp by setting it to Datasets/data_20.csv </br>
-
-Syntax customization for Cron Job can be checked [here](https://crontab.guru/).
 
 # Public
 
