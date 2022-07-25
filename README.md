@@ -160,25 +160,25 @@ Before running events on Docker, you will need to make a bit of changes in `conf
 >>> docker build -t eventconsumer .  
 ```
 4) Followed by a Docker run on the same window:
-```
->>> docker run --name api_service --network some_network -p 4444:4444 eventconsumer 
+``` python
+> docker run --name api_service --network some_network -p 4444:4444 eventconsumer 
 ```
 5) Then you will have to build docker image on the 2<sup>nd</sup> terminal window for Event Propagator by going to EventPropagator folder locally and running:
 ``` python
->>> docker build -t eventpropagator .  
+> docker build -t eventpropagator .  
 ```
 6) Followed by a Docker run on the 2<sup>nd</sup> window:
-```
->>> docker run -p 3333:3333 --name propagator_name --network some_network eventpropagator
+``` python
+> docker run -p 3333:3333 --name propagator_name --network some_network eventpropagator
 ```
 7) To check whether there are output when run through Docker as for when running locally open the 3rd terminal window.
 8) Enter directories of API:
-```
->>> docker exec -it api_service bash
+``` python
+> docker exec -it api_service bash
 ```
 9) Go to output folder and run:
-```
->>> cat events.json
+``` python
+> cat events.json
 ```
 
 Paleisti Flask galima per python main.py nuejus i ta flasko direktorija
