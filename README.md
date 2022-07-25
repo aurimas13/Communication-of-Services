@@ -11,7 +11,7 @@
 ------
 
 The program communicates between two events - [Event Consumer](#event-consumer) & [Event Propagator](#event-propagator). The created Event Consumer program is a FLASK API that receives requests from Event Propagator program. 
-This repository contains **12** **modules** like [main.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/main.py) that runs the Event Consumer event and [propagate.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py)that runs Event Propagator event.
+This repository contains **modules** like [main.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/main.py) that runs the Event Consumer event and [propagate.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py)that runs Event Propagator event.
 Please refer to [Requirements](#requirements) for importing libraries, packages and additional modules before looking at the [Usage](#usage) of the app or [Functions](#functions), [Tests](#tests) and other fields.
 
 # Table of contents
@@ -35,10 +35,10 @@ Please refer to [Requirements](#requirements) for importing libraries, packages 
 
 # Event Consumer
 
-The [Event Consumer](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer) sends a POST request to the terminal while validating the incoming request through [data_validation.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/data_validation.py).
+The [Event Consumer](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer) is an API application that has one endpoint **'/event'** POST method to receive events and then process eventss while validating the incoming request through [data_validation.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/data_validation.py).
 The program also involves [main file](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/main.py) that creates a FLASK API, [output.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/output.py) that opens a json data file,
 [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/config.py) with [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) that define constant VARIABLES &
-[routes.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/routes.py) that sends a request to an API endpoint that is defined as **/event**.
+[routes.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/routes.py) contains the endpoint of the application.
 
 # Event Propagator
 
