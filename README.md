@@ -131,9 +131,9 @@ ERROR:root:Bad request was sent with {'event_type': ['Not a valid string.'], 'ev
 INFO:werkzeug:127.0.0.1 - - [25/Jul/2022 16:16:52] "POST /event HTTP/1.1" 400 -
 127.0.0.1 - - [25/Jul/2022 16:16:57] "POST /event HTTP/1.1" 200 -
 ```
-<br><sup>1</sup> **<data_file_path>** should look like this - Datasets/data_20.csv, but in your directory. The full path for me would be /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/data_20.csv </br>
-<br><sup>2</sup> Main module takes two arguments when run from console. </br>
-<br><sup>3</sup> The data used for examples was data_20.csv on 23<sup>th</sup> of June 2022.</br>
+<br><sup>1</sup> When both services are run Consumer will print the request CODE or ERROR with CODE while Propagator will print the JSON file**<data_file_path>** should look like this - Datasets/data_20.csv, but in your directory. The full path for me would be /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/data_20.csv </br>
+<br><sup>2</sup> The output of Event Propagator can differ from example above as it takes events randomly. </br>
+<br><sup>3</sup> The output of Event Consumer can differ from example above as it might print output in different sequence.</br>
 
 # Docker
 
