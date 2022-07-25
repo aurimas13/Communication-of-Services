@@ -73,8 +73,8 @@ PORT='<port number like 4444>'
 <br><sup>1</sup> WAIT_SECONDS are at `.env` file of Event Propagator while PORT is at `.env` file of Event Consumer [authentication](#authentication) section. </br>
 
 # Usage
-After the requirements are met, the package is set at your directory and two terminal windows are run, for the first terminal window you have to follow this<sup>1,2,3</sup>:
-1) To run an Event Consumer (FLASK API) you need to provide the Python file with no arguments: 
+After the requirements are met, the package is set at your directory and two terminal windows are run, follow this<sup>1</sup>:
+1) For the first terminal window to run an Event Consumer (FLASK API) you will need to provide the python file with no arguments: 
 ```
 >>> python main.py
 * Serving Flask app 'main' (lazy loading)
@@ -89,7 +89,9 @@ After the requirements are met, the package is set at your directory and two ter
  * Debugger is active!
  * Debugger PIN: 269-212-227
 ```
-2) To run Event Propagator to send an event to the Event Consumer API you need to provide python file and an argument 0  to send events and in the terminal you will see:
+The second terminal window to run Event Propagator you should follow this<sup>2</sup>:
+
+1) To run Event Propagator to send an event to the Event Consumer API you need to provide the python file and an argument 0 to send events and in the terminal you will see:
 ```
 >>>  python propagate.py 0
 {
@@ -111,7 +113,7 @@ After the requirements are met, the package is set at your directory and two ter
 
 ```
 
-3) If you try running Event Propagator by giving a wrong argument like any other number rather than 0 or other argument - you will exit the program:
+2) If in the second terminal window you try running Event Propagator by giving a wrong argument like any other number than 0 or other argument - you will exit the program:
 
 ```
 >>> python propagate.py 5
@@ -119,7 +121,7 @@ Exiting Propagator Event
 >>> python propagate.py *
 Exiting Propagator Event
 ``` 
-4) When Event Consumer and Event Propagator are run on two terminals, the output of Event Consumer (when running it from 1) on terminal will look like this:
+When Event Consumer and Event Propagator are run on two terminals, the output of Event Consumer (when running it from 1) on terminal will look like this<sup>3</sup>:
 
 ```
 127.0.0.1 - - [25/Jul/2022 16:16:32] "POST /event HTTP/1.1" 200 -
