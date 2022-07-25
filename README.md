@@ -171,7 +171,7 @@ Before running events on Docker, you will need to make a bit of changes in `conf
 ``` python
 > docker run -p 3333:3333 --name propagator_name --network some_network eventpropagator
 ```
-7) To check whether there are output when run through Docker as for when running locally open the 3rd terminal window.
+7) To check whether there are output when running through Docker as for when running locally open the 3rd terminal window.
 8) Enter directories of API:
 ``` python
 > docker exec -it api_service bash
