@@ -63,8 +63,16 @@ Some VARIABLES can be changed as instructed through the task. Such are WAIT_SECO
 PORT, TARGET_FILE_LOCATION of [Consumer Event](#event-consumer). 
 WAIT_SECONDS & PORT VARIABLES are configurable as defined through [Environment Variables](#environment-variables) section.
 
-To run events locally these changes will have to be made:
-1) At Event Propogator [config.py]()
+To run events locally through `on your computer as shown at [Usage](#usage) through 1 and 2 steps these changes will have to be made:
+1) At Event Propagator's [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/config.py) needs to be set on 1.
+2) At Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) PORT has to be assigned to the same as in 1<sup>st</sup> step
+
+To run events by calling `flask run` on Event Consumer:
+1) At Event Propagator's [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/config.py) needs to be set on 2.
+2) At Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) PORT has to be assigned to the same as in 2<sup>nd</sup> step
+
+To run events through Docker refer to [here](#docker).
+
 # Environment variables
 
 WAIT_SECONDS & PORT variables (*for the time to randomly send events* and *define the port number*) are configurable through `.env` files found on a specific event folder, respectively.
@@ -94,7 +102,7 @@ After the requirements are met, the package is set at your directory and two ter
 ```
 The second terminal window to run Event Propagator you should follow this<sup>2</sup>:
 
-1) To run Event Propagator to send an event to the Event Consumer API you need to provide the python file and an argument 0 to send events and in the terminal you will see:
+2) To run Event Propagator to send an event to the Event Consumer API you need to provide the python file and an argument 0 to send events and in the terminal you will see:
 ```
 >>>  python propagate.py 0
 {
@@ -116,14 +124,15 @@ The second terminal window to run Event Propagator you should follow this<sup>2<
 
 ```
 
-2) If in the second terminal window you try running Event Propagator by giving a wrong argument like any other number than 0 or other argument - you will exit the program:
+3) If in the second terminal window you try running Event Propagator by giving a wrong argument like any other number than 0 or other argument - you will exit the program:
 
 ```
 >>> python propagate.py 5
 Exiting Propagator Event
 >>> python propagate.py *
 Exiting Propagator Event
-``` 
+```
+
 When Event Consumer and Event Propagator are run on two terminals, the output of Event Consumer (when running it from 1) on terminal will look like this<sup>3</sup>:
 
 ```
