@@ -42,8 +42,8 @@ The program also involves [main file](https://github.com/aurimas13/Communication
 
 # Event Propagator
 
-The [Event Propagator](https://github.com/aurimas13/Communication-of-services/tree/main/EventPropagator) send events as JSON files randomly. The only function (*send_events()*), imports and other functionalities are written in [propagator.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) module 
-while VARIABLES that can be modified are mentioned in [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/config.py) and refered to change the [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) file.
+The [Event Propagator](https://github.com/aurimas13/Communication-of-services/tree/main/EventPropagator) send events taking JSON files randomly. The function (*send_events()*), imports and other functionalities are written in [propagator.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) module 
+while VARIABLES that can be modified are mentioned in [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/config.py) that can be changed through the [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) file.
 
 # Requirements
 
