@@ -24,12 +24,13 @@ of the app or [Configuration](#configuration), [Environment variables](#environm
 - [Event Consumer](#event-consumer)
 - [Event Propagator](#event-propagator)
 - [Requirements](#requirements)
-- [Configuration and Environment](#configuration-and-environment)
+- [Configuration](#configuration)
 - [Usage](#usage)
 - [Docker](#docker)
 - [Functions](#functions)
 - [Dataset](#dataset)
 - [Tests](#tests)
+- [Linting](#linting)
 - [Public](#public)
 - [Logo](#photo)
 - [License](#license)
@@ -77,7 +78,7 @@ file on the respective folder as shown
 [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/requirements.txt) like this -
 `pip install -r requirements.txt`.
 
-Inspect [Configuration](#configuration) and [Environment variables](#environment-variable) before proceeding further 
+Inspect [Configuration](#configuration) before proceeding further 
 as for proper usage of the program you might need to run **python3** rather than proposed **python** a
 s shown in the [Usage](#usage).<sup>1</sup>
 
@@ -85,24 +86,16 @@ s shown in the [Usage](#usage).<sup>1</sup>
 on your machine. </br>
 
 
-# Configuration and Environment
+# Configuration
 [(Back to top)](#table-of-contents)
 
 You can configure each of the application via their .env files. The environment variables that you will pass
-will be used in the applications globally.
-
-To configure the [Event Propagator]((#event-propagator)), these are the configuration variables:<sup>1,2,3</sup>
+will be used in the applications globally. To configure the [Event Propagator]((#event-propagator)), these are the configuration variables:<sup>1,2,3</sup>
 `WAIT_SECONDS` - set the time period with which to send requests from the propagator to the API,
 `ENDPOINT` - define the endpoint &
-`INPUT_FILE_LOCATION` - define the input event JSON file.
-
-To configure the [Event Consumer]((#event-consumer)), these are the variables of configuration:<sup>4,5</sup>
+`INPUT_FILE_LOCATION` - define the input event JSON file. To configure the [Event Consumer]((#event-consumer)), these are the variables of configuration:<sup>4,5</sup>
 `PORT` - define the port number for the Flask API &
-`TARGET_FILE_LOCATION` - define where write the output file. 
-```
-PORT
-TARGET_FILE_LOCATION
-```
+`TARGET_FILE_LOCATION` - define where write the output file.
 
 If you do not configure the variables, the applications will use defaults.
 
@@ -119,44 +112,18 @@ ENDPOINT='http://api_service:4444/event
 ```
 
 
-- Below you can see an example of Event Propagator's `.env` file locally:
+- Below you can see an example of Event Propagator's `.env` file :
 ```
 WAIT_SECONDS = '5'
 ENDPOINT = 'http://127.0.0.1:4444/event'
 INPUT_FILE_LOCATION = ''
 ```
-or alternative locally:
-```
-ENDPOINT = 'http://127.0.0.1:4444/event'
-INPUT_FILE_LOCATION = '/Users/aurimasnausedas/Documents/Python/ServicesCommunication/EventPropagator/events.json'
-```
-or through Docker :
-```
-ENDPOINT = 'http://api_service:4444/event'
-INPUT_FILE_LOCATION = ''
-```
-or alternative Docker:
-```
-ENDPOINT = 'http://api_service:4444/event'
-INPUT_FILE_LOCATION = '/ServicesCommunication/EventPropagator/events.json'
-```
-- Example of `.env` file for Event Consumer locally would be:
+and an example of `.env` file for Event Consumer would be:
 ```
 PORT = '4444'
 TARGET_FILE_LOCATION = ''
 ```
-or alternative locally:
-```
-TARGET_FILE_LOCATION = '/Users/aurimasnausedas/Documents/Python/ServicesCommunication/EventConsumer/output/events.json'
-```
-or through Docker :
-```
-TARGET_FILE_LOCATION = ''
-```
-or alternative Docker:
-```
-TARGET_FILE_LOCATION = '/ServicesCommunication/EventConsumer/output/events.json'
-```
+
 
 **PORT** is changed at Event Consumer's
 [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) file and 
@@ -328,22 +295,9 @@ as extracted from the
 Test folder to check the functionality of a created Event Consumer API can be found 
 [here](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer/Tests).
 
-By first navigating to the program's folder - 
-[Communication-of_services](https://github.com/aurimas13/Communication-of-services) - where it is extracted, 
-one can check the source files for errors:
-```
->>> pyflakes .
-```
-
 Then by going to 
 [Event Consumer's](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer) folder, 
-one can run these test commands:
-1) To check the source files for errors in test file: 
-```
->>> pyflakes Tests/tests.py
-```
-
-2) To check typing for test file:
+one can run this test command:
 ``` 
 >>> python -m pytest tests/tests.py
 ```
@@ -352,6 +306,22 @@ one can run these test commands:
 [**propagator.py**](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) 
 module. </br>
 
+# Linting
+[(Back to top)](#table-of-contents)
+
+
+To check the linting of the applications go to first navigate to the program's folder - 
+[Communication-of_services](https://github.com/aurimas13/Communication-of-services) - where it is extracted, 
+one can check the source files for errors:
+```
+>>> pyflakes .
+```
+To check the linting of the applications go to 
+[Event Consumer's](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer) folder 
+and please run:
+```
+>>> pyflakes tests/tests.py
+```
 
 # Public
 [(Back to top)](#table-of-contents)
