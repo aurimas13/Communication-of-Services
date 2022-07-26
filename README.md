@@ -220,6 +220,10 @@ After the **ENDPOINT** is set, the rest VARIABLES are default, the package is se
 ```
 >>> cat events.json
 ```
+Be aware that if you run by Docker, the input and target paths need to be defined for the docker container are not your local system specifically.
+By doing the 6 point then you can write simply `>>> pwd` and hence add that location to `.env` file for TARGET_FILE_LOCATION as
+`'/ServicesCommunication/EventConsumer/output/events.json'`for Event Consumer and changing directories of EventConsumer to EventPropagator update
+INPUT_FILE_LOCATION in `.env` like this `'/ServicesCommunication/EventPropagator/events.json'`.
 
 If you wish to see what you should see on either terminal window through Docker go to [Usage](#usage)  as it should be the same as shown locally there.
 
