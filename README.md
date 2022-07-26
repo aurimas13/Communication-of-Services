@@ -12,9 +12,9 @@ _------
 
 The program communicates between two events - [Event Consumer](#event-consumer) & [Event Propagator](#event-propagator). The created Event Consumer program is a FLASK API that receives requests from Event Propagator. 
 This repository contains **modules** like [main.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/main.py) that runs the Event Consumer API and 
-[propagate.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) that runs Event Propagator event.
+[propagate.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) that runs Event Propagator service.
 
-Please refer to [Requirements](#requirements) for importing libraries, packages and additional modules before looking at the [Usage](#usage) of the app or [Configuration](#configuration), [Environment variables](#environment-variables), [Tests](#tests) and other fields.
+Please refer to [Requirements](#requirements) for importing libraries, packages and additional modules before looking at the [Usage](#usage) of the app or [Configuration](#configuration), [Environment variables](#environment-variables), [Docker](#docker), [Tests](#tests) and other fields.
 
 # Table of contents
 
@@ -54,6 +54,7 @@ the [.env](https://github.com/aurimas13/Communication-of-services/blob/main/Even
 
 ---
 # Requirements
+[(Back to top)](#table-of-contents)
 
 Python 3.10.5 is required to properly execute package's modules, imported libraries, defined functions and built-ins. 
 To install the necessary libraries for Event Consumer API and Event Propagator run their respective requirements.txt file on the respective folder
@@ -67,6 +68,7 @@ as for proper usage of the program you might need to run **python3** rather than
 
 ---
 # Configuration
+[(Back to top)](#table-of-contents)
 
 Some VARIABLES can be changed as instructed through the task. For [Event Propagator]((#event-propagator)):
 ```
@@ -102,6 +104,7 @@ updated at Event Propagator's [.env](https://github.com/aurimas13/Communication-
 
 ---
 # Environment variables
+[(Back to top)](#table-of-contents)
 
 WAIT_SECONDS, ENDPOINT, INPUT_FILE_LOCATION, PORT & TARGET_FILE_LOCATION variables 
 (*set the time to randomly send events*, *define the endpoint*, *define the input data file*, *define the port number* & *write the output file*) 
@@ -121,6 +124,7 @@ TARGET_FILE_LOCATION =
 
 ---
 # Usage
+[(Back to top)](#table-of-contents)
 
 After the requirements are met, the package is set at your directory and two terminal windows are run you are ready to make the communication between two services:
 - For the 1<sup>st</sup> terminal window to run an Event Consumer (FLASK API) you will need to provide the python file with no arguments:<sup>1</sup> 
@@ -174,6 +178,7 @@ To cancel either of the services when both are running locally and you are happy
 
 ---
 # Docker
+[(Back to top)](#table-of-contents)
 
 Setup up of dockerfiles can be found [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/Dockerfile) for Consumer Event and 
 [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/Dockerfile) for Propagator Event.
@@ -220,6 +225,7 @@ To cancel either of the services when both are running on Docker and you are hap
 
 ---
 # Functions
+[(Back to top](#table-of-contents)
 
 Overview of functions found inside modules - ***main.py***, ***routes.py***, ***output.py*** & ***propagate.py***:
 
@@ -232,12 +238,14 @@ In depth explanations of the functions can be found inside modules.
 
 ---
 # Datasets
+[(Back to top)](#table-of-contents)
 
 The dataset to use is [events.json](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/events.json) 
 as extracted from the [task](https://github.com/aurimas13/Communication-of-services/blob/main/Public/Task.md) file that contains 11 JSON values.
 
 ---
 # Tests
+[(Back to top)](#table-of-contents)
 
 Test folder to check the functionality of a created Event Consumer API can be found [here](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer/Tests). 
 An overview of functions found inside a module, [tests.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/Tests/tests.py),
@@ -271,6 +279,7 @@ one can run these test commands:
 
 ---
 # Public
+[(Back to top)](#table-of-contents)
 
 Public folder contains three files: 
 - [task](https://github.com/aurimas13/Communication-of-services/blob/main/Public/Task.md) - the problem or task overview.
@@ -279,10 +288,12 @@ Public folder contains three files:
 
 
 # Logo
+[(Back to top)](#table-of-contents)
 
 The logo of the communication between two services can be found [here](https://github.com/aurimas13/Communication-of-services/blob/main/Public/Photo/communication.jpeg).
 
 # License
+[(Back to top)](#table-of-contents)
 
 The MIT [LICENSE](https://github.com/aurimas13/Communication-of-services/blob/main/LICENSE)
 
