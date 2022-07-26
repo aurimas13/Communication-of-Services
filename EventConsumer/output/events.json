@@ -2341,3 +2341,5 @@
 {"event_type": "message", "event_payload": "greetings"}
 {"event_type": "message", "event_payload": "welcome"}
 {"event_type": "message", "event_payload": "greetings"}
+{"event_type": "user_left", "event_payload": "Cosmo"}
+{"event_type": "user_left", "event_payload": "Cosmo"}
