@@ -15,8 +15,7 @@ The program communicates between two services - [Event Consumer](#event-consumer
 receives requests from Event Propagator. This repository contains the Event Consumer API app and Event Propagator app.
 
 Please refer to [Requirements](#requirements) for importing required libraries before looking at the [Usage](#usage)
-of the app or [Configuration](#configuration), [Environment variables](#environment-variables), [Docker](#docker), 
-[Tests](#tests) and other fields.
+of the app or [Configuration](#configuration), [Docker](#docker), [Tests](#tests) and other fields.
 
 # Table of contents
 
@@ -46,12 +45,12 @@ and then process them while validating the incoming request through
 [data_validation.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/src/data_validation.py).
 The program also involves 
 [main file](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/main.py) 
-that is the entrypoint of the Flask API", 
+that is the entrypoint of the Flask API, 
 [output.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/src/output.py) 
 that opens a data file, 
 [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/config.py)
 with [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) 
-that define constant VARIABLES &
+that define constant environment variables &
 [routes.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/src/routes.py) 
 that contains the endpoint of the application.
 
@@ -79,12 +78,10 @@ file on the respective folder as shown
 `pip install -r requirements.txt`.
 
 Inspect [Configuration](#configuration) before proceeding further 
-as for proper usage of the program you might need to run **python3** rather than proposed **python** a
-s shown in the [Usage](#usage).<sup>1</sup>
+as for proper usage of the program you might need to run **python3** rather than proposed **python** as shown in the [Usage](#usage).<sup>1</sup>
 
 <br><sup>1</sup>**python** or **python3** depends on the way how you installed python of version 3.* 
 on your machine. </br>
-
 
 # Configuration
 [(Back to top)](#table-of-contents)
