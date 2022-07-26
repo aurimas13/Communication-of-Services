@@ -192,15 +192,15 @@ After the **ENDPOINT** is set, the rest VARIABLES are default, the package is se
 > docker run -p 3333:3333 --name propagator --network some_network eventpropagator
 ```
 5) If you wish to see logs on how requests are sent, open the 3<sup>rd</sup> terminal window and in it run this:
-``` python
-docker logs api_service --follow
+``` 
+>>> docker logs api_service --follow
 ```
 6) If you wish to check whether there are output when running through Docker as for when running locally open the 4<sup>th</sup> terminal window and enter directories of API:
-``` python
+``` 
 >>> docker exec -it api_service bash
 ```
 7) Then go to output folder and run:
-``` python
+```
 >>> cat events.json
 ```
 
