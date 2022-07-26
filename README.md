@@ -24,8 +24,7 @@ of the app or [Configuration](#configuration), [Environment variables](#environm
 - [Event Consumer](#event-consumer)
 - [Event Propagator](#event-propagator)
 - [Requirements](#requirements)
-- [Configuration](#configuration)
-- [Environment variables](#environment-variables)
+- [Configuration and Environment](#configuration-and-environment)
 - [Usage](#usage)
 - [Docker](#docker)
 - [Functions](#functions)
@@ -86,34 +85,79 @@ s shown in the [Usage](#usage).<sup>1</sup>
 on your machine. </br>
 
 
-# Configuration
+# Configuration and Environment
 [(Back to top)](#table-of-contents)
 
-Some VARIABLES can be changed as instructed through the task. For [Event Propagator]((#event-propagator)):
-```
-WAIT_SECONDS
-ENDPOINT
-INPUT_FILE_LOCATION
-```
-and for [Event Consumer]((#event-consumer)):
+1) You can configure each of the application via their .env files. The environment variables that you will pass
+will be used in the applications globally.
+
+To configure the [Event Propagator]((#event-propagator)), these are the configuration variables:<sup>1,2,3</sup>
+`WAIT_SECONDS` - set the time period with which to send requests from the propagator to the API,
+`ENDPOINT` - define the endpoint &
+`INPUT_FILE_LOCATION` - define the input event JSON file.
+
+To configure the [Event Consumer]((#event-consumer)), these are the variables of configuration:<sup>4,5</sup>
+`PORT` - define the port number for the Flask API &
+`TARGET_FILE_LOCATION` - define where write the output file. 
 ```
 PORT
 TARGET_FILE_LOCATION
 ```
-All these VARIABLES are configurable as defined through [Environment Variables](#environment-variables) section.
 
-To run locally you will need to configure the **ENDPOINT** in your Event Consumer's 
-[.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env).
-The `.env` variable **ENDPOINT** will use the localhost `127.0.0.1` to be run locally, and for running with Docker 
-it will need to be substituted with the defined service name:
-1) For example, for running without Docker in your Event Consumer's `.env` file fill in:
+If you do not configure the variables, the applications will use defaults.
+
+Dependent on whether you run the application via Docker or not, there is an important detail to consider for the value
+of the **ENDPOINT** environment variable.  If you run without Docker, in Event Propagator's `.env` file 
+the variable **ENDPOINT** will use the localhost `127.0.0.1` for the app to run locally. So, for example:
 ```
 ENDPOINT='http://127.0.0.1:4444/event'
 ```
-2) And the example for running with Docker where the API is given the name *api_service*:
+If you want to run with Docker, **ENDPOINT** will need to be substituted with the defined service name. 
+For example, where the Event Propagator's docker container is given the name `api_service` you can use:
 ```
 ENDPOINT='http://api_service:4444/event
 ```
+
+
+- Below you can see an example of Event Propagator's `.env` file locally:
+```
+WAIT_SECONDS = '5'
+ENDPOINT = 'http://127.0.0.1:4444/event'
+INPUT_FILE_LOCATION = ''
+```
+or alternative locally:
+```
+ENDPOINT = 'http://127.0.0.1:4444/event'
+INPUT_FILE_LOCATION = '/Users/aurimasnausedas/Documents/Python/ServicesCommunication/EventPropagator/events.json'
+```
+or through Docker :
+```
+ENDPOINT = 'http://api_service:4444/event'
+INPUT_FILE_LOCATION = ''
+```
+or alternative Docker:
+```
+ENDPOINT = 'http://api_service:4444/event'
+INPUT_FILE_LOCATION = '/ServicesCommunication/EventPropagator/events.json'
+```
+- Example of `.env` file for Event Consumer locally would be:
+```
+PORT = '4444'
+TARGET_FILE_LOCATION = ''
+```
+or alternative locally:
+```
+TARGET_FILE_LOCATION = '/Users/aurimasnausedas/Documents/Python/ServicesCommunication/EventConsumer/output/events.json'
+```
+or through Docker :
+```
+TARGET_FILE_LOCATION = ''
+```
+or alternative Docker:
+```
+TARGET_FILE_LOCATION = '/ServicesCommunication/EventConsumer/output/events.json'
+```
+
 **PORT** is changed at Event Consumer's
 [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) file and 
 updated at Event Propagator's 
@@ -130,57 +174,6 @@ Further instructions are found at
 [Environment variables](#environment-variables) section.
 
 **To run events through Docker refer [here](#docker).**
-
-# Environment variables
-[(Back to top)](#table-of-contents)
-
-These are the environment variables you can tweak to use in the applications: 
-`WAIT_SECONDS` - set the time period with which to send requests from the propagator to the API,
-`ENDPOINT` - define the endpoint,
-`INPUT_FILE_LOCATION` - define the input event JSON file,
-`PORT` - define the port number for the Flask API &
-`TARGET_FILE_LOCATION` - define where write the output file. They are configurable through `.env` files 
-by adding or changing the value found on a specific event folder
-like shown below:<sup>1,2,3,4,5</sup>
-
-Example of `.env` file for Event Propagator locally is:
-```
-WAIT_SECONDS = '5'
-ENDPOINT = 'http://127.0.0.1:4444/event'
-INPUT_FILE_LOCATION = ''
-```
-or locally alternative:
-```
-ENDPOINT = 'http://127.0.0.1:4444/event'
-INPUT_FILE_LOCATION = '/Users/aurimasnausedas/Documents/Python/ServicesCommunication/EventPropagator/events.json'
-```
-or Docker :
-```
-ENDPOINT = 'http://api_service:4444/event'
-INPUT_FILE_LOCATION = ''
-```
-or Docker alternative:
-```
-ENDPOINT = 'http://api_service:4444/event'
-INPUT_FILE_LOCATION = '/ServicesCommunication/EventPropagator/events.json'
-```
-Example of `.env` file for Event Consumer locally is:
-```
-PORT = '4444'
-TARGET_FILE_LOCATION = ''
-```
-or locally alternative:
-```
-TARGET_FILE_LOCATION = '/Users/aurimasnausedas/Documents/Python/ServicesCommunication/EventConsumer/output/events.json'
-```
-or Docker:
-```
-TARGET_FILE_LOCATION = ''
-```
-or Docker alternative:
-```
-TARGET_FILE_LOCATION = '/ServicesCommunication/EventConsumer/output/events.json'
-```
 
 <br><sup>1</sup> WAIT_SECONDS is at `.env` file of Event Propagator as described in 
 [Configuration](#configuration) section. </br>
