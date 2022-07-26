@@ -176,7 +176,7 @@ and other fields on `.env` files if you don't want to use default VARIABLES on w
 
 After the **ENDPOINT** is set, the rest VARIABLES are default, the package is set at your directory and two Docker terminal windows are run, follow this<sup>1</sup>:
 1) To build docker image on the 1<sup>st</sup> terminal window for the Event Consumer you need to go to the EventConsumer folder locally and run:
-``` python
+``` 
 >>> docker build -t eventconsumer .  
 ```
 2)  Followed by a Docker run on the same window:
