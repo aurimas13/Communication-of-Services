@@ -16,6 +16,7 @@ def send_events() -> None:
     :return: None
     '''
     with open(INPUT_FILE_LOCATION) as f:
+        sys.stderr.write(f'INP: {INPUT_FILE_LOCATION}\n')
         data = ast.literal_eval(f.read())
         random_data = json.dumps(random.choice(data))
         response = requests.post(url=ENDPOINT, data=random_data)
