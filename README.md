@@ -88,7 +88,7 @@ on your machine. </br>
 # Configuration and Environment
 [(Back to top)](#table-of-contents)
 
-1) You can configure each of the application via their .env files. The environment variables that you will pass
+You can configure each of the application via their .env files. The environment variables that you will pass
 will be used in the applications globally.
 
 To configure the [Event Propagator]((#event-propagator)), these are the configuration variables:<sup>1,2,3</sup>
