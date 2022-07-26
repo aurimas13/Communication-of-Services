@@ -180,12 +180,12 @@ After the **ENDPOINT** is set, the rest VARIABLES are default, the package is se
 >>> docker build -t eventconsumer .  
 ```
 2)  Followed by a Docker run on the same window:
-``` python
-> docker run --name api_service --network some_network -p 4444:4444 eventconsumer 
+``` 
+>>> docker run --name api_service --network some_network -p 4444:4444 eventconsumer 
 ```
 3) Then you will have to build docker image on the 2<sup>nd</sup> terminal window for Event Propagator by going to EventPropagator folder locally and running:
-``` python
-> docker build -t eventpropagator .  
+``` 
+>>> docker build -t eventpropagator .  
 ```
 4) Followed by a Docker run on the 2<sup>nd</sup> window:
 ``` 
