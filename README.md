@@ -90,7 +90,7 @@ ENDPOINT='http://api_service:4444/event
 **PORT** can be changed at Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) file and 
 updated at Event Propagator's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) under **ENTRYPOINT** variable with the same **PORT** as in Event's Consumer `.env` file.
 
-**INPUT_FILE_LOCATION** can be changer at Event Propagator's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) while
+**INPUT_FILE_LOCATION** can be changed at Event Propagator's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) while
 **TARGET_FILE_LOCATION** at Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) file.
 
 **To run events through Docker refer [here](#docker).**
@@ -115,8 +115,8 @@ TARGET_FILE_LOCATION =
 
 # Usage
 
-After the requirements are met, the package is set at your directory and two terminal windows are run, follow this<sup>1</sup>:
-1) For the first terminal window to run an Event Consumer (FLASK API) you will need to provide the python file with no arguments: 
+After the requirements are met, the package is set at your directory and two terminal windows are run you are ready to make the communication between two services:
+- For the 1<sup>st</sup> terminal window to run an Event Consumer (FLASK API) you will need to provide the python file with no arguments:<sup>1</sup> 
 ```
 >>> python main.py
  * Serving Flask app 'main' (lazy loading)
@@ -128,9 +128,8 @@ After the requirements are met, the package is set at your directory and two ter
    WARNING: This is a development server. Do not use it in a production deployment.
  * Running on http://192.168.0.156:4444/ (Press CTRL+C to quit)
 ```
-The second terminal window to run Event Propagator you should follow this<sup>2</sup>:
-
-2) To run Event Propagator to send an event to the Event Consumer API you need to provide the python file and an argument 0 to send events and in the terminal you will see:
+- For the 2<sup>nd</sup> terminal window to run Event Propagator and send a request to the Event Consumer API
+you need to provide the python file with no arguments as well and in the 2<sup>nd</sup> terminal you should follow this:<sup>2</sup>
 ```
 >>>  python propagate.py
 {"event_payload":"welcome","event_type":"message"}
@@ -145,16 +144,7 @@ The second terminal window to run Event Propagator you should follow this<sup>2<
 {"event_payload":"Thomas","event_type":"user_left"}
 ```
 
-3) If in the second terminal window you try running Event Propagator by giving a wrong argument like any other number than 0 or other argument - you will exit the program:
-
-```
->>> python propagate.py 5
-Exiting Propagator Event
->>> python propagate.py *
-Exiting Propagator Event
-```
-
-When Event Consumer and Event Propagator are run on two terminals, the output of Event Consumer (when running it from 1) on terminal will look like this<sup>3</sup>:
+When Event Consumer and Event Propagator are run on two terminals, the output of Event Consumer  on terminal will look like this<sup>3</sup>:
 
 ```
 127.0.0.1 - - [25/Jul/2022 16:16:37] "POST /event HTTP/1.1" 200 -
@@ -168,11 +158,12 @@ INFO:werkzeug:127.0.0.1 - - [26/Jul/2022 11:21:47] "POST /event HTTP/1.1" 200 -
 127.0.0.1 - - [26/Jul/2022 11:21:52] "POST /event HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [26/Jul/2022 11:21:52] "POST /event HTTP/1.1" 200 -
 ```
-<br><sup>1</sup> The output may differ like what server is run</br>
+<br><sup>1</sup> The output of running Event Consumer API may differ like on what server you are running</br>
 <br><sup>2</sup> The output of Event Propagator can differ from example above as it takes events randomly. </br>
 <br><sup>3</sup> The output of Event Consumer can differ from example above as it might print output in different sequence.</br>
 
 # Docker
+
 Setup up of dockerfiles can be found [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/Dockerfile) for Consumer Event and [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/Dockerfile) for Propagator Event.
 After the requirements are met, the package is set at your directory and two Docker terminal windows are run, follow this<sup>1</sup>:
 Before running events on Docker, you will need to make a bit of changes in `config.py` & `.env` files:
