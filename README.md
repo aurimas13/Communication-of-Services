@@ -93,13 +93,14 @@ at Event Propagator's [.env](https://github.com/aurimas13/Communication-of-servi
 
 # Environment variables
 
-WAIT_SECONDS & PORT variables (*for the time to randomly send events* and *define the port number*) are configurable through `.env` files found on a specific event folder, respectively.
+WAIT_SECONDS, ENDPOINT & PORT variables (*for the time to randomly send events*, *define the endpoint* and *define the port number*) are configurable through `.env` files found on a specific event folder, respectively.
 To change these values please go into a `.env` file and add or change the value, like this:<sup>1</sup>
 ```
 WAIT_SECONDS = '<int value in seconds>'
+ENDPOINT = '<server:PORT/endpoint>'
 PORT='<port number like 4444>'
 ```
-<br><sup>1</sup> WAIT_SECONDS are at `.env` file of Event Propagator while PORT is at `.env` file of Event Consumer [authentication](#authentication) section. </br>
+<br><sup>1</sup> WAIT_SECONDS are at `.env` file of Event Propagator while PORT is at `.env` file of Event Consumer as described in [Configuration](#configuration) section. </br>
 
 # Usage
 After the requirements are met, the package is set at your directory and two terminal windows are run, follow this<sup>1</sup>:
