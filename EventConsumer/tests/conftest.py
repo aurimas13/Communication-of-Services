@@ -1,6 +1,7 @@
 import pytest
-from ..main import create_app
-
+import sys
+sys.path.insert(0, "/EventConsumer")
+from main import create_app
 
 @pytest.fixture()
 def app():
@@ -8,12 +9,7 @@ def app():
     app.config.update({
         "TESTING": True,
     })
-
-    # other setup can go here
-
     yield app
-
-    # clean up / reset resources here
 
 
 @pytest.fixture()

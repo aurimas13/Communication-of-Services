@@ -4,7 +4,6 @@
 
 
 import json
-import sys
 
 def test_correct_request_code(client):
     '''
@@ -12,7 +11,6 @@ def test_correct_request_code(client):
     :param client:
     :return:
     '''
-    sys.stdout.write(f'{client}\n')
     response = client.post("/event", data=json.dumps({
         "event_type": "user_left",
         "event_payload": "Cosmo"
