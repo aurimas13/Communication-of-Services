@@ -9,5 +9,5 @@ def persist_output(json_string, target_path) -> None:
     :return: None
     '''
     with open(target_path, 'a') as outfile:
-            json.dump(json_string, outfile)
-            outfile.write('\n')
+        json.dump(json_string, outfile)
+        outfile.write('\n')

@@ -11,6 +11,7 @@ from config import TARGET_FILE_LOCATION
 
 
 routes = Blueprint("routes", __name__)
+
 @routes.route('/event', methods=["POST"])
 def event_endpoint():
     '''

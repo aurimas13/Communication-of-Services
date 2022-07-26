@@ -40,7 +40,7 @@ of the app or [Configuration](#configuration), [Environment variables](#environm
 [(Back to top)](#table-of-contents)
 
 The [Event Consumer](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer)
-is an API application that has a default endpoint as **/event** to receive events 
+is an API application that has on endpoint, **/event**, to receive events 
 and then process them while validating the incoming request through 
 [data_validation.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/src/data_validation.py).
 The program also involves 
@@ -63,7 +63,7 @@ to the Event Consumer API using the **/event** endpoint.
 It randomly takes one event if the events are from a given JSON data file. The function (**send_events()**), imports 
 and other functionalities are written in 
 [propagator.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) module 
-while VARIABLES that can be modified are mentioned in [Configuration](#configuration) section and are in 
+while environment variables that can be modified are mentioned in [Configuration](#configuration) section and are in 
 the [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) file.
 
 

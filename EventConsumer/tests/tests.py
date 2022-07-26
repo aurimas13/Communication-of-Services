@@ -4,7 +4,6 @@ def test_correct_request_code(client):
     '''
     Testing if the correct response code is returned by taking a request as a client.
     :param client:
-    :return:
     '''
     response = client.post("/event", data=json.dumps({
         "event_type": "user_left",
@@ -17,7 +16,6 @@ def test_correct_request_output(client):
     '''
     Testing if the correct response output is returned by taking a request as client
     :param client:
-    :return:
     '''
     response = client.post("/event", data=json.dumps({
         "event_type": "user_left",
@@ -30,7 +28,6 @@ def test_incorrect_response_code(client):
     '''
     Testing if the incorrect response code is returned for `event_payload` by taking a request as client
     :param client:
-    :return:
     '''
     response = client.post("/event", data=json.dumps({
         "event_type": "user_left",
@@ -43,7 +40,6 @@ def test_incorrect_response_code_two(client):
     '''
     Testing if the incorrect response code is returned for `event_type` by taking a request as client.
     :param client:
-    :return:
     '''
     response = client.post("/event", data=json.dumps({
         "event_type": 2,
@@ -56,7 +52,6 @@ def test_incorrect_response_for_event_payload(client):
     '''
     Testing if the incorrect response output is returned for `event_payload` by taking a request as client.
     :param client:
-    :return:
     '''
     response = client.post("/event", data=json.dumps({
         "event_type": "message",
@@ -69,7 +64,6 @@ def test_incorrect_response_for_event_type(client):
     '''
     Testing if the incorrect response output is returned for `event_type` by taking a request as client.
     :param client:
-    :return:
     '''
     response = client.post("/event", data=json.dumps({
         "event_type": 2,
