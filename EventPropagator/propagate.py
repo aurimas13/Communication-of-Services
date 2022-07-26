@@ -20,9 +20,8 @@ def send_events():
 
 # send_events()
 if __name__ == '__main__':
-    input = sys.argv[1]
-    if input == '0':
+    try:
         send_events()
-    else:
-        print("Exiting Propagator Event")
-        sys.exit()
+    except KeyboardInterrupt:
+        print('Interrupted')
+        sys.exit(0)

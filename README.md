@@ -76,6 +76,16 @@ TARGET_FILE_LOCATION
 
 WAIT_SECONDS & PORT VARIABLES are configurable as defined through [Environment Variables](#environment-variables) section.
 
+To run locally, ENDPOINT will use the localhost `127.0.0.1`, and for running with Docker it'll need to be substituted with the service name. 
+For example, for running without Docker:
+```
+ENDPOINT='http://127.0.0.1:5000/event'
+```
+And the example for running with Docker where the API is given the name api_service:
+```
+ENDPOINT='http://api_service:5000/event
+```
+In both cases PORT can be changed at Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) file.
 To run events locally through `on your computer as shown at [Usage](#usage) through 1 and 2 steps these changes will have to be made:
 1) At Event Propagator's [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/config.py) ENDPOINT needs to be set on 1<sup>st</sup> option.
 2) At Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) PORT has to be assigned to the same as in 1<sup>st</sup> step
