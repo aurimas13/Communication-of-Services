@@ -76,10 +76,10 @@ TARGET_FILE_LOCATION
 ```
 All these VARIABLES are configurable as defined through [Environment Variables](#environment-variables) section.
 
-To run locally you will need to configure in your Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) file -
-the value of the endpoint to use. The `.env` variable **ENDPOINT** will use the localhost `127.0.0.1` to be run locally, and for running with Docker 
+To run locally you will need to configure the **ENDPOINT** in your Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env).
+The `.env` variable **ENDPOINT** will use the localhost `127.0.0.1` to be run locally, and for running with Docker 
 it will need to be substituted with the defined service name:
-1) For example, for running without Docker in your Event Consumer's `.env` file fill in::
+1) For example, for running without Docker in your Event Consumer's `.env` file fill in:
 ```
 ENDPOINT='http://127.0.0.1:4444/event'
 ```
@@ -87,21 +87,27 @@ ENDPOINT='http://127.0.0.1:4444/event'
 ```
 ENDPOINT='http://api_service:4444/event
 ```
-PORT can be changed at Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) file and 
-updated at Event Propagator's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) under *ENTRYPOINT* variable the same as in Event's Consumer `.env` file under *PORT*.
+**PORT** can be changed at Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) file and 
+updated at Event Propagator's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) under **ENTRYPOINT** variable with the same **PORT** as in Event's Consumer `.env` file.
 
 **To run events through Docker refer [here](#docker).**
 
 # Environment variables
 
-WAIT_SECONDS, ENDPOINT & PORT variables (*for the time to randomly send events*, *define the endpoint* and *define the port number*) are configurable through `.env` files found on a specific event folder, respectively.
-To change these values please go into a `.env` file and add or change the value, like this:<sup>1</sup>
+WAIT_SECONDS, ENDPOINT, INPUT_FILE_LOCATION, PORT & INPUT_FILE_LOCATION variables (*for the time to randomly send events*, *define the endpoint* and *define the port number*) are configurable through `.env` files found on a specific event folder, respectively.
+To change these values please go into a `.env` file and add or change the value, like this:<sup>1,2,3,4,5</sup>
 ```
 WAIT_SECONDS = '<int value in seconds>'
 ENDPOINT = '<server:PORT/endpoint>'
+INPUT_FILE_LOCATION = 
 PORT='<port number like 4444>'
+TARGET_FILE_LOCATION = 
 ```
-<br><sup>1</sup> WAIT_SECONDS are at `.env` file of Event Propagator while PORT is at `.env` file of Event Consumer as described in [Configuration](#configuration) section. </br>
+<br><sup>1</sup> WAIT_SECONDS is at `.env` file of Event Propagator as described in [Configuration](#configuration) section. </br>
+<br><sup>2</sup> ENDPOINT is at `.env` file of Event Propagator as described in [Configuration](#configuration) section. </br>
+<br><sup>3</sup> INPUT_FILE_LOCATION is at `.env` file of Event Propagator as described in [Configuration](#configuration) section. </br>
+<br><sup>4</sup> PORT is at `.env` file of Event Consumer as described in [Configuration](#configuration) section. </br>
+<br><sup>5</sup> TARGET_FILE_LOCATION is at `.env` file of Event Consumer as described in [Configuration](#configuration) section. </br>
 
 # Usage
 
