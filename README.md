@@ -129,7 +129,7 @@ After the requirements are met, the package is set at your directory and two ter
  * Running on http://192.168.0.156:4444/ (Press CTRL+C to quit)
 ```
 - For the 2<sup>nd</sup> terminal window to run Event Propagator and send a request to the Event Consumer API
-you need to provide the python file with no arguments as well and in the 2<sup>nd</sup> terminal you should follow this:<sup>2</sup>
+you need to provide the python file with no arguments, and it should look like this:<sup>2</sup>
 ```
 >>>  python propagate.py
 {"event_payload":"welcome","event_type":"message"}
@@ -144,7 +144,7 @@ you need to provide the python file with no arguments as well and in the 2<sup>n
 {"event_payload":"Thomas","event_type":"user_left"}
 ```
 
-When Event Consumer and Event Propagator are run on two terminals, the output of Event Consumer  on terminal will look like this<sup>3</sup>:
+When Event Consumer and Event Propagator are run on two terminals, the output of Event Consumer on terminal will look like this<sup>3</sup>:
 
 ```
 127.0.0.1 - - [25/Jul/2022 16:16:37] "POST /event HTTP/1.1" 200 -
@@ -164,7 +164,8 @@ INFO:werkzeug:127.0.0.1 - - [26/Jul/2022 11:21:52] "POST /event HTTP/1.1" 200 -
 
 # Docker
 
-Setup up of dockerfiles can be found [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/Dockerfile) for Consumer Event and [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/Dockerfile) for Propagator Event.
+Setup up of dockerfiles can be found [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/Dockerfile) for Consumer Event and 
+[here](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/Dockerfile) for Propagator Event.
 After the requirements are met, the package is set at your directory and two Docker terminal windows are run, follow this<sup>1</sup>:
 Before running events on Docker, you will need to make a bit of changes in `config.py` & `.env` files:
 1) At Event Propagator's [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/config.py) ENDPOINT needs to be set on 3<sup>rd</sup> option.
