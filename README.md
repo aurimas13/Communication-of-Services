@@ -97,10 +97,12 @@ ENDPOINT='http://127.0.0.1:4444/event'
 ENDPOINT='http://api_service:4444/event
 ```
 **PORT** can be changed at Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) file and 
-updated at Event Propagator's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) under **ENTRYPOINT** variable with the same **PORT** as in Event's Consumer `.env` file.
+updated at Event Propagator's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) under **ENTRYPOINT** variable 
+with the same **PORT** as in the Event's Consumer `.env` file.
 
-**INPUT_FILE_LOCATION** can be changed at Event Propagator's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) while
-**TARGET_FILE_LOCATION** at Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) file.
+**INPUT_FILE_LOCATION** can be changed at Event Propagator's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) file while
+**TARGET_FILE_LOCATION** at Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) file. Further instructions are found at 
+[Environment variables](#environment-variables) section.
 
 **To run events through Docker refer [here](#docker).**
 
@@ -108,21 +110,23 @@ updated at Event Propagator's [.env](https://github.com/aurimas13/Communication-
 [(Back to top)](#table-of-contents)
 
 WAIT_SECONDS, ENDPOINT, INPUT_FILE_LOCATION, PORT & TARGET_FILE_LOCATION variables 
-(*set the time to randomly send events*, *define the endpoint*, *define the input data file*, *define the port number* & *write the output file*) 
-are configurable through `.env` files by adding or changing the value found on a specific event folder, like this:<sup>1,2,3,4,5</sup>
+(*set the time*, *define the endpoint*, *define the input data file directory*, *define the port number* & *write the output file with directory*) 
+are configurable through `.env` files by adding or changing the value found on a specific event folder like this:<sup>1,2,3,4,5</sup>
 ```
 WAIT_SECONDS = '<int value in seconds>'
 ENDPOINT = '<server:PORT/endpoint>'
-INPUT_FILE_LOCATION = 
+INPUT_FILE_LOCATION = 'input_file_with_directory'
 PORT='<port number like 4444>'
-TARGET_FILE_LOCATION = 
+INPUT_FILE_LOCATION = 'target_file_with_directory'
 ```
+
 <br><sup>1</sup> WAIT_SECONDS is at `.env` file of Event Propagator as described in [Configuration](#configuration) section. </br>
 <br><sup>2</sup> ENDPOINT is at `.env` file of Event Propagator as described in [Configuration](#configuration) section. </br>
-<br><sup>3</sup> INPUT_FILE_LOCATION is at `.env` file of Event Propagator as described in [Configuration](#configuration) section. </br>
+<br><sup>3</sup> INPUT_FILE_LOCATION is at `.env` file of Event Propagator as described in [Configuration](#configuration) section. It can also be
+changed by leaving an empty string at the `.env` file under the VARIABLE name and changing their directory endpoint at the `config.py` file.</br>
 <br><sup>4</sup> PORT is at `.env` file of Event Consumer as described in [Configuration](#configuration) section. </br>
-<br><sup>5</sup> TARGET_FILE_LOCATION is at `.env` file of Event Consumer as described in [Configuration](#configuration) section. </br>
-
+<br><sup>5</sup> TARGET_FILE_LOCATION is at `.env` file of Event Consumer as described in [Configuration](#configuration) section. It can also be
+changed by leaving an empty string at the `.env` file under the VARIABLE name and changing their directory endpoint at the `config.py` file.</br>
 # Usage
 [(Back to top)](#table-of-contents)
 
