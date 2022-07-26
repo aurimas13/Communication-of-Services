@@ -8,7 +8,7 @@
   <a href="https://twitter.com/aurimasnausedas"><img alt="twitter" src="https://img.shields.io/twitter/follow/aurimasnausedas?style=social"/></a>
 </p>
 
-_------
+------
 
 The program communicates between two events - [Event Consumer](#event-consumer) & [Event Propagator](#event-propagator). The created Event Consumer program is a FLASK API that receives requests from Event Propagator. 
 This repository contains **modules** like [main.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/main.py) that runs the Event Consumer API and 
@@ -16,6 +16,7 @@ This repository contains **modules** like [main.py](https://github.com/aurimas13
 
 Please refer to [Requirements](#requirements) for importing libraries, packages and additional modules before looking at the [Usage](#usage) of the app or [Configuration](#configuration), [Environment variables](#environment-variables), [Docker](#docker), [Tests](#tests) and other fields.
 
+---
 # Table of contents
 
 - [Table of contents](#table-of-contents)
@@ -36,6 +37,7 @@ Please refer to [Requirements](#requirements) for importing libraries, packages 
 ---
 
 # Event Consumer
+[(Back to top)](#table-of-contents)
 
 The [Event Consumer](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer) is an API application that has an endpoint as **'/event'** to receive events 
 and then process events while validating the incoming request through [data_validation.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/src/data_validation.py).
@@ -46,6 +48,7 @@ with [.env](https://github.com/aurimas13/Communication-of-services/blob/main/Eve
 
 ---
 # Event Propagator
+[(Back to top)](#table-of-contents)
 
 The [Event Propagator](https://github.com/aurimas13/Communication-of-services/tree/main/EventPropagator) send request to the Event Consumer API using the **/event** endpoint. 
 It randomly takes one event if the events are from a given JSON data file. The function (*send_events()*), imports and other functionalities are written in [propagator.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) module 
