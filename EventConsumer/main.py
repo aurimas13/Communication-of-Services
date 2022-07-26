@@ -1,5 +1,5 @@
 from config import PORT
-from routes import routes
+from src.routes import routes
 from flask import Flask
 
 

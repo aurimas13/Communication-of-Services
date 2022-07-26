@@ -1,12 +1,15 @@
 import json
 import logging
 import sys
-from data_validation import Event
+from .data_validation import Event
+from .output import persist_output
 from marshmallow import ValidationError
-from config import TARGET_FILE_LOCATION
-from output import persist_output
 from flask import Blueprint
 from flask import request, Response
+
+sys.path.insert(0, "/EventConsumer")
+from config import TARGET_FILE_LOCATION
+
 
 
 routes = Blueprint("routes", __name__)
