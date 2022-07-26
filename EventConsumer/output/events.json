@@ -2351,3 +2351,7 @@
 {"event_type": "user_joined", "event_payload": "Thomas"}
 {"event_type": "user_joined", "event_payload": "Peter"}
 {"event_type": "user_joined", "event_payload": "Peter"}
+{"event_type": "user_left", "event_payload": "Cosmo"}
+{"event_type": "user_left", "event_payload": "Cosmo"}
+{"event_type": "user_left", "event_payload": "Cosmo"}
+{"event_type": "user_left", "event_payload": "Cosmo"}
