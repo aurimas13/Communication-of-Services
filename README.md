@@ -89,7 +89,7 @@ on your machine. </br>
 # Configuration
 [(Back to top)](#table-of-contents)
 
-You can configure each of the application via their .env files. The environment variables that you will pass
+You can configure each of the application via their `.env` files. The environment variables that you will pass
 will be used in the applications globally. To configure the [Event Propagator]((#event-propagator)), these are the configuration variables:<sup>1,2,3</sup>
 `WAIT_SECONDS` - set the time period with which to send requests from the propagator to the API,
 `ENDPOINT` - define the endpoint &
@@ -112,7 +112,7 @@ ENDPOINT='http://api_service:4444/event
 ```
 
 
-- Below you can see an example of Event Propagator's `.env` file :
+Below you can see an example of Event Propagator's `.env` file :
 ```
 WAIT_SECONDS = '5'
 ENDPOINT = 'http://127.0.0.1:4444/event'
@@ -125,20 +125,10 @@ TARGET_FILE_LOCATION = ''
 ```
 
 
-**PORT** is changed at Event Consumer's
-[.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) file and 
-updated at Event Propagator's 
-[.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) file
-under **ENTRYPOINT** variable with the same **PORT** as in the Event's Consumer `.env` file. This could look like this: `
-PORT=4444` and `ENDPOINT = 'http://127.0.0.1:4444/event'` locally or `PORT=4444` and 
+`IMPORTANT NOTE:` Please keep in mind that if you update the EventConsumer's **PORT**, 
+you will need to reflect that change in the EventPropagator's **ENDPOINT** variable, 
+and vice versa. This could look like this: `PORT=4444` and `ENDPOINT = 'http://127.0.0.1:4444/event'` locally or `PORT=4444` and 
 `ENDPOINT = 'http://api_servicd:4444/event` through Docker.
-
-**INPUT_FILE_LOCATION** can be changed at Event Propagator's 
-[.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) file while
-**TARGET_FILE_LOCATION** at Event Consumer's 
-[.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) file. 
-Further instructions are found at 
-[Environment variables](#environment-variables) section.
 
 **To run events through Docker refer [here](#docker).**
 
@@ -160,12 +150,10 @@ at the `config.py` file.</br>
 # Usage
 [(Back to top)](#table-of-contents)
 
-`IMPORTANT NOTE`: You will need to 1<sup>st</sup> run the API before the propagator.
-
-After the requirements are met, the package is set at your directory and two terminal windows are run you 
+`IMPORTANT NOTE:` You will need to 1<sup>st</sup> run the API before the propagator. After the requirements are met, the package is set at your directory and two terminal windows are run you 
 are ready to make the communication between two services.  
-- For the 1<sup>st</sup> terminal window to run an Event Consumer (FLASK API) you will need to provide 
-- the python file with no arguments:<sup>1</sup> 
+- For the 1<sup>st</sup> terminal window to run an Event Consumer (Flask API) you will need to provide 
+the python file with no arguments:<sup>1</sup> 
 ```
 >>> python main.py
  * Serving Flask app 'main' (lazy loading)
@@ -230,7 +218,7 @@ for Propagator Event.
 
 Before running events on Docker, you will need to make a bit of changes in `.env` file:
 - Refer to [Configuration](#configuration) for instructions to change **ENDPOINT** (particularly)
-and other fields on `.env` files if you don't want to use default VARIABLES on which the below Docker 
+and other fields on `.env` files if you don't want to use default environment variables on which the below Docker 
 commands are written for running Docker.
 
 After the ENDPOINT is set, the rest of the variables are default, the package is set at your directory and 
@@ -273,8 +261,7 @@ INPUT_FILE_LOCATION at respective `.env` files. It could look something like thi
 `'/ServicesCommunication/EventConsumer/output/events.json'`for Event Consumer `.env` file and for EventPropagator `.env`
 file like this `'/ServicesCommunication/EventPropagator/events.json'`.
 
-If you wish to see what you should see on either terminal window through Docker go to [Usage](#usage)  
-as it should be the same as shown locally there.
+If you wish to see what you should see on either terminal window through Docker go to [Usage](#usage) as it should be the same as shown locally there.
 
 To cancel either of the services when both are running on Docker and you are happy press `CTRL+C`.
 
@@ -293,9 +280,7 @@ as extracted from the
 [(Back to top)](#table-of-contents)
 
 Test folder to check the functionality of a created Event Consumer API can be found 
-[here](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer/Tests).
-
-Then by going to 
+[here](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer/Tests). Then by going to 
 [Event Consumer's](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer) folder, 
 one can run this test command:
 ``` 
@@ -310,15 +295,14 @@ module. </br>
 [(Back to top)](#table-of-contents)
 
 
-To check the linting of the applications go to first navigate to the program's folder - 
-[Communication-of_services](https://github.com/aurimas13/Communication-of-services) - where it is extracted, 
-one can check the source files for errors:
+To check the linting of the applications navigate to the program's folder - 
+[Services Communication](https://github.com/aurimas13/Communication-of-services) - and run below command:
 ```
 >>> pyflakes .
 ```
-To check the linting of the applications go to 
+To check the linting of the API event go to 
 [Event Consumer's](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer) folder 
-and please run:
+and run:
 ```
 >>> pyflakes tests/tests.py
 ```
