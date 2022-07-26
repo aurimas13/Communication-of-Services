@@ -10,7 +10,7 @@
 
 ------
 
-The program communicates between two services - [Event Consumer](#event-consumer) & [Event Propagator](#event-propagator). The created Event Consumer program is a FLASK API that receives requests from Event Propagator. 
+The program communicates between two services - [Event Consumer](#event-consumer) & [Event Propagator](#event-propagator). The created Event Consumer program is a Flask API that receives requests from Event Propagator. 
 This repository contains the Event Consumer API app and Event Propagator app.
 
 Please refer to [Requirements](#requirements) for importing required libraries before looking at the [Usage](#usage) of the app or [Configuration](#configuration), [Environment variables](#environment-variables), [Docker](#docker), [Tests](#tests) and other fields.
@@ -39,7 +39,7 @@ Please refer to [Requirements](#requirements) for importing required libraries b
 
 The [Event Consumer](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer) is an API application that has a default endpoint as **/event** to receive events 
 and then process them while validating the incoming request through [data_validation.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/src/data_validation.py).
-The program also involves [main file](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/main.py) that creates a FLASK API, [output.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/src/output.py) 
+The program also involves [main file](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/main.py) that is the entrypoint of the Flask API", [output.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/src/output.py) 
 that opens a data file, [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/config.py)
 with [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) that define constant VARIABLES &
 [routes.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/src/routes.pyy) that contains the endpoint of the application.
@@ -108,6 +108,13 @@ with the same **PORT** as in the Event's Consumer `.env` file.
 # Environment variables
 [(Back to top)](#table-of-contents)
 
+These are the environment variables you can tweak to use in the applications.<sup>1,2,3,4,5</sup> 
+`WAIT_SECONDS` - set the time period with which to send requests from the propagator to the API
+`ENDPOINT` - define the endpoint
+`INPUT_FILE_LOCATION` - define the input event JSON file
+`PORT` - define the port number for the Flask API
+`TARGET_FILE_LOCATION` - define where write the output file
+
 WAIT_SECONDS, ENDPOINT, INPUT_FILE_LOCATION, PORT & TARGET_FILE_LOCATION variables 
 (*set the time*, *define the endpoint*, *define the input data file directory*, *define the port number* & *write the output file with directory*) 
 are configurable through `.env` files by adding or changing the value found on a specific event folder like this:<sup>1,2,3,4,5</sup>
@@ -129,7 +136,8 @@ changed by leaving an empty string at the `.env` file under the VARIABLE name an
 # Usage
 [(Back to top)](#table-of-contents)
 
-After the requirements are met, the package is set at your directory and two terminal windows are run you are ready to make the communication between two services:
+`IMPORTANT NOTE`: You will need to 1<sup>st</sup> run the API before the propagator.
+After the requirements are met, the package is set at your directory and two terminal windows are run you are ready to make the communication between two services.  
 - For the 1<sup>st</sup> terminal window to run an Event Consumer (FLASK API) you will need to provide the python file with no arguments:<sup>1</sup> 
 ```
 >>> python main.py
@@ -190,7 +198,7 @@ Before running events on Docker, you will need to make a bit of changes in `.env
 - Refer to [Configuration](#configuration) for instructions to change **ENDPOINT** (particularly)
 and other fields on `.env` files if you don't want to use default VARIABLES on which the below Docker commands are written for running Docker.
 
-After the **ENDPOINT** is set, the rest VARIABLES are default, the package is set at your directory and two Docker terminal windows are run, follow this<sup>1</sup>:
+After the ENDPOINT is set, the rest of the variables are default, the package is set at your directory and two Docker terminal windows are run, follow this<sup>1</sup>:
 1) To build docker image on the 1<sup>st</sup> terminal window for the Event Consumer you need to go to the EventConsumer folder locally and run:
 ``` 
 >>> docker build -t eventconsumer .  
@@ -230,24 +238,10 @@ To cancel either of the services when both are running on Docker and you are hap
 
 <br><sup>1</sup> Be sure to have opened two different terminal windows for communication  between services</br>
 
-
-# Functions
-[(Back to top](#table-of-contents)
-
-Overview of functions found inside modules - ***main.py***, ***routes.py***, ***output.py*** & ***propagate.py***:
-
-- **create_app()** creates a FLASK API.
-- **event_endpoint():** takes a request and returns JSON object.
-- **persist_output(json_string, target_path)** takes a request as **json_string** and writes it to **target_path** file.
-- **send_events()** opens a data from an input file, reads data from it, randomly converts it to JSON data and sends a POST request.
-
-In depth explanations of the functions can be found inside modules.
-
-
 # Dataset
 [(Back to top)](#table-of-contents)
 
-The dataset to use is [events.json](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/events.json) 
+The dataset to use for event generation is [events.json](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/events.json) 
 as extracted from the [task](https://github.com/aurimas13/Communication-of-services/blob/main/Public/Task.md) file that contains 11 values.
 
 
