@@ -23,7 +23,6 @@ def send_events() -> None:
     threading.Timer(int(WAIT_SECONDS), send_events).start()
 
 
-# send_events()
 if __name__ == '__main__':
     try:
         send_events()

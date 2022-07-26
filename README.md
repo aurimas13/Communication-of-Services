@@ -10,7 +10,7 @@
 
 ------
 
-The program communicates between two events - [Event Consumer](#event-consumer) & [Event Propagator](#event-propagator). The created Event Consumer program is a FLASK API that receives requests from Event Propagator. 
+The program communicates between two services - [Event Consumer](#event-consumer) & [Event Propagator](#event-propagator). The created Event Consumer program is a FLASK API that receives requests from Event Propagator. 
 This repository contains **modules** like [main.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/main.py) that runs the Event Consumer API and 
 [propagate.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) that runs Event Propagator service.
 
@@ -50,7 +50,7 @@ with [.env](https://github.com/aurimas13/Communication-of-services/blob/main/Eve
 [(Back to top)](#table-of-contents)
 
 The [Event Propagator](https://github.com/aurimas13/Communication-of-services/tree/main/EventPropagator) send requests to the Event Consumer API using the **/event** endpoint. 
-It randomly takes one event if the events are from a given JSON data file. The function (*send_events()*), imports and other functionalities are written in [propagator.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) module 
+It randomly takes one event if the events are from a given JSON data file. The function (**send_events()**), imports and other functionalities are written in [propagator.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) module 
 while VARIABLES that can be modified are mentioned in [Configuration](#configuration) section and are in 
 the [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) file.
 
@@ -144,7 +144,7 @@ After the requirements are met, the package is set at your directory and two ter
  * Running on http://192.168.0.156:4444/ (Press CTRL+C to quit)
 ```
 - For the 2<sup>nd</sup> terminal window to run Event Propagator and send a request to the Event Consumer API
-you need to provide the python file with no arguments, and it should look like this:<sup>2</sup>
+you will need to provide the python file with no arguments, and it should look like this:<sup>2</sup>
 ```
 >>>  python propagate.py
 {"event_payload":"welcome","event_type":"message"}
@@ -178,7 +178,7 @@ To cancel either of the services when both are running locally and you are happy
 
 <br><sup>1</sup> The output of running Event Consumer API may differ like on what server you are running</br>
 <br><sup>2</sup> The output of Event Propagator can differ from example above as it takes events randomly. </br>
-<br><sup>3</sup> The output of Event Consumer can differ from example above as it might print output in different sequence.</br>
+<br><sup>3</sup> The output of Event Consumer can differ from example above as it might print output in different order.</br>
 
 
 # Docker
