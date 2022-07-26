@@ -12,6 +12,7 @@ from .output import persist_output
 from marshmallow import ValidationError
 from flask import Blueprint
 from flask import request, Response
+
 sys.path.insert(0, "/EventConsumer")
 from config import TARGET_FILE_LOCATION
 
