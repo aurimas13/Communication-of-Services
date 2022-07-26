@@ -10,8 +10,8 @@ from config import WAIT_SECONDS, INPUT_FILE_LOCATION, ENDPOINT
 
 def send_events() -> None:
     '''
-    Opening an input data file that contains JSON values, then randomly selecting an occurrence of such value
-    from the data file, taking this random JSON value event as arequest and sending a response to an ENDPOINT
+    Read Json file from INPUT_FILE_LOCATION and randomly send one of the items from it
+    to the Event Consumer API. The function will keep running with intervals defined by WAIT_SECONDS
     :return: None
     '''
     with open(INPUT_FILE_LOCATION) as f:

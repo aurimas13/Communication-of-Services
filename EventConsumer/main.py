@@ -5,8 +5,8 @@ from flask import Flask
 
 def create_app():
     '''
-    Creating a FLASK API, then taking a configuration file and
-    recording operation of routes to execute it
+    Creating a Flask API, loading a configuration file and
+    registering API endpoints
     :return: <class 'flask.app.Flask'>
     '''
     app = Flask(__name__)

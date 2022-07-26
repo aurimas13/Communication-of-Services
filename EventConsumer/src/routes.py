@@ -14,9 +14,11 @@ routes = Blueprint("routes", __name__)
 @routes.route('/event', methods=["POST"])
 def event_endpoint():
     '''
-    Taking a request value as a string, converting string to JSON object by
-    sending it to persist_output function for conversion
-    :return:
+    The function handles /event POST requests by persisting valid payloads
+    into the TARGET_FILE_LOCATION defined on startup. Successful requests
+    return Success 200 status codes, and invalid requests return
+    a Bad Request with the error message printed
+    :return: Response
     '''
     try:
         request_json = request.get_json(force=True)
