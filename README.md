@@ -132,24 +132,52 @@ Further instructions are found at
 # Environment variables
 [(Back to top)](#table-of-contents)
 
-These are the environment variables you can tweak to use in the applications.<sup>1,2,3,4,5</sup> 
-`WAIT_SECONDS` - set the time period with which to send requests from the propagator to the API
-`ENDPOINT` - define the endpoint
-`INPUT_FILE_LOCATION` - define the input event JSON file
-`PORT` - define the port number for the Flask API
-`TARGET_FILE_LOCATION` - define where write the output file
+These are the environment variables you can tweak to use in the applications: 
+`WAIT_SECONDS` - set the time period with which to send requests from the propagator to the API,
+`ENDPOINT` - define the endpoint,
+`INPUT_FILE_LOCATION` - define the input event JSON file,
+`PORT` - define the port number for the Flask API &
+`TARGET_FILE_LOCATION` - define where write the output file. They are configurable through `.env` files 
+by adding or changing the value found on a specific event folder
+like shown below:<sup>1,2,3,4,5</sup>
 
-WAIT_SECONDS, ENDPOINT, INPUT_FILE_LOCATION, PORT & TARGET_FILE_LOCATION variables 
-(*set the time*, *define the endpoint*, *define the input data file directory*, *define the port number*
-& *write the output file with directory*) 
-are configurable through `.env` files by adding or changing the value found on a specific event folder
-like this:<sup>1,2,3,4,5</sup>
+Example of `.env` file for Event Propagator locally is:
 ```
-WAIT_SECONDS = '<int value in seconds>'
-ENDPOINT = '<server:PORT/endpoint>'
-INPUT_FILE_LOCATION = 'input_file_with_directory'
-PORT='<port number like 4444>'
-INPUT_FILE_LOCATION = 'target_file_with_directory'
+WAIT_SECONDS = '5'
+ENDPOINT = 'http://127.0.0.1:4444/event'
+INPUT_FILE_LOCATION = ''
+```
+or locally alternative:
+```
+ENDPOINT = 'http://127.0.0.1:4444/event'
+INPUT_FILE_LOCATION = '/Users/aurimasnausedas/Documents/Python/ServicesCommunication/EventPropagator/events.json'
+```
+or Docker :
+```
+ENDPOINT = 'http://api_service:4444/event'
+INPUT_FILE_LOCATION = ''
+```
+or Docker alternative:
+```
+ENDPOINT = 'http://api_service:4444/event'
+INPUT_FILE_LOCATION = '/ServicesCommunication/EventPropagator/events.json'
+```
+Example of `.env` file for Event Consumer locally is:
+```
+PORT = '4444'
+TARGET_FILE_LOCATION = ''
+```
+or locally alternative:
+```
+TARGET_FILE_LOCATION = '/Users/aurimasnausedas/Documents/Python/ServicesCommunication/EventConsumer/output/events.json'
+```
+or Docker:
+```
+TARGET_FILE_LOCATION = ''
+```
+or Docker alternative:
+```
+TARGET_FILE_LOCATION = '/ServicesCommunication/EventConsumer/output/events.json'
 ```
 
 <br><sup>1</sup> WAIT_SECONDS is at `.env` file of Event Propagator as described in 
@@ -166,10 +194,12 @@ at the `config.py` file.</br>
 [Configuration](#configuration) section. It can also be
 changed by leaving an empty string at the `.env` file under the VARIABLE name and changing their directory endpoint 
 at the `config.py` file.</br>
+
 # Usage
 [(Back to top)](#table-of-contents)
 
 `IMPORTANT NOTE`: You will need to 1<sup>st</sup> run the API before the propagator.
+
 After the requirements are met, the package is set at your directory and two terminal windows are run you 
 are ready to make the communication between two services.  
 - For the 1<sup>st</sup> terminal window to run an Event Consumer (FLASK API) you will need to provide 
@@ -233,6 +263,8 @@ Setup up of dockerfiles can be found
 for Consumer Event and 
 [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/Dockerfile) 
 for Propagator Event.
+
+`IMPORTANT NOTE:` - You will need to create docker network as shown through the docker run usage of it. 
 
 Before running events on Docker, you will need to make a bit of changes in `.env` file:
 - Refer to [Configuration](#configuration) for instructions to change **ENDPOINT** (particularly)
