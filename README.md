@@ -166,6 +166,7 @@ INFO:werkzeug:127.0.0.1 - - [26/Jul/2022 11:21:52] "POST /event HTTP/1.1" 200 -
 
 Setup up of dockerfiles can be found [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/Dockerfile) for Consumer Event and 
 [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/Dockerfile) for Propagator Event.
+
 After the requirements are met, the package is set at your directory and two Docker terminal windows are run, follow this<sup>1</sup>:
 Before running events on Docker, you will need to make a bit of changes in `config.py` & `.env` files:
 1) At Event Propagator's [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/config.py) ENDPOINT needs to be set on 3<sup>rd</sup> option.
