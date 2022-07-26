@@ -1,5 +1,7 @@
 # Test file for Birthday Reminder Application
 # Created by Aurimas A. Nausedas on 07/23/22.
+# Updated by Aurimas A. Nausedas on 07/25/22.
+
 import json
 
 def test_correct_request_code(client):
