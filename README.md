@@ -158,6 +158,9 @@ INFO:werkzeug:127.0.0.1 - - [26/Jul/2022 11:21:47] "POST /event HTTP/1.1" 200 -
 127.0.0.1 - - [26/Jul/2022 11:21:52] "POST /event HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [26/Jul/2022 11:21:52] "POST /event HTTP/1.1" 200 -
 ```
+
+To cancel either of the services when both are running locally and you are happy press `CTRL+C`.
+
 <br><sup>1</sup> The output of running Event Consumer API may differ like on what server you are running</br>
 <br><sup>2</sup> The output of Event Propagator can differ from example above as it takes events randomly. </br>
 <br><sup>3</sup> The output of Event Consumer can differ from example above as it might print output in different sequence.</br>
@@ -188,24 +191,24 @@ After the **ENDPOINT** is set, the rest VARIABLES are default, the package is se
 ``` python
 > docker run -p 3333:3333 --name propagator --network some_network eventpropagator
 ```
-5) To check whether there are output when running through Docker as for when running locally open the 3<sup>rd</sup> terminal window and EITHER enter directories of API:
-``` python
-> docker exec -it api_service bash
-```
-6) Then go to output folder and run:
-``` python
-> cat events.json
-```
-7) OR if you wish to see logs how requests are sent, in the 3<sup>rd</sup> terminal window you can run this:
+5) If you wish to see logs on how requests are sent, open the 3<sup>rd</sup> terminal window and in it run this:
 ``` python
 docker logs api_service --follow
 ```
+6) If you wish to check whether there are output when running through Docker as for when running locally open the 4<sup>th</sup> terminal window and enter directories of API:
+``` python
+> docker exec -it api_service bash
+```
+7) Then go to output folder and run:
+``` python
+> cat events.json
+```
 
-<br><sup>1</sup> Be sure to have opened two different terminal windows </br>
-<br><sup>2</sup> **<directory_to_python>** should be where you installed python on your machine like /Users/aurimasnausedas/opt/miniconda3/envs/symmetric/bin/python </br>
-<br><sup>3</sup> **<data_file_path>** should be the dataset in the directory of app like in /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp by setting it to Datasets/data_20.csv </br>
+If you wish to see what you should see on either terminal window through Docker go to [Usage](#usage)  as it should be the same as shown locally there.
 
-Syntax customization for Cron Job can be checked [here](https://crontab.guru/).
+To cancel either of the services when both are running on Docker and you are happy press `CTRL+C`.
+
+<br><sup>1</sup> Be sure to have opened two different terminal windows for communication  between services</br>
 
 # Functions
 
@@ -220,12 +223,14 @@ In depth explanations of the functions can be found inside modules.
 
 # Datasets
 
-There are three possible datasets to use. These are [data_20](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Datasets/data_20.csv) of 20 recipients, [data_50](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Datasets/data_50.csv) of 50 recipients and [data_80](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Datasets/data_80.csv) of 80 recipients.
+The dataset to use is [events.json](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/events.json) 
+as extracted from the [task](https://github.com/aurimas13/Communication-of-services/blob/main/Public/Task.md) file that contains 11 JSON values.
 
 # Tests
 
-Test folder to check the functionality of a created API event can be found [here](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer/Tests). 
-An overview of functions found inside a module - [tests.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/Tests/tests.py) of Event Consumer API are<sup>1</sup>:
+Test folder to check the functionality of a created Event Consumer API can be found [here](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer/Tests). 
+An overview of functions found inside a module, [tests.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/Tests/tests.py),
+of Event Consumer API are:<sup>1</sup>
 - *test_correct_request_code(client)* tests if the correct request code is returned.
 - *test_correct_request_output(client)* tests if the correct request output is returned.
 - *test_incorrect_response_code(client)* tests if the incorrect request code is returned for `event_payload`.
@@ -233,13 +238,15 @@ An overview of functions found inside a module - [tests.py](https://github.com/a
 - *test_incorrect_response_for_event_payload(client)* tests if the incorrect request output is returned for `event_payload`.
 - *test_incorrect_response_for_event_type(client)* tests if the incorrect request output is returned for `event_type`.
 
-By first navigating to the program's folder - [Communication-of_services](https://github.com/aurimas13/Communication-of-services) - where it is extracted, one can check source files for errors:
+By first navigating to the program's folder - [Communication-of_services](https://github.com/aurimas13/Communication-of-services) - where it is extracted, 
+one can check the source files for errors:
 ```
 >>> pyflakes .
 ```
 
-Then by going to [Event Consumer's API](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer) folder,  one can run these test commands:
-1) To check source files for errors in test file: 
+Then by going to [Event Consumer's API](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer) folder, 
+one can run these test commands:
+1) To check the source files for errors in test file: 
 ```
 >>> pyflakes Tests/tests.py
 ```
@@ -249,7 +256,7 @@ Then by going to [Event Consumer's API](https://github.com/aurimas13/Communicati
 >>> python -m pytest tests/tests.py
 ```
 
-<br><sup>1</sup> **Event Propagator** does not have tests as there everything is built-in that is used at **propagator.py** </br>
+<br><sup>1</sup> **Event Propagator** does not have tests as everything defined there is built-in used by [**propagator.py**](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) </br>
 
 # Errors
 
