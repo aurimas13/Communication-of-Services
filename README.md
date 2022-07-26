@@ -164,7 +164,7 @@ ERROR:root:Bad request was sent with {'event_type': ['Not a valid string.'], 'ev
 INFO:werkzeug:127.0.0.1 - - [25/Jul/2022 16:16:52] "POST /event HTTP/1.1" 400 -
 127.0.0.1 - - [25/Jul/2022 16:16:57] "POST /event HTTP/1.1" 200 -
 ```
-<br><sup>1</sup> When both services are run Consumer will print the request CODE or ERROR with CODE while Propagator will print the JSON file**<data_file_path>** should look like this - Datasets/data_20.csv, but in your directory. The full path for me would be /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/data_20.csv </br>
+<br><sup>1</sup> The output may differ like what server is run</br>
 <br><sup>2</sup> The output of Event Propagator can differ from example above as it takes events randomly. </br>
 <br><sup>3</sup> The output of Event Consumer can differ from example above as it might print output in different sequence.</br>
 
@@ -190,16 +190,15 @@ Before running events on Docker, you will need to make a bit of changes in `conf
 ``` python
 > docker run -p 3333:3333 --name propagator_name --network some_network eventpropagator
 ```
-7) To check whether there are output when running through Docker as for when running locally open the 3rd terminal window.
-8) Enter directories of API:
+7) To check whether there are output when running through Docker as for when running locally open the 3<sup>rd</sup> terminal window and EITHER enter directories of API:
 ``` python
 > docker exec -it api_service bash
 ```
-9) Go to output folder and run:
+8) Then go to output folder and run:
 ``` python
 > cat events.json
 ```
-If you wish to see logs how requests are sent, in 3rd terminal window you can write this:
+9) OR if you wish to see logs how requests are sent, in the 3<sup>rd</sup> terminal window you can run this:
 ``` python
 docker logs api_service --follow
 ```
