@@ -2,7 +2,7 @@
   <img height="222px" src="https://github.com/aurimas13/Communication-of-services/blob/main/Public/Photo/communication.jpeg"/>
 </p>
 
-<p align="center" > <b> Communication between two events </b> </p>
+<p align="center" > <b> Communication between two services </b> </p>
 <p align=center>
   <a href="https://github.com/aurimas13/Communication-of-services"><img alt="python" src="https://img.shields.io/badge/language-python-blue.svg?style=social&logo=python")></a>
   <a href="https://twitter.com/aurimasnausedas"><img alt="twitter" src="https://img.shields.io/twitter/follow/aurimasnausedas?style=social"/></a>
