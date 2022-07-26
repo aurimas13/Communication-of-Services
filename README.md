@@ -10,10 +10,13 @@
 
 ------
 
-The program communicates between two services - [Event Consumer](#event-consumer) & [Event Propagator](#event-propagator). The created Event Consumer program is a Flask API that receives requests from Event Propagator. 
-This repository contains the Event Consumer API app and Event Propagator app.
+The program communicates between two services - [Event Consumer](#event-consumer) & 
+[Event Propagator](#event-propagator). The created Event Consumer program is a Flask API that 
+receives requests from Event Propagator. This repository contains the Event Consumer API app and Event Propagator app.
 
-Please refer to [Requirements](#requirements) for importing required libraries before looking at the [Usage](#usage) of the app or [Configuration](#configuration), [Environment variables](#environment-variables), [Docker](#docker), [Tests](#tests) and other fields.
+Please refer to [Requirements](#requirements) for importing required libraries before looking at the [Usage](#usage)
+of the app or [Configuration](#configuration), [Environment variables](#environment-variables), [Docker](#docker), 
+[Tests](#tests) and other fields.
 
 # Table of contents
 
@@ -37,19 +40,30 @@ Please refer to [Requirements](#requirements) for importing required libraries b
 # Event Consumer
 [(Back to top)](#table-of-contents)
 
-The [Event Consumer](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer) is an API application that has a default endpoint as **/event** to receive events 
-and then process them while validating the incoming request through [data_validation.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/src/data_validation.py).
-The program also involves [main file](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/main.py) that is the entrypoint of the Flask API", [output.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/src/output.py) 
-that opens a data file, [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/config.py)
-with [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) that define constant VARIABLES &
-[routes.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/src/routes.pyy) that contains the endpoint of the application.
+The [Event Consumer](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer)
+is an API application that has a default endpoint as **/event** to receive events 
+and then process them while validating the incoming request through 
+[data_validation.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/src/data_validation.py).
+The program also involves 
+[main file](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/main.py) 
+that is the entrypoint of the Flask API", 
+[output.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/src/output.py) 
+that opens a data file, 
+[config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/config.py)
+with [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) 
+that define constant VARIABLES &
+[routes.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/src/routes.py) 
+that contains the endpoint of the application.
 
 
 # Event Propagator
 [(Back to top)](#table-of-contents)
 
-The [Event Propagator](https://github.com/aurimas13/Communication-of-services/tree/main/EventPropagator) send requests to the Event Consumer API using the **/event** endpoint. 
-It randomly takes one event if the events are from a given JSON data file. The function (**send_events()**), imports and other functionalities are written in [propagator.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) module 
+The [Event Propagator](https://github.com/aurimas13/Communication-of-services/tree/main/EventPropagator) send requests
+to the Event Consumer API using the **/event** endpoint. 
+It randomly takes one event if the events are from a given JSON data file. The function (**send_events()**), imports 
+and other functionalities are written in 
+[propagator.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) module 
 while VARIABLES that can be modified are mentioned in [Configuration](#configuration) section and are in 
 the [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) file.
 
@@ -58,14 +72,18 @@ the [.env](https://github.com/aurimas13/Communication-of-services/blob/main/Even
 [(Back to top)](#table-of-contents)
 
 Python 3.10.5 is required to properly execute package's modules, imported libraries, defined functions and built-ins. 
-To install the necessary libraries for Event Consumer API and Event Propagator run their respective requirements.txt file on the respective folder
-as shown [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/requirements.txt) and [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/requirements.txt) like this -
+To install the necessary libraries for Event Consumer API and Event Propagator run their respective requirements.txt
+file on the respective folder as shown 
+[here](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/requirements.txt) and 
+[here](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/requirements.txt) like this -
 `pip install -r requirements.txt`.
 
 Inspect [Configuration](#configuration) and [Environment variables](#environment-variable) before proceeding further 
-as for proper usage of the program you might need to run **python3** rather than proposed **python** as shown in the [Usage](#usage).<sup>1</sup>
+as for proper usage of the program you might need to run **python3** rather than proposed **python** a
+s shown in the [Usage](#usage).<sup>1</sup>
 
-<br><sup>1</sup>**python** or **python3** depends on the way how you installed python of version 3.* on your machine. </br>
+<br><sup>1</sup>**python** or **python3** depends on the way how you installed python of version 3.* 
+on your machine. </br>
 
 
 # Configuration
@@ -84,7 +102,8 @@ TARGET_FILE_LOCATION
 ```
 All these VARIABLES are configurable as defined through [Environment Variables](#environment-variables) section.
 
-To run locally you will need to configure the **ENDPOINT** in your Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env).
+To run locally you will need to configure the **ENDPOINT** in your Event Consumer's 
+[.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env).
 The `.env` variable **ENDPOINT** will use the localhost `127.0.0.1` to be run locally, and for running with Docker 
 it will need to be substituted with the defined service name:
 1) For example, for running without Docker in your Event Consumer's `.env` file fill in:
@@ -95,12 +114,17 @@ ENDPOINT='http://127.0.0.1:4444/event'
 ```
 ENDPOINT='http://api_service:4444/event
 ```
-**PORT** can be changed at Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) file and 
-updated at Event Propagator's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) under **ENTRYPOINT** variable 
-with the same **PORT** as in the Event's Consumer `.env` file.
+**PORT** can be changed at Event Consumer's
+[.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) file and 
+updated at Event Propagator's 
+[.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env)
+under **ENTRYPOINT** variable with the same **PORT** as in the Event's Consumer `.env` file.
 
-**INPUT_FILE_LOCATION** can be changed at Event Propagator's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) file while
-**TARGET_FILE_LOCATION** at Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) file. Further instructions are found at 
+**INPUT_FILE_LOCATION** can be changed at Event Propagator's 
+[.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) file while
+**TARGET_FILE_LOCATION** at Event Consumer's 
+[.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) file. 
+Further instructions are found at 
 [Environment variables](#environment-variables) section.
 
 **To run events through Docker refer [here](#docker).**
@@ -116,8 +140,10 @@ These are the environment variables you can tweak to use in the applications.<su
 `TARGET_FILE_LOCATION` - define where write the output file
 
 WAIT_SECONDS, ENDPOINT, INPUT_FILE_LOCATION, PORT & TARGET_FILE_LOCATION variables 
-(*set the time*, *define the endpoint*, *define the input data file directory*, *define the port number* & *write the output file with directory*) 
-are configurable through `.env` files by adding or changing the value found on a specific event folder like this:<sup>1,2,3,4,5</sup>
+(*set the time*, *define the endpoint*, *define the input data file directory*, *define the port number*
+& *write the output file with directory*) 
+are configurable through `.env` files by adding or changing the value found on a specific event folder
+like this:<sup>1,2,3,4,5</sup>
 ```
 WAIT_SECONDS = '<int value in seconds>'
 ENDPOINT = '<server:PORT/endpoint>'
@@ -126,19 +152,28 @@ PORT='<port number like 4444>'
 INPUT_FILE_LOCATION = 'target_file_with_directory'
 ```
 
-<br><sup>1</sup> WAIT_SECONDS is at `.env` file of Event Propagator as described in [Configuration](#configuration) section. </br>
-<br><sup>2</sup> ENDPOINT is at `.env` file of Event Propagator as described in [Configuration](#configuration) section. </br>
-<br><sup>3</sup> INPUT_FILE_LOCATION is at `.env` file of Event Propagator as described in [Configuration](#configuration) section. It can also be
-changed by leaving an empty string at the `.env` file under the VARIABLE name and changing their directory endpoint at the `config.py` file.</br>
-<br><sup>4</sup> PORT is at `.env` file of Event Consumer as described in [Configuration](#configuration) section. </br>
-<br><sup>5</sup> TARGET_FILE_LOCATION is at `.env` file of Event Consumer as described in [Configuration](#configuration) section. It can also be
-changed by leaving an empty string at the `.env` file under the VARIABLE name and changing their directory endpoint at the `config.py` file.</br>
+<br><sup>1</sup> WAIT_SECONDS is at `.env` file of Event Propagator as described in 
+[Configuration](#configuration) section. </br>
+<br><sup>2</sup> ENDPOINT is at `.env` file of Event Propagator as described in 
+[Configuration](#configuration) section. </br>
+<br><sup>3</sup> INPUT_FILE_LOCATION is at `.env` file of Event Propagator as described in 
+[Configuration](#configuration) section. It can also be
+changed by leaving an empty string at the `.env` file under the VARIABLE name and changing their directory endpoint 
+at the `config.py` file.</br>
+<br><sup>4</sup> PORT is at `.env` file of Event Consumer as described in 
+[Configuration](#configuration) section. </br>
+<br><sup>5</sup> TARGET_FILE_LOCATION is at `.env` file of Event Consumer as described in 
+[Configuration](#configuration) section. It can also be
+changed by leaving an empty string at the `.env` file under the VARIABLE name and changing their directory endpoint 
+at the `config.py` file.</br>
 # Usage
 [(Back to top)](#table-of-contents)
 
 `IMPORTANT NOTE`: You will need to 1<sup>st</sup> run the API before the propagator.
-After the requirements are met, the package is set at your directory and two terminal windows are run you are ready to make the communication between two services.  
-- For the 1<sup>st</sup> terminal window to run an Event Consumer (FLASK API) you will need to provide the python file with no arguments:<sup>1</sup> 
+After the requirements are met, the package is set at your directory and two terminal windows are run you 
+are ready to make the communication between two services.  
+- For the 1<sup>st</sup> terminal window to run an Event Consumer (FLASK API) you will need to provide 
+- the python file with no arguments:<sup>1</sup> 
 ```
 >>> python main.py
  * Serving Flask app 'main' (lazy loading)
@@ -166,7 +201,8 @@ you will need to provide the python file with no arguments, and it should look l
 {"event_payload":"Thomas","event_type":"user_left"}
 ```
 
-When Event Consumer and Event Propagator are run on two terminals, the output of Event Consumer on terminal will look like this<sup>3</sup>:
+When Event Consumer and Event Propagator are run on two terminals, the output of Event Consumer on terminal 
+will look like this<sup>3</sup>:
 
 ```
 127.0.0.1 - - [25/Jul/2022 16:16:37] "POST /event HTTP/1.1" 200 -
@@ -185,21 +221,28 @@ To cancel either of the services when both are running locally and you are happy
 
 <br><sup>1</sup> The output of running Event Consumer API may differ like on what server you are running</br>
 <br><sup>2</sup> The output of Event Propagator can differ from example above as it takes events randomly. </br>
-<br><sup>3</sup> The output of Event Consumer can differ from example above as it might print output in different order.</br>
+<br><sup>3</sup> The output of Event Consumer can differ from example above as it might print output 
+in different order.</br>
 
 
 # Docker
 [(Back to top)](#table-of-contents)
 
-Setup up of dockerfiles can be found [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/Dockerfile) for Consumer Event and 
-[here](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/Dockerfile) for Propagator Event.
+Setup up of dockerfiles can be found 
+[here](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/Dockerfile) 
+for Consumer Event and 
+[here](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/Dockerfile) 
+for Propagator Event.
 
 Before running events on Docker, you will need to make a bit of changes in `.env` file:
 - Refer to [Configuration](#configuration) for instructions to change **ENDPOINT** (particularly)
-and other fields on `.env` files if you don't want to use default VARIABLES on which the below Docker commands are written for running Docker.
+and other fields on `.env` files if you don't want to use default VARIABLES on which the below Docker 
+commands are written for running Docker.
 
-After the ENDPOINT is set, the rest of the variables are default, the package is set at your directory and two Docker terminal windows are run, follow this<sup>1</sup>:
-1) To build docker image on the 1<sup>st</sup> terminal window for the Event Consumer you need to go to the EventConsumer folder locally and run:
+After the ENDPOINT is set, the rest of the variables are default, the package is set at your directory and 
+two Docker terminal windows are run, follow this<sup>1</sup>:
+1) To build docker image on the 1<sup>st</sup> terminal window for the Event Consumer you need to go to 
+the EventConsumer folder locally and run:
 ``` 
 >>> docker build -t eventconsumer .  
 ```
@@ -207,7 +250,8 @@ After the ENDPOINT is set, the rest of the variables are default, the package is
 ``` 
 >>> docker run --name api_service --network some_network -p 4444:4444 eventconsumer 
 ```
-3) Then you will have to build docker image on the 2<sup>nd</sup> terminal window for Event Propagator by going to EventPropagator folder locally and running:
+3) Then you will have to build docker image on the 2<sup>nd</sup> terminal window for Event Propagator by going 
+to EventPropagator folder locally and running:
 ``` 
 >>> docker build -t eventpropagator .  
 ```
@@ -219,7 +263,8 @@ After the ENDPOINT is set, the rest of the variables are default, the package is
 ``` 
 >>> docker logs api_service --follow
 ```
-6) If you wish to check whether there are output when running through Docker as for when running locally open the 4<sup>th</sup> terminal window and enter directories of API:
+6) If you wish to check whether there are output when running through Docker as for when running locally open 
+the 4<sup>th</sup> terminal window and enter directories of API:
 ``` 
 >>> docker exec -it api_service bash
 ```
@@ -227,12 +272,15 @@ After the ENDPOINT is set, the rest of the variables are default, the package is
 ```
 >>> cat events.json
 ```
-Be aware that if you run by Docker, the input and target paths need to be defined for the docker container are not your local system specifically.
-By doing the 6 point then you can write simply `>>> pwd` and hence add that location to `.env` file for TARGET_FILE_LOCATION as
-`'/ServicesCommunication/EventConsumer/output/events.json'`for Event Consumer and changing directories of EventConsumer to EventPropagator update
-INPUT_FILE_LOCATION in `.env` like this `'/ServicesCommunication/EventPropagator/events.json'`.
+Be aware that if you run by Docker, the input and target paths need to be defined for the docker container are not your
+local system specifically. By executing `>>> docker exec -it api_service bash` or `>>> docker exec -it propagator bash` 
+then go to where `events.json1` is and by running in terminal `>>> pwd` you may update TARGET_FILE_LOCATION or 
+INPUT_FILE_LOCATION at respective `.env` files. It could look something like this
+`'/ServicesCommunication/EventConsumer/output/events.json'`for Event Consumer `.env` file and for EventPropagator `.env`
+file like this `'/ServicesCommunication/EventPropagator/events.json'`.
 
-If you wish to see what you should see on either terminal window through Docker go to [Usage](#usage)  as it should be the same as shown locally there.
+If you wish to see what you should see on either terminal window through Docker go to [Usage](#usage)  
+as it should be the same as shown locally there.
 
 To cancel either of the services when both are running on Docker and you are happy press `CTRL+C`.
 
@@ -241,30 +289,27 @@ To cancel either of the services when both are running on Docker and you are hap
 # Dataset
 [(Back to top)](#table-of-contents)
 
-The dataset to use for event generation is [events.json](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/events.json) 
-as extracted from the [task](https://github.com/aurimas13/Communication-of-services/blob/main/Public/Task.md) file that contains 11 values.
+The dataset to use for event generation is 
+[events.json](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/events.json) 
+as extracted from the 
+[task](https://github.com/aurimas13/Communication-of-services/blob/main/Public/Task.md) file that contains 11 values.
 
 
 # Tests
 [(Back to top)](#table-of-contents)
 
-Test folder to check the functionality of a created Event Consumer API can be found [here](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer/Tests). 
-An overview of functions found inside a module, [tests.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/Tests/tests.py),
-of Event Consumer API are:<sup>1</sup>
-- *test_correct_request_code(client)* tests if the correct response code is returned by taking a request as client.
-- *test_correct_request_output(client)* tests if the correct response output is returned by taking a request as client.
-- *test_incorrect_response_code(client)* tests if the incorrect response code is returned for `event_payload` by taking a request as client.
-- *test_incorrect_response_code_two(client)* tests if the incorrect response code is returned for `event_type` by taking a request as client.
-- *test_incorrect_response_for_event_payload(client)* tests if the incorrect response output is returned for `event_payload` by taking a request as client.
-- *test_incorrect_response_for_event_type(client)* tests if the incorrect response output is returned for `event_type` by taking a request as client.
+Test folder to check the functionality of a created Event Consumer API can be found 
+[here](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer/Tests).
 
-By first navigating to the program's folder - [Communication-of_services](https://github.com/aurimas13/Communication-of-services) - where it is extracted, 
+By first navigating to the program's folder - 
+[Communication-of_services](https://github.com/aurimas13/Communication-of-services) - where it is extracted, 
 one can check the source files for errors:
 ```
 >>> pyflakes .
 ```
 
-Then by going to [Event Consumer's](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer) folder, 
+Then by going to 
+[Event Consumer's](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer) folder, 
 one can run these test commands:
 1) To check the source files for errors in test file: 
 ```
@@ -277,7 +322,8 @@ one can run these test commands:
 ```
 
 <br><sup>1</sup> **Event Propagator** does not have tests as everything defined there is built-in used by
-[**propagator.py**](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) module. </br>
+[**propagator.py**](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) 
+module. </br>
 
 
 # Public
