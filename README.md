@@ -197,7 +197,7 @@ docker logs api_service --follow
 ```
 6) If you wish to check whether there are output when running through Docker as for when running locally open the 4<sup>th</sup> terminal window and enter directories of API:
 ``` python
-> docker exec -it api_service bash
+>>> docker exec -it api_service bash
 ```
 7) Then go to output folder and run:
 ``` python
