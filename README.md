@@ -27,7 +27,7 @@ Please refer to [Requirements](#requirements) for importing libraries, packages 
 - [Usage](#usage)
 - [Docker](#docker)
 - [Functions](#functions)
-- [Datasets](#datasets)
+- [Dataset](#dataset)
 - [Tests](#tests)
 - [Public](#public)
 - [Logo](#photo)
@@ -234,18 +234,18 @@ To cancel either of the services when both are running on Docker and you are hap
 Overview of functions found inside modules - ***main.py***, ***routes.py***, ***output.py*** & ***propagate.py***:
 
 - **create_app()** creates a FLASK API.
-- **event_endpoint():** takes a request and returns json event.
+- **event_endpoint():** takes a request and returns JSON object.
 - **persist_output(json_string, target_path)** takes a request as **json_string** and writes it to **target_path** file.
 - **send_events()** opens a data from an input file, reads data from it, randomly converts it to JSON data and sends a POST request.
 
 In depth explanations of the functions can be found inside modules.
 
 
-# Datasets
+# Dataset
 [(Back to top)](#table-of-contents)
 
 The dataset to use is [events.json](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/events.json) 
-as extracted from the [task](https://github.com/aurimas13/Communication-of-services/blob/main/Public/Task.md) file that contains 11 JSON values.
+as extracted from the [task](https://github.com/aurimas13/Communication-of-services/blob/main/Public/Task.md) file that contains 11 values.
 
 
 # Tests
@@ -267,7 +267,7 @@ one can check the source files for errors:
 >>> pyflakes .
 ```
 
-Then by going to [Event Consumer's API](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer) folder, 
+Then by going to [Event Consumer's](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer) folder, 
 one can run these test commands:
 1) To check the source files for errors in test file: 
 ```
@@ -279,7 +279,8 @@ one can run these test commands:
 >>> python -m pytest tests/tests.py
 ```
 
-<br><sup>1</sup> **Event Propagator** does not have tests as everything defined there is built-in used by [**propagator.py**](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py). </br>
+<br><sup>1</sup> **Event Propagator** does not have tests as everything defined there is built-in used by
+[**propagator.py**](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) module. </br>
 
 
 # Public
