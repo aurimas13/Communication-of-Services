@@ -167,11 +167,11 @@ INFO:werkzeug:127.0.0.1 - - [26/Jul/2022 11:21:52] "POST /event HTTP/1.1" 200 -
 Setup up of dockerfiles can be found [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/Dockerfile) for Consumer Event and 
 [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/Dockerfile) for Propagator Event.
 
-Before running events on Docker, you will need to make a bit of changes in `.env` file:
-1) Refer to [Configuration](#configuration) for instructions to change ENDPOINT at Event Propagator's [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/config.py) ENDPOINT needs to be set on 3<sup>rd</sup> option.
-3) At Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) PORT has to be assigned to the same as in 3<sup>rd</sup> step
-After the requirements are met, the package is set at your directory and two Docker terminal windows are run, follow this<sup>1</sup>:
-4) Then you will need to build docker image on the 1<sup>st</sup> terminal window for Event Consumer by going to the EventConsumer folder locally and running:
+Before running events on Docker, you will need to make a bit of changes in `.env` file:-
+- Refer to [Configuration](#configuration) for instructions to change ENDPOINT at Event Propagator's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) for running Docker.
+
+After **ENDPOINT** is set, the package is set at your directory and two Docker terminal windows are run, follow this<sup>1</sup>:
+3) Then you will need to build docker image on the 1<sup>st</sup> terminal window for Event Consumer by going to the EventConsumer folder locally and running:
 ``` python
 >>> docker build -t eventconsumer .  
 ```
