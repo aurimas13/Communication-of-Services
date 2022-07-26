@@ -77,8 +77,7 @@ TARGET_FILE_LOCATION
 WAIT_SECONDS & PORT VARIABLES are configurable as defined through [Environment Variables](#environment-variables) section.
 
 To run locally you will need to configure in your Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) file
-the value of the endpoint to use. The **env** variable **ENDPOINT** will use the localhost `127.0.0.1` to be run locally,
-and for running with Docker it will need to be substituted with the service name.
+the value of the endpoint to use. The `.env` variable **ENDPOINT** will use the localhost `127.0.0.1` to be run locally, and for running with Docker it will need to be substituted with the service name:
 1) For example, for running without Docker in your Event Consumer's `.env` file fill in::
 ```
 ENDPOINT='http://127.0.0.1:4444/event'
