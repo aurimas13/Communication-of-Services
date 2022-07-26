@@ -95,7 +95,7 @@ WAIT_SECONDS
 ENDPOINT
 INPUT_FILE_LOCATION
 ```
-and for [Event Consumer API]((#event-consumer)):
+and for [Event Consumer]((#event-consumer)):
 ```
 PORT
 TARGET_FILE_LOCATION
@@ -114,11 +114,13 @@ ENDPOINT='http://127.0.0.1:4444/event'
 ```
 ENDPOINT='http://api_service:4444/event
 ```
-**PORT** can be changed at Event Consumer's
+**PORT** is changed at Event Consumer's
 [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) file and 
 updated at Event Propagator's 
-[.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env)
-under **ENTRYPOINT** variable with the same **PORT** as in the Event's Consumer `.env` file.
+[.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) file
+under **ENTRYPOINT** variable with the same **PORT** as in the Event's Consumer `.env` file. This could look like this: `
+PORT=4444` and `ENDPOINT = 'http://127.0.0.1:4444/event'` locally or `PORT=4444` and 
+`ENDPOINT = 'http://api_servicd:4444/event` through Docker.
 
 **INPUT_FILE_LOCATION** can be changed at Event Propagator's 
 [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) file while
