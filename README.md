@@ -201,7 +201,7 @@ docker logs api_service --follow
 ```
 7) Then go to output folder and run:
 ``` python
-> cat events.json
+>>> cat events.json
 ```
 
 If you wish to see what you should see on either terminal window through Docker go to [Usage](#usage)  as it should be the same as shown locally there.
@@ -256,7 +256,7 @@ one can run these test commands:
 >>> python -m pytest tests/tests.py
 ```
 
-<br><sup>1</sup> **Event Propagator** does not have tests as everything defined there is built-in used by [**propagator.py**](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) </br>
+<br><sup>1</sup> **Event Propagator** does not have tests as everything defined there is built-in used by [**propagator.py**](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py). </br>
 
 # Errors
 
