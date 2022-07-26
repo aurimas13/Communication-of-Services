@@ -16,7 +16,6 @@ This repository contains **modules** like [main.py](https://github.com/aurimas13
 
 Please refer to [Requirements](#requirements) for importing libraries, packages and additional modules before looking at the [Usage](#usage) of the app or [Configuration](#configuration), [Environment variables](#environment-variables), [Docker](#docker), [Tests](#tests) and other fields.
 
----
 # Table of contents
 
 - [Table of contents](#table-of-contents)
@@ -34,7 +33,7 @@ Please refer to [Requirements](#requirements) for importing libraries, packages 
 - [Logo](#photo)
 - [License](#license)
 
----
+
 
 # Event Consumer
 [(Back to top)](#table-of-contents)
@@ -46,7 +45,7 @@ that opens a json data file,[config.py](https://github.com/aurimas13/Communicati
 with [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) that define constant VARIABLES &
 [routes.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/src/routes.pyy) contains the endpoint of the application.
 
----
+
 # Event Propagator
 [(Back to top)](#table-of-contents)
 
@@ -55,7 +54,7 @@ It randomly takes one event if the events are from a given JSON data file. The f
 while VARIABLES that can be modified are mentioned in [Configuration](#configuration) section and are in 
 the [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) file.
 
----
+
 # Requirements
 [(Back to top)](#table-of-contents)
 
@@ -69,7 +68,7 @@ as for proper usage of the program you might need to run **python3** rather than
 
 <br><sup>1</sup>**python** or **python3** depends on the way how you installed python of version 3.* on your machine. </br>
 
----
+
 # Configuration
 [(Back to top)](#table-of-contents)
 
@@ -105,7 +104,6 @@ updated at Event Propagator's [.env](https://github.com/aurimas13/Communication-
 
 **To run events through Docker refer [here](#docker).**
 
----
 # Environment variables
 [(Back to top)](#table-of-contents)
 
@@ -125,7 +123,6 @@ TARGET_FILE_LOCATION =
 <br><sup>4</sup> PORT is at `.env` file of Event Consumer as described in [Configuration](#configuration) section. </br>
 <br><sup>5</sup> TARGET_FILE_LOCATION is at `.env` file of Event Consumer as described in [Configuration](#configuration) section. </br>
 
----
 # Usage
 [(Back to top)](#table-of-contents)
 
@@ -179,7 +176,7 @@ To cancel either of the services when both are running locally and you are happy
 <br><sup>2</sup> The output of Event Propagator can differ from example above as it takes events randomly. </br>
 <br><sup>3</sup> The output of Event Consumer can differ from example above as it might print output in different sequence.</br>
 
----
+
 # Docker
 [(Back to top)](#table-of-contents)
 
@@ -226,7 +223,7 @@ To cancel either of the services when both are running on Docker and you are hap
 
 <br><sup>1</sup> Be sure to have opened two different terminal windows for communication  between services</br>
 
----
+
 # Functions
 [(Back to top](#table-of-contents)
 
@@ -239,14 +236,14 @@ Overview of functions found inside modules - ***main.py***, ***routes.py***, ***
 
 In depth explanations of the functions can be found inside modules.
 
----
+
 # Datasets
 [(Back to top)](#table-of-contents)
 
 The dataset to use is [events.json](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/events.json) 
 as extracted from the [task](https://github.com/aurimas13/Communication-of-services/blob/main/Public/Task.md) file that contains 11 JSON values.
 
----
+
 # Tests
 [(Back to top)](#table-of-contents)
 
@@ -280,7 +277,7 @@ one can run these test commands:
 
 <br><sup>1</sup> **Event Propagator** does not have tests as everything defined there is built-in used by [**propagator.py**](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py). </br>
 
----
+
 # Public
 [(Back to top)](#table-of-contents)
 
@@ -300,3 +297,4 @@ The logo of the communication between two services can be found [here](https://g
 
 The MIT [LICENSE](https://github.com/aurimas13/Communication-of-services/blob/main/LICENSE)
 
+---
