@@ -50,4 +50,3 @@ def test_incorrect_response_for_event_type(client):
         "event_payload": "Thomas"
     }))
     assert response.get_json() == {"error": "Validation error - {'event_type': ['Not a valid string.']}"}
-
