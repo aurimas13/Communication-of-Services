@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# Program to run INFINITELY
 import json
 import ast
 import random

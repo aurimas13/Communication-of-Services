@@ -1,8 +1,3 @@
-# Created by Aurimas A. Nausedas on 07/23/22.
-# Updated by Aurimas A. Nausedas on 07/25/22.
-# Updated by Aurimas A. Nausedas on 07/26/22.
-
-
 from config import PORT
 from src.routes import routes
 from flask import Flask
