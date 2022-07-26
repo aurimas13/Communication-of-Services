@@ -167,35 +167,36 @@ INFO:werkzeug:127.0.0.1 - - [26/Jul/2022 11:21:52] "POST /event HTTP/1.1" 200 -
 Setup up of dockerfiles can be found [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/Dockerfile) for Consumer Event and 
 [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/Dockerfile) for Propagator Event.
 
-Before running events on Docker, you will need to make a bit of changes in `.env` file:-
-- Refer to [Configuration](#configuration) for instructions to change ENDPOINT at Event Propagator's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) for running Docker.
+Before running events on Docker, you will need to make a bit of changes in `.env` file:
+- Refer to [Configuration](#configuration) for instructions to change **ENDPOINT** (particularly)
+and other fields on `.env` files if you don't want to use default VARIABLES on which the below Docker commands are written for running Docker.
 
-After **ENDPOINT** is set, the package is set at your directory and two Docker terminal windows are run, follow this<sup>1</sup>:
-3) Then you will need to build docker image on the 1<sup>st</sup> terminal window for Event Consumer by going to the EventConsumer folder locally and running:
+After the **ENDPOINT** is set, the rest VARIABLES are default, the package is set at your directory and two Docker terminal windows are run, follow this<sup>1</sup>:
+1) To build docker image on the 1<sup>st</sup> terminal window for the Event Consumer you need to go to the EventConsumer folder locally and run:
 ``` python
 >>> docker build -t eventconsumer .  
 ```
-4) Followed by a Docker run on the same window:
+2)  Followed by a Docker run on the same window:
 ``` python
 > docker run --name api_service --network some_network -p 4444:4444 eventconsumer 
 ```
-5) Then you will have to build docker image on the 2<sup>nd</sup> terminal window for Event Propagator by going to EventPropagator folder locally and running:
+3) Then you will have to build docker image on the 2<sup>nd</sup> terminal window for Event Propagator by going to EventPropagator folder locally and running:
 ``` python
 > docker build -t eventpropagator .  
 ```
-6) Followed by a Docker run on the 2<sup>nd</sup> window:
+4) Followed by a Docker run on the 2<sup>nd</sup> window:
 ``` python
 > docker run -p 3333:3333 --name propagator --network some_network eventpropagator
 ```
-7) To check whether there are output when running through Docker as for when running locally open the 3<sup>rd</sup> terminal window and EITHER enter directories of API:
+5) To check whether there are output when running through Docker as for when running locally open the 3<sup>rd</sup> terminal window and EITHER enter directories of API:
 ``` python
 > docker exec -it api_service bash
 ```
-8) Then go to output folder and run:
+6) Then go to output folder and run:
 ``` python
 > cat events.json
 ```
-9) OR if you wish to see logs how requests are sent, in the 3<sup>rd</sup> terminal window you can run this:
+7) OR if you wish to see logs how requests are sent, in the 3<sup>rd</sup> terminal window you can run this:
 ``` python
 docker logs api_service --follow
 ```
