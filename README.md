@@ -2,18 +2,19 @@
   <img height="222px" src="https://github.com/aurimas13/Communication-of-services/blob/main/Public/Photo/communication.jpeg"/>
 </p>
 
-<p align="center" > <b> Communication Between Two Services. </b> </p>
+<p align="center" > <b> Communication between two events </b> </p>
 <p align=center>
   <a href="https://github.com/aurimas13/Communication-of-services"><img alt="python" src="https://img.shields.io/badge/language-python-blue.svg?style=social&logo=python")></a>
   <a href="https://twitter.com/aurimasnausedas"><img alt="twitter" src="https://img.shields.io/twitter/follow/aurimasnausedas?style=social"/></a>
 </p>
 
-------
+_------
 
-The program communicates between two events - [Event Consumer](#event-consumer) & [Event Propagator](#event-propagator). The created Event Consumer program is a FLASK API that receives requests from Event Propagator program. 
-This repository contains **modules** like [main.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/main.py) that runs the Event Consumer event and 
+The program communicates between two events - [Event Consumer](#event-consumer) & [Event Propagator](#event-propagator). The created Event Consumer program is a FLASK API that receives requests from Event Propagator. 
+This repository contains **modules** like [main.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/main.py) that runs the Event Consumer API and 
 [propagate.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) that runs Event Propagator event.
-Please refer to [Requirements](#requirements) for importing libraries, packages and additional modules before looking at the [Usage](#usage) of the app or [Functions](#functions), [Tests](#tests) and other fields.
+
+Please refer to [Requirements](#requirements) for importing libraries, packages and additional modules before looking at the [Usage](#usage) of the app or [Configuration](#configuration), [Environment variables](#environment-variables), [Tests](#tests) and other fields.
 
 # Table of contents
 
@@ -28,11 +29,11 @@ Please refer to [Requirements](#requirements) for importing libraries, packages 
 - [Functions](#functions)
 - [Datasets](#datasets)
 - [Tests](#tests)
-- [Error](#errors)
 - [Public](#public)
 - [Logo](#photo)
 - [License](#license)
 
+---
 
 # Event Consumer
 
@@ -43,6 +44,7 @@ that opens a json data file,[config.py](https://github.com/aurimas13/Communicati
 with [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) that define constant VARIABLES &
 [routes.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/src/routes.pyy) contains the endpoint of the application.
 
+---
 # Event Propagator
 
 The [Event Propagator](https://github.com/aurimas13/Communication-of-services/tree/main/EventPropagator) send request to the Event Consumer API using the **/event** endpoint. 
@@ -50,6 +52,7 @@ It randomly takes one event if the events are from a given JSON data file. The f
 while VARIABLES that can be modified are mentioned in [Configuration](#configuration) section and are in 
 the [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) file.
 
+---
 # Requirements
 
 Python 3.10.5 is required to properly execute package's modules, imported libraries, defined functions and built-ins. 
@@ -62,6 +65,7 @@ as for proper usage of the program you might need to run **python3** rather than
 
 <br><sup>1</sup>**python** or **python3** depends on the way how you installed python of version 3.* on your machine. </br>
 
+---
 # Configuration
 
 Some VARIABLES can be changed as instructed through the task. For [Event Propagator]((#event-propagator)):
@@ -96,6 +100,7 @@ updated at Event Propagator's [.env](https://github.com/aurimas13/Communication-
 
 **To run events through Docker refer [here](#docker).**
 
+---
 # Environment variables
 
 WAIT_SECONDS, ENDPOINT, INPUT_FILE_LOCATION, PORT & TARGET_FILE_LOCATION variables 
@@ -114,6 +119,7 @@ TARGET_FILE_LOCATION =
 <br><sup>4</sup> PORT is at `.env` file of Event Consumer as described in [Configuration](#configuration) section. </br>
 <br><sup>5</sup> TARGET_FILE_LOCATION is at `.env` file of Event Consumer as described in [Configuration](#configuration) section. </br>
 
+---
 # Usage
 
 After the requirements are met, the package is set at your directory and two terminal windows are run you are ready to make the communication between two services:
@@ -166,6 +172,7 @@ To cancel either of the services when both are running locally and you are happy
 <br><sup>2</sup> The output of Event Propagator can differ from example above as it takes events randomly. </br>
 <br><sup>3</sup> The output of Event Consumer can differ from example above as it might print output in different sequence.</br>
 
+---
 # Docker
 
 Setup up of dockerfiles can be found [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/Dockerfile) for Consumer Event and 
@@ -211,6 +218,7 @@ To cancel either of the services when both are running on Docker and you are hap
 
 <br><sup>1</sup> Be sure to have opened two different terminal windows for communication  between services</br>
 
+---
 # Functions
 
 Overview of functions found inside modules - ***main.py***, ***routes.py***, ***output.py*** & ***propagate.py***:
@@ -222,11 +230,13 @@ Overview of functions found inside modules - ***main.py***, ***routes.py***, ***
 
 In depth explanations of the functions can be found inside modules.
 
+---
 # Datasets
 
 The dataset to use is [events.json](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/events.json) 
 as extracted from the [task](https://github.com/aurimas13/Communication-of-services/blob/main/Public/Task.md) file that contains 11 JSON values.
 
+---
 # Tests
 
 Test folder to check the functionality of a created Event Consumer API can be found [here](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer/Tests). 
@@ -259,38 +269,7 @@ one can run these test commands:
 
 <br><sup>1</sup> **Event Propagator** does not have tests as everything defined there is built-in used by [**propagator.py**](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py). </br>
 
-# Errors
-
-There could arise a few errors like:
-
-1) 1st argument error if the provided 1st argument is of different format to the csv format:
-```
->>> python bdayreminder.py Datasets/data_20.json 1      
-Traceback (most recent call last):
-  File "/Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/bdayreminder.py", line 237, in <module>
-    run(arg_path, cron_input)
-  File "/Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/bdayreminder.py", line 215, in run
-    raise Exception('ERROR: Wrong data format file')
-Exception: ERROR: Wrong data format file
-```
-2) 1st argument error if the provided 1st argument of data file doesn't exist:
-```
->>> python bdayreminder.py Datasets/data_13.csv 1 
-Traceback (most recent call last):
-  File "/Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/bdayreminder.py", line 237, in <module>
-    run(arg_path, cron_input)
-  File "/Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/bdayreminder.py", line 199, in run
-    raise Exception('ERROR: File doesn\'t exist')
-Exception: ERROR: File doesn't exist
-```
-3) 2nd argument error if the provided 2nd argument is a string:
-```
->>>  python bdayreminder.py Datasets/data_20.csv versada
-Argument passed not an integer
-```
-
-There are more yet these would be the most common.
-
+---
 # Public
 
 Public folder contains three files: 
@@ -298,7 +277,6 @@ Public folder contains three files:
 - [todolist](https://github.com/aurimas13/Communication-of-services/blob/main/Public/todolist.txt) - the TO DO List.
 - [photo](https://github.com/aurimas13/Communication-of-services/blob/main/Public/Photo) - the Photo folder.
 
-[//]: # (- [task.pdf]&#40;https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/task.pdf&#41; - the problem for which this program was implemented.)
 
 # Logo
 
@@ -307,138 +285,4 @@ The logo of the communication between two services can be found [here](https://g
 # License
 
 The MIT [LICENSE](https://github.com/aurimas13/Communication-of-services/blob/main/LICENSE)
-
-
-
----------------
-Apkeisti Propagator'yje config.py ENDPOINT jei docker arba locally
-
-Need two dockerfiles
-
-docker build -t services .  
-docker run -p 4444:4444 services
-
-Enter directories of api: docker exec -it api_service bash
-docker exec -it api_service bash (FLASK stuff)
-
-FLASK api:
-docker build -t api .  
-docker run --name api_service --network some_network -p 4444:4444 api 
-
-Propagator:
-docker build -t propagator .   
-docker run -p 6444:6444 --name propagator_name --network some_network propagator
-
-Paleisti Flask galima per python main.py nuejus i ta flasko direktorija
-arba per
-konsoleje pradzioje rasai export FLASK_APP=main.py kai esi toje direktorijoje
-ir po to paleidi flask run
-Kai changinti direktorija folderi palikti ta pati bet keisti json ar kita failo formata kaip events.json
-
-
-
-# *The Task to Solve by Wednesday (07/27)*
- 
-### Task overview
-
-Create two services that communicate with each other. One that periodically sends out predefined event payloads and another one that consumes them.  
-  
-The code for the task must be written in Python.  
-
-### The first service (Event propagator)
-
-Description: The service should periodically (every N seconds) send a predefined JSON object to a specific HTTP API endpoint.
-
-Requirements for the first service:
-
-1. DONE The period of time should be measured in seconds.
-
-2. DONE The period of time between sent JSON objects(events) should be configurable via a configuration file or startup arguments. config.py -> WAIT_SECONDS | configuration file taking environment variables
-    
-3. DONE The HTTP API endpoint that the payloads are sent to should be configurable via a configuration file or startup arguments.
-    
-4. DONE The predefined JSON objects(events) that can be sent should be read from a file. INPUT_FILE_LOCATION
-    
-5. DONE The location of the JSON objects(events) file should be configurable via a configuration file or startup arguments. config.py -> INPUT_FILE_LOCATION
-    
-6. DONE The algorithm for choosing a specific JSON object(event) to send at each period from all the objects read from file, should be random.
-        
-The array of JSON objects(events) that can be sent individually:  
-
-
-    [
-	    {
-		    "event_type":"message",
-		    "event_payload":"hello"
-	    },
-	    {
-		    "event_type":"user_joined",
-		    "event_payload":"Peter"
-	    },
-	    {
-		    "event_type":"message",
-		    "event_payload":"greetings"
-	    },
-	    {
-		    "event_type":"message",
-		    "event_payload":"no, thanks"
-	    },
-	    {
-		    "event_type":"user_joined",
-		    "event_payload":"Jack"
-		},
-	    {
-		    "event_type":"message",
-		    "event_payload":"yes, please"
-	    },
-	    {
-		    "event_type":"user_joined",
-		    "event_payload":"Thomas"
-	    },
-	    {
-		    "event_type":"message",
-		    "event_payload":"okay"
-	    },
-	    {
-		    "event_type":"message",
-		    "event_payload":"welcome"
-	    },
-	    {
-		    "event_type":"user_left",
-		    "event_payload":"Thomas"
-	    },
-	    {
-		    "event_type":123,
-		    "event_payload":{}
-	    }
-    ]
-
-  
-
-### The second service (Event consumer)
-
-Description: The service should expose a HTTP API endpoint that accepts incoming JSON payloads and persists them to a file.
-
-Requirements for the first service:
-
-7. DONE The service should expose a HTTP API endpoint that accepts incoming POST requests on the path `/event`
-    
-8. DONE The port for running HTTP API should be configurable via a configuration file or startup arguments. config.py -> SERVER_NAME 
-    
-9. DONE The location of the file for the incoming payloads should be configurable via a configuration file or startup arguments. config.py -> TARGET_FILE_LOCATION 
-    
-10. DONE The service should only accept payloads matching this JSON template:
-
-    [
-        {
-            "event_type": string,
-            "event_payload": string
-        }
-    ]
-
-Upon task completion:
-
-- Write an instruction on how to run the project (preferably a Makefile with a predefined launch command)
-    
-- Zip the whole project and its files and send it to both darius.baltakys@cybercare.cc and tomas.vilcinskas@cybercare.cc
 
