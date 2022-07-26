@@ -87,9 +87,9 @@ ENDPOINT='http://127.0.0.1:4444/event'
 ENDPOINT='http://api_service:4444/event
 ```
 In both cases PORT can be changed at Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) file and 
-at Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) PORT has to be assigned the same as in Event's consumer **.env** file .
+at Event Propagator's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) PORT has to be assigned the same as in Event's Consumer `.env` file .
 
-To run events through Docker refer to [here](#docker).
+**To run events through Docker refer to [here](#docker).**
 
 # Environment variables
 
