@@ -9,7 +9,12 @@ import sys
 from config import WAIT_SECONDS, INPUT_FILE_LOCATION, ENDPOINT
 
 
-def send_events():
+def send_events() -> None:
+    '''
+    Opening an input data file that contains JSON values, then randomly selecting an occurrence of such value
+    from the data file, taking this random JSON value event as arequest and sending a response to an ENDPOINT
+    :return: None
+    '''
     with open(INPUT_FILE_LOCATION) as f:
         data = ast.literal_eval(f.read())
         random_data = json.dumps(random.choice(data))

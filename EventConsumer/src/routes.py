@@ -3,7 +3,6 @@
 # Updated by Aurimas A. Nausedas on 07/25/22.
 # Updated by Aurimas A. Nausedas on 07/26/22.
 
-
 import json
 import logging
 import sys
@@ -19,6 +18,11 @@ from config import TARGET_FILE_LOCATION
 routes = Blueprint("routes", __name__)
 @routes.route('/event', methods=["POST"])
 def event_endpoint():
+    '''
+    Taking a request value as a string, converting string to JSON object by
+    sending it to persist_output function for conversion
+    :return:
+    '''
     try:
         request_json = request.get_json(force=True)
         Event().load(request_json)
