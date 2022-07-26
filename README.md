@@ -229,39 +229,28 @@ There are three possible datasets to use. These are [data_20](https://github.com
 
 Test folder to check the functionality of created API event can be found [here](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer/Tests). 
 An overview of functions found inside a module - [tests.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/Tests/tests.py) are:
-- *test_correct_parse_date_ymd()* tests if the correct date is parsed.
-- *test_correct_parse_date_md()* tests if the correct date is parsed.
-- *test_is_date_in_past_old()* tests if the old date is in the past.
-- *test_is_date_in_past_future()* tests if the future date is in the past.
-- *test_is_date_in_past_past_month_day()* tests if the old date is in the past.
-- *test_is_valid_email_good()* tests if the email address is valid.
+- *test_correct_request_code(client)* tests if the correct request code is returned.
+- *test_correct_request_output(client)* tests if the correct date is parsed.
+- *test_incorrect_response_code(client)* tests if the old date is in the past.
+- *test_incorrect_response_code_two(client)* tests if the future date is in the past.
+- *test_incorrect_response_for_event_payload(client)* tests if the old date is in the past.
+- *test_incorrect_response_for_event_type(client)* tests if the email address is valid.
 - *test_is_valid_email_bad()* tests if the email address is invalid.
 
-By first navigating to the program/app folder - [Communivation-of_services](https://github.com/aurimas13/Communication-of-services) - where it is extracted 
-and then going to either [Evenvt Consumer's](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer) or [Event's Propagator's](https://github.com/aurimas13/Communication-of-services/tree/main/EventPropagator) folder
-and one can run these test commands:
-
-[//]: # ([comment]: <> &#40;For DocTest run this command in terminal:&#41;)
-
-[//]: # ()
-[//]: # ([comment]: <> &#40;``` python&#41;)
-
-[//]: # ()
-[//]: # ([comment]: <> &#40;> python -m doctest -v calculator.py&#41;)
-
-[//]: # ()
-[//]: # ([comment]: <> &#40;```&#41;)
-1) To check source files for errors in the project folder:
+By first navigating to the API folder - [Communivation-of_services](https://github.com/aurimas13/Communication-of-services) - where it is extracted 
+and to check source files for errors in the project folder run:
 ```
 >>> pyflakes .
 ```
+Then by going to either [Event Consumer's](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer) folder,  one can run these test commands:
 
-2) To check source files for errors in test file: 
+
+1) To check source files for errors in test file: 
 ```
 >>> pyflakes Tests/tests.py
 ```
 
-3) To check typing for test file:
+2) To check typing for test file:
 ``` 
 >>> python -m pytest Tests/tests.py
 ```

@@ -7,7 +7,7 @@ load_dotenv(path.join(basedir, '.env'))
 
 WAIT_SECONDS = environ.get('WAIT_SECONDS')
 ENDPOINT = environ.get('ENDPOINT')
-INPUT_FILE_LOCATION = path.dirname(path.abspath(__file__)) + '/events.json'
+INPUT_FILE_LOCATION = environ.get("INPUT_FILE_LOCATION") if environ.get("INPUT_FILE_LOCATION") is not None else path.dirname(path.abspath(__file__)) + '/events.json'
 # Running locally - 1:
 # ENDPOINT = "http://127.0.0.1:4444/event" # python.api grazinti SERVER_NAME kaip jei naudociau api_service
 
