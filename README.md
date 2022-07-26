@@ -11,10 +11,9 @@
 ------
 
 The program communicates between two services - [Event Consumer](#event-consumer) & [Event Propagator](#event-propagator). The created Event Consumer program is a FLASK API that receives requests from Event Propagator. 
-This repository contains **modules** like [main.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/main.py) that runs the Event Consumer API and 
-[propagate.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) that runs Event Propagator service.
+This repository contains the Event Consumer API app and Event Propagator app.
 
-Please refer to [Requirements](#requirements) for importing libraries, packages and additional modules before looking at the [Usage](#usage) of the app or [Configuration](#configuration), [Environment variables](#environment-variables), [Docker](#docker), [Tests](#tests) and other fields.
+Please refer to [Requirements](#requirements) for importing required libraries before looking at the [Usage](#usage) of the app or [Configuration](#configuration), [Environment variables](#environment-variables), [Docker](#docker), [Tests](#tests) and other fields.
 
 # Table of contents
 
