@@ -231,12 +231,12 @@ as extracted from the [task](https://github.com/aurimas13/Communication-of-servi
 Test folder to check the functionality of a created Event Consumer API can be found [here](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer/Tests). 
 An overview of functions found inside a module, [tests.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/Tests/tests.py),
 of Event Consumer API are:<sup>1</sup>
-- *test_correct_request_code(client)* tests if the correct response code is returned taking a request as client.
-- *test_correct_request_output(client)* tests if the correct response output is returned taking a request as client.
-- *test_incorrect_response_code(client)* tests if the incorrect request code is returned for `event_payload`.
-- *test_incorrect_response_code_two(client)* tests if the incorrect request code is returned for `event_type`.
-- *test_incorrect_response_for_event_payload(client)* tests if the incorrect request output is returned for `event_payload`.
-- *test_incorrect_response_for_event_type(client)* tests if the incorrect request output is returned for `event_type`.
+- *test_correct_request_code(client)* tests if the correct response code is returned by taking a request as client.
+- *test_correct_request_output(client)* tests if the correct response output is returned by taking a request as client.
+- *test_incorrect_response_code(client)* tests if the incorrect response code is returned for `event_payload` by taking a request as client.
+- *test_incorrect_response_code_two(client)* tests if the incorrect response code is returned for `event_type` by taking a request as client.
+- *test_incorrect_response_for_event_payload(client)* tests if the incorrect response output is returned for `event_payload` by taking a request as client.
+- *test_incorrect_response_for_event_type(client)* tests if the incorrect response output is returned for `event_type` by taking a request as client.
 
 By first navigating to the program's folder - [Communication-of_services](https://github.com/aurimas13/Communication-of-services) - where it is extracted, 
 one can check the source files for errors:
