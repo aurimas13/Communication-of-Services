@@ -63,33 +63,34 @@ For proper usage of the program you might need to run **python3** rather than pr
 
 # Configuration
 
-Some VARIABLES can be changed as instructed through the task. Such are WAIT_SECONDS, ENDPOINT, INPUT_FILE_LOCATION of [Propagator Event](#event-propagator) &
-PORT, TARGET_FILE_LOCATION of [Consumer Event](#event-consumer). 
 Some VARIABLES can be changed as instructed through the task. For [Event Propagator]((#event-propagator)):
+```
 WAIT_SECONDS
 ENDPOINT
 INPUT_FILE_LOCATION
-
+```
 and for [Event Consumer API]((#event-consumer)):
+```
 PORT
 TARGET_FILE_LOCATION
+```
+All these VARIABLES are configurable as defined through [Environment Variables](#environment-variables) section.
 
-WAIT_SECONDS & PORT VARIABLES are configurable as defined through [Environment Variables](#environment-variables) section.
-
-To run locally you will need to configure in your Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) file
-the value of the endpoint to use. The `.env` variable **ENDPOINT** will use the localhost `127.0.0.1` to be run locally, and for running with Docker it will need to be substituted with the service name:
+To run locally you will need to configure in your Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) file -
+the value of the endpoint to use. The `.env` variable **ENDPOINT** will use the localhost `127.0.0.1` to be run locally, and for running with Docker 
+it will need to be substituted with the defined service name:
 1) For example, for running without Docker in your Event Consumer's `.env` file fill in::
 ```
 ENDPOINT='http://127.0.0.1:4444/event'
 ```
-2) And the example for running with Docker where the API is given the name api_service:
+2) And the example for running with Docker where the API is given the name *api_service*:
 ```
 ENDPOINT='http://api_service:4444/event
 ```
-In both cases PORT can be changed at Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) file and 
-at Event Propagator's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) PORT has to be assigned the same as in Event's Consumer `.env` file .
+PORT can be changed at Event Consumer's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) file and 
+updated at Event Propagator's [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) under *ENTRYPOINT* variable the same as in Event's Consumer `.env` file under *PORT*.
 
-**To run events through Docker refer to [here](#docker).**
+**To run events through Docker refer [here](#docker).**
 
 # Environment variables
 
@@ -103,44 +104,35 @@ PORT='<port number like 4444>'
 <br><sup>1</sup> WAIT_SECONDS are at `.env` file of Event Propagator while PORT is at `.env` file of Event Consumer as described in [Configuration](#configuration) section. </br>
 
 # Usage
+
 After the requirements are met, the package is set at your directory and two terminal windows are run, follow this<sup>1</sup>:
 1) For the first terminal window to run an Event Consumer (FLASK API) you will need to provide the python file with no arguments: 
 ```
 >>> python main.py
-* Serving Flask app 'main' (lazy loading)
+ * Serving Flask app 'main' (lazy loading)
  * Environment: production
    WARNING: This is a development server. Do not use it in a production deployment.
    Use a production WSGI server instead.
- * Debug mode: on
+ * Debug mode: off
  * Running on all addresses.
    WARNING: This is a development server. Do not use it in a production deployment.
  * Running on http://192.168.0.156:4444/ (Press CTRL+C to quit)
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 269-212-227
 ```
 The second terminal window to run Event Propagator you should follow this<sup>2</sup>:
 
 2) To run Event Propagator to send an event to the Event Consumer API you need to provide the python file and an argument 0 to send events and in the terminal you will see:
 ```
->>>  python propagate.py 0
-{
-  "event_payload": "yes, please", 
-  "event_type": "message"
-}
+>>>  python propagate.py
+{"event_payload":"welcome","event_type":"message"}
 
-{
-  "event_payload": "Thomas", 
-  "event_type": "user_left"
-}
+{"event_payload":"Thomas","event_type":"user_left"}
 
-{"error": "Validation error - {'event_type': ['Not a valid string.'], 'event_payload': ['Not a valid string.']}"}
-{
-  "event_payload": "no, thanks", 
-  "event_type": "message"
-}
+{"event_payload":"greetings","event_type":"message"}
 
+{"error": "Validation error - {'event_payload': ['Not a valid string.'], 'event_type': ['Not a valid string.']}"}
+{"event_payload":"no, thanks","event_type":"message"}
 
+{"event_payload":"Thomas","event_type":"user_left"}
 ```
 
 3) If in the second terminal window you try running Event Propagator by giving a wrong argument like any other number than 0 or other argument - you will exit the program:
@@ -155,7 +147,6 @@ Exiting Propagator Event
 When Event Consumer and Event Propagator are run on two terminals, the output of Event Consumer (when running it from 1) on terminal will look like this<sup>3</sup>:
 
 ```
-127.0.0.1 - - [25/Jul/2022 16:16:32] "POST /event HTTP/1.1" 200 -
 127.0.0.1 - - [25/Jul/2022 16:16:37] "POST /event HTTP/1.1" 200 -
 127.0.0.1 - - [25/Jul/2022 16:16:42] "POST /event HTTP/1.1" 200 -
 127.0.0.1 - - [25/Jul/2022 16:16:47] "POST /event HTTP/1.1" 200 -
@@ -163,6 +154,9 @@ ERROR:root:Bad request was sent with {'event_type': ['Not a valid string.'], 'ev
 127.0.0.1 - - [25/Jul/2022 16:16:52] "POST /event HTTP/1.1" 400 -
 INFO:werkzeug:127.0.0.1 - - [25/Jul/2022 16:16:52] "POST /event HTTP/1.1" 400 -
 127.0.0.1 - - [25/Jul/2022 16:16:57] "POST /event HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2022 11:21:47] "POST /event HTTP/1.1" 200 -
+127.0.0.1 - - [26/Jul/2022 11:21:52] "POST /event HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Jul/2022 11:21:52] "POST /event HTTP/1.1" 200 -
 ```
 <br><sup>1</sup> The output may differ like what server is run</br>
 <br><sup>2</sup> The output of Event Propagator can differ from example above as it takes events randomly. </br>
@@ -188,7 +182,7 @@ Before running events on Docker, you will need to make a bit of changes in `conf
 ```
 6) Followed by a Docker run on the 2<sup>nd</sup> window:
 ``` python
-> docker run -p 3333:3333 --name propagator_name --network some_network eventpropagator
+> docker run -p 3333:3333 --name propagator --network some_network eventpropagator
 ```
 7) To check whether there are output when running through Docker as for when running locally open the 3<sup>rd</sup> terminal window and EITHER enter directories of API:
 ``` python
@@ -248,7 +242,7 @@ Then by going to [Event Consumer's API](https://github.com/aurimas13/Communicati
 
 2) To check typing for test file:
 ``` 
->>> python -m pytest Tests/tests.py
+>>> python -m pytest tests/tests.py
 ```
 
 <br><sup>1</sup> **Event Propagator** does not have tests as there everything is built-in that is used at **propagator.py** </br>
