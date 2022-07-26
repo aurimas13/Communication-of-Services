@@ -94,7 +94,8 @@ updated at Event Propagator's [.env](https://github.com/aurimas13/Communication-
 
 # Environment variables
 
-WAIT_SECONDS, ENDPOINT, INPUT_FILE_LOCATION, PORT & TARGET_FILE_LOCATION variables (*for the time to randomly send events*, *define the endpoint* and *define the port number*) are configurable through `.env` files found on a specific event folder, respectively.
+WAIT_SECONDS, ENDPOINT, INPUT_FILE_LOCATION, PORT & TARGET_FILE_LOCATION variables 
+(*for the time to randomly send events*, *define the endpoint*, *define the input data file*, *define the port number* & *write the output file name*) are configurable through `.env` files found on a specific event folder, respectively.
 To change these values please go into a `.env` file and add or change the value, like this:<sup>1,2,3,4,5</sup>
 ```
 WAIT_SECONDS = '<int value in seconds>'
