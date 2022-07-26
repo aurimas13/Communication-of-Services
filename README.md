@@ -188,8 +188,8 @@ After the **ENDPOINT** is set, the rest VARIABLES are default, the package is se
 > docker build -t eventpropagator .  
 ```
 4) Followed by a Docker run on the 2<sup>nd</sup> window:
-``` python
-> docker run -p 3333:3333 --name propagator --network some_network eventpropagator
+``` 
+>>> docker run -p 3333:3333 --name propagator --network some_network eventpropagator
 ```
 5) If you wish to see logs on how requests are sent, open the 3<sup>rd</sup> terminal window and in it run this:
 ``` 
