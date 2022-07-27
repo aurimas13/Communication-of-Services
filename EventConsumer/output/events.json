@@ -25,3 +25,17 @@
 {"event_type": "user_left", "event_payload": "Thomas"}
 {"event_type": "message", "event_payload": "okay"}
 {"event_type": "message", "event_payload": "hello"}
+{"event_type": "user_joined", "event_payload": "Jack"}
+{"event_type": "message", "event_payload": "no, thanks"}
+{"event_type": "message", "event_payload": "okay"}
+{"event_type": "message", "event_payload": "welcome"}
+{"event_type": "message", "event_payload": "yes, please"}
+{"event_type": "message", "event_payload": "yes, please"}
+{"event_type": "message", "event_payload": "no, thanks"}
+{"event_type": "user_left", "event_payload": "Thomas"}
+{"event_type": "message", "event_payload": "welcome"}
+{"event_type": "message", "event_payload": "no, thanks"}
+{"event_type": "user_left", "event_payload": "Cosmo"}
+{"event_type": "user_left", "event_payload": "Cosmo"}
+{"event_type": "user_left", "event_payload": "Cosmo"}
+{"event_type": "user_left", "event_payload": "Cosmo"}
