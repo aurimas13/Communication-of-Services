@@ -201,8 +201,7 @@ in different order.</br>
 Setup up of dockerfiles can be found [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/Dockerfile) 
 for Consumer Event and [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/Dockerfile) for Propagator Event.
 
-`IMPORTANT NOTE:` You will need to create docker network as shown through the docker run usage of it. If you do not 
-have a network you will need to create it by running `docker network create some_network`.
+`IMPORTANT NOTE:` You will need to create docker network as shown through the docker run usage of it. If you do not have a network you will need to create it by running `docker network create some_network`.
 
 Before running events on Docker, you will also need to make a bit of changes in `.env` file:
 - Refer to [Configuration](#configuration) for instructions to change **ENDPOINT** (particularly) and other fields on `.env` files if you do not want to use default environment variables on which the below Docker commands are written for running Docker.
@@ -246,6 +245,7 @@ and:
 ```
 make docker_propagator
 ```
+`ADDITIONAL IMPORTANT NOTE:` If you want to run Docker via Makefile and do not want to use the default ports, you will need to update the Makefile command. A future improvement is to replace this with a variable in the Makefile so you do not need to configure it.
 
 Be aware that if you run by Docker, the input and target paths need to be defined for the docker container are not your local system specifically. By executing `docker exec -it api_service bash` or `docker exec -it propagator bash` 
 then go to where `events.json` is and by running `pwd` you may update TARGET_FILE_LOCATION or INPUT_FILE_LOCATION at the respective `.env` files. It could look something like this
