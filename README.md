@@ -247,7 +247,7 @@ Before running events on Docker, you will also need to make a bit of changes in 
 and other fields on `.env` files if you do not want to use default environment variables on which the below Docker 
 commands are written for running Docker.
 
-After the **ENDPOINT** is set, the rest of the variables are default, the package is set at your directory and 
+After the **ENDPOINT** is set, the rest of environment variables are default, the package is set at your directory and 
 two Docker terminal windows are run, follow this<sup>1</sup>:
 1) To build docker image on the 1<sup>st</sup> terminal window for the Event Consumer you need to go to 
 the EventConsumer folder locally and run:
