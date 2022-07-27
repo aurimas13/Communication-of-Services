@@ -242,7 +242,7 @@ for Propagator Event.
 `IMPORTANT NOTE:` You will need to create docker network as shown through the docker run usage of it. If you do not 
 have a network you will need to create it by running `docker network create some_network`.
 
-Before running events on Docker, you will need to make a bit of changes in `.env` file:
+Before running events on Docker, you will also need to make a bit of changes in `.env` file:
 - Refer to [Configuration](#configuration) for instructions to change **ENDPOINT** (particularly)
 and other fields on `.env` files if you don't want to use default environment variables on which the below Docker 
 commands are written for running Docker.
