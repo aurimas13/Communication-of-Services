@@ -4,3 +4,4 @@ DONE 3) Run with Docker
 DONE 4) Update and make nice README.md
 DONE 5) Write to do with docker and locally without
 DONE 6) Update funcs with doc strings
+DONE 7) Added Makefile
