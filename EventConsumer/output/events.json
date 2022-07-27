@@ -376,3 +376,5 @@
 {"event_type": "message", "event_payload": "okay"}
 {"event_type": "message", "event_payload": "greetings"}
 {"event_type": "message", "event_payload": "yes, please"}
+{"event_type": "message", "event_payload": "greetings"}
+{"event_type": "user_joined", "event_payload": "Jack"}
