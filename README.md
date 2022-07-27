@@ -246,7 +246,8 @@ and:
 ```
 >>> make docker_propagator
 ```
-`ADDITIONAL IMPORTANT NOTE:` If you want to run Docker via Makefile and do not want to use the default ports, you will need to update the Makefile command. A future improvement is to replace this with a variable in the Makefile so you do not need to configure it.
+`ADDITIONAL IMPORTANT NOTE:` If you want to run Docker via **Makefile** and do not want to use the default ports, you will need to update the Makefile command. 
+A future improvement is to replace this with a variable in the Makefile so you do not need to configure it.
 
 Be aware that if you run by Docker, the input and target paths need to be defined for the docker container are not your local system specifically. 
 By executing `docker exec -it api_service bash` or `docker exec -it propagator bash` then go to where `events.json` is and by running `pwd` 
@@ -275,7 +276,8 @@ as extracted from the
 [(Back to top)](#table-of-contents)
 
 Test folder to check the functionality of a created Event Consumer API can be found 
-[here](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer/tests).<sup>1</sup> Then by going to [Event Consumer's](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer) folder, one can run this test command:
+[here](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer/tests).<sup>1</sup> Then by going to
+[Event Consumer's](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer) folder, one can run this test command:
 ``` 
 >>> python -m pytest tests/tests.py
 ```
@@ -285,14 +287,14 @@ You can also run tests through **Makefile** command while at root:
 >>> make test
 ```
 
-<br><sup>1</sup> **Event Propagator** does not have tests as everything defined there is built-in used by[**propagator.py**](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) module. </br>
+<br><sup>1</sup> **Event Propagator** does not have tests as everything defined there is built-in used by [propagator.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) module. </br>
 
 # Linting
 [(Back to top)](#table-of-contents)
 
 
 To check the linting of the applications navigate to the program's folder - 
-[Services Communication](https://github.com/aurimas13/Communication-of-services) - and run below command:
+[ServicesCommunication](https://github.com/aurimas13/Communication-of-services) - and run below command:
 ```
 >>> pyflakes .
 ```
