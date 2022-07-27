@@ -131,7 +131,7 @@ TARGET_FILE_LOCATION = ''
 `IMPORTANT NOTE:` Please keep in mind that if you update the EventConsumer's **PORT**, 
 you will need to reflect that change in the EventPropagator's **ENDPOINT** variable, 
 and vice versa. This could look like this: `PORT=4444` and `ENDPOINT = 'http://127.0.0.1:4444/event'` locally or `PORT=4444` and 
-`ENDPOINT = 'http://api_servicd:4444/event` through Docker.
+`ENDPOINT = 'http://api_service:4444/event` through Docker.
 
 **To run events through Docker refer [here](#docker).**
 
