@@ -26,7 +26,6 @@ of the app or [Configuration](#configuration), [Docker](#docker), [Tests](#tests
 - [Configuration](#configuration)
 - [Usage](#usage)
 - [Docker](#docker)
-- [Functions](#functions)
 - [Dataset](#dataset)
 - [Tests](#tests)
 - [Linting](#linting)
