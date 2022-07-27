@@ -36,14 +36,14 @@ Please refer to [Requirements](#requirements) for importing required libraries b
 [(Back to top)](#table-of-contents)
 
 The [Event Consumer](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer) is an API application that has on endpoint, **/event**, to receive events and then process them while validating the incoming request through [data_validation.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/src/data_validation.py). 
-The program also involves [main file](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/main.py) that is the entrypoint of the Flask API, [output.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/src/output.py)vthat opens a data file, [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/config.py) with [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) that define constant environment variables & [routes.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/src/routes.py) that contains the endpoint of the application.
+The program also involves [main file](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/main.py) that is the entrypoint of the Flask API, [output.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/src/output.py) that opens a data file, [config.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/config.py) with [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/.env) that define constant environment variables & [routes.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventConsumer/src/routes.py) that contains the endpoint of the application.
 
 
 # Event Propagator
 [(Back to top)](#table-of-contents)
 
 The [Event Propagator](https://github.com/aurimas13/Communication-of-services/tree/main/EventPropagator) send requests to the Event Consumer API using the **/event** endpoint. 
-It randomly takes one event if the events are from a given JSON data file. The function (**send_events()**), imports and other functionalities are written in 
+It randomly takes one event from a given JSON data file. The function (**send_events()**), imports and other functionalities are written in 
 [propagator.py](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) module while environment variables that can be modified are mentioned in [Configuration](#configuration) section and are in the [.env](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/.env) file.
 
 
@@ -74,7 +74,8 @@ on your machine. </br>
 
 You can configure each of the application via their `.env` files. The environment variables that you will pass
 will be used in the applications globally. To configure the [Event Propagator](#event-propagator), these are the configuration variables:<sup>1,2,3</sup>
-`WAIT_SECONDS` - set the time period with which to send requests from the propagator to the API, `ENDPOINT` - define the endpoint &`INPUT_FILE_LOCATION` - define the input event JSON file. To configure the [Event Consumer](#event-consumer), these are the variables of configuration:<sup>4,5</sup> 
+`WAIT_SECONDS` - set the time period with which to send requests from the propagator to the API, `ENDPOINT` - define the endpoint &`INPUT_FILE_LOCATION` - define the input event JSON file.
+To configure the [Event Consumer](#event-consumer), these are the variables of configuration:<sup>4,5</sup> 
 `PORT` - define the port number for the Flask API &`TARGET_FILE_LOCATION` - define where write the output file.
 
 `IMPORTANT NOTE:` If you do not configure the variables, the applications will use defaults.
@@ -120,8 +121,8 @@ and vice versa. This could look like this: `PORT=4444` and `ENDPOINT = 'http://1
 
 `IMPORTANT NOTE:` You will need to 1<sup>st</sup> run the API before the propagator. 
 
-After the requirements are met, the package is set at your directory, you go to specific folders (`EventConsumer/` or `EventPropagator/`) and two terminal windows are run you are ready to make the communication between two services.  
-- First go to EventConsumer direcory (`cd EventConsumer`) For the 1<sup>st</sup> terminal window to run an Event Consumer (Flask API) you will need to provide the python file with no arguments:<sup>1</sup> 
+After the requirements are met, the package is set at your directory, you go to specific folders (`EventConsumer/` or `EventPropagator/`)and two terminal windows are run you are ready to make the communication between two services.  
+- First go to EventConsumer directory (`cd EventConsumer`) and then for the 1<sup>st</sup> terminal window to run an Event Consumer (Flask API) you will need to provide the python file with no arguments:<sup>1</sup> 
 ```
 >>> python main.py
  * Serving Flask app 'main' (lazy loading)
@@ -133,7 +134,7 @@ After the requirements are met, the package is set at your directory, you go to 
    WARNING: This is a development server. Do not use it in a production deployment.
  * Running on http://192.168.0.156:4444/ (Press CTRL+C to quit)
 ```
-- For the 2<sup>nd</sup> terminal window to run Event Propagator and send a request to the Event Consumer API you will need to provide the python file with no arguments, and it should look like this:<sup>2</sup>
+- Go to EventPropagator directory (`cd EventPropagator`) and then for the 2<sup>nd</sup> terminal window to run Event Propagator and send a request to the Event Consumer API you will need to provide the python file with no arguments, and it should look like this:<sup>2</sup>
 ```
 >>>  python propagate.py
 {"event_payload":"welcome","event_type":"message"}
@@ -247,9 +248,13 @@ and:
 ```
 `ADDITIONAL IMPORTANT NOTE:` If you want to run Docker via Makefile and do not want to use the default ports, you will need to update the Makefile command. A future improvement is to replace this with a variable in the Makefile so you do not need to configure it.
 
-Be aware that if you run by Docker, the input and target paths need to be defined for the docker container are not your local system specifically. By executing `docker exec -it api_service bash` or `docker exec -it propagator bash` 
-then go to where `events.json` is and by running `pwd` you may update TARGET_FILE_LOCATION or INPUT_FILE_LOCATION at the respective `.env` files. It could look something like this
+Be aware that if you run by Docker, the input and target paths need to be defined for the docker container are not your local system specifically. 
+By executing `docker exec -it api_service bash` or `docker exec -it propagator bash` then go to where `events.json` is and by running `pwd` 
+you may update TARGET_FILE_LOCATION or INPUT_FILE_LOCATION at the respective `.env` files. It could look something like this
 `'/ServicesCommunication/EventConsumer/output/events.json'`for Event Consumer's `.env` file and`'/ServicesCommunication/EventPropagator/events.json'` for EventPropagator `.env` file.
+
+Be also aware that if you change PORT environment variable form default when running docker you need to pass that changed PORT environment variable.
+For example if you change to 8000, then command will be `docker run --name api_service --network some_network -p 8000:8000 eventconsumer`.
 
 If you wish to see what you should see on either terminal window through Docker go to [Usage](#usage) as it should be the same as shown locally there.
 
