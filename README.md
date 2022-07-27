@@ -149,7 +149,9 @@ changed by changing the directory output file rather than leaving an empty strin
 # Usage
 [(Back to top)](#table-of-contents)
 
-`IMPORTANT NOTE:` You will need to 1<sup>st</sup> run the API before the propagator. After the requirements are met, the package is set at your directory and two terminal windows are run you 
+`IMPORTANT NOTE:` You will need to 1<sup>st</sup> run the API before the propagator. 
+
+After the requirements are met, the package is set at your directory and two terminal windows are run you 
 are ready to make the communication between two services.  
 - For the 1<sup>st</sup> terminal window to run an Event Consumer (Flask API) you will need to provide 
 the python file with no arguments:<sup>1</sup> 
