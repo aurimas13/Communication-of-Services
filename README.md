@@ -213,6 +213,18 @@ The output of it will look something like this:
 
 127.0.0.1 - - [27/Jul/2022 11:05:05] "POST /event HTTP/1.1" 200 -
 {"event_payload":"greetings","event_type":"message"}
+
+ERROR:root:Bad request was sent with {'event_type': ['Not a valid string.'], 'event_payload': ['Not a valid string.']}
+127.0.0.1 - - [27/Jul/2022 11:14:01] "POST /event HTTP/1.1" 400 -
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2022 11:14:01] "POST /event HTTP/1.1" 400 -
+{"error": "Validation error - {'event_type': ['Not a valid string.'], 'event_payload': ['Not a valid string.']}"}
+127.0.0.1 - - [27/Jul/2022 11:14:06] "POST /event HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2022 11:14:06] "POST /event HTTP/1.1" 200 -
+{"event_payload":"Jack","event_type":"user_joined"}
+
+127.0.0.1 - - [27/Jul/2022 11:14:11] "POST /event HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2022 11:14:11] "POST /event HTTP/1.1" 200 -
+{"event_payload":"Peter","event_type":"user_joined"}
 ```
 
 <br><sup>1</sup> The output of running Event Consumer API may differ like on what server you are running</br>
