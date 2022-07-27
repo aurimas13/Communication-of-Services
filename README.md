@@ -291,11 +291,11 @@ make event_propagator
 ```
 
 Be aware that if you run by Docker, the input and target paths need to be defined for the docker container are not your
-local system specifically. By executing `>>> docker exec -it api_service bash` or `>>> docker exec -it propagator bash` 
-then go to where `events.json` is and by running in terminal `>>> pwd` you may update TARGET_FILE_LOCATION or 
-INPUT_FILE_LOCATION at respective `.env` files. It could look something like this
-`'/ServicesCommunication/EventConsumer/output/events.json'`for Event Consumer `.env` file and for EventPropagator `.env`
-file like this `'/ServicesCommunication/EventPropagator/events.json'`.
+local system specifically. By executing `docker exec -it api_service bash` or `docker exec -it propagator bash` 
+then go to where `events.json` is and by running `pwd` you may update TARGET_FILE_LOCATION or 
+INPUT_FILE_LOCATION at the respective `.env` files. It could look something like this
+`'/ServicesCommunication/EventConsumer/output/events.json'`for Event Consumer's `.env` file and  
+`'/ServicesCommunication/EventPropagator/events.json'` for EventPropagator `.env` file.
 
 If you wish to see what you should see on either terminal window through Docker go to [Usage](#usage) as it should be the same as shown locally there.
 
