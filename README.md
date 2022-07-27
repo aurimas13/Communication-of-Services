@@ -244,7 +244,7 @@ have a network you will need to create it by running `docker network create some
 
 Before running events on Docker, you will also need to make a bit of changes in `.env` file:
 - Refer to [Configuration](#configuration) for instructions to change **ENDPOINT** (particularly)
-and other fields on `.env` files if you don't want to use default environment variables on which the below Docker 
+and other fields on `.env` files if you do not want to use default environment variables on which the below Docker 
 commands are written for running Docker.
 
 After the ENDPOINT is set, the rest of the variables are default, the package is set at your directory and 
