@@ -139,14 +139,12 @@ and vice versa. This could look like this: `PORT=4444` and `ENDPOINT = 'http://1
 [Configuration](#configuration) section. </br>
 <br><sup>3</sup> INPUT_FILE_LOCATION is at `.env` file of Event Propagator as described in 
 [Configuration](#configuration) section. It can also be
-changed by leaving an empty string at the `.env` file under the environment variable name and changing their directory endpoint 
-at the `config.py` file.</br>
+changed by changing their directory endpoint at the `.env` file under the environment variable name.</br>
 <br><sup>4</sup> PORT is at `.env` file of Event Consumer as described in 
 [Configuration](#configuration) section. </br>
 <br><sup>5</sup> TARGET_FILE_LOCATION is at `.env` file of Event Consumer as described in 
 [Configuration](#configuration) section. It can also be
-changed by leaving an empty string at the `.env` file under the environment variable name and changing their directory endpoint 
-at the `config.py` file.</br>
+changed by changing their directory endpoint at the `.env` file under the environment variable name.</br>
 
 # Usage
 [(Back to top)](#table-of-contents)
