@@ -239,7 +239,7 @@ for Consumer Event and
 [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/Dockerfile) 
 for Propagator Event.
 
-`IMPORTANT NOTE:` - You will need to create docker network as shown through the docker run usage of it. If you do not 
+`IMPORTANT NOTE:` You will need to create docker network as shown through the docker run usage of it. If you do not 
 have a network you will need to create it by running `docker network create some_network` before running events.
 
 Before running events on Docker, you will need to make a bit of changes in `.env` file:
