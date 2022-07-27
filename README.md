@@ -70,6 +70,12 @@ the [.env](https://github.com/aurimas13/Communication-of-services/blob/main/Even
 # Requirements
 [(Back to top)](#table-of-contents)
 
+`IMPORTANT NOTE:` To run the services you might need to use the virtual environment:
+```
+virtualenv my_env
+source my_env/bin/activate
+```
+
 Python 3.10.5 is required to properly execute package's modules, imported libraries, defined functions and built-ins. 
 To install the necessary libraries for Event Consumer API and Event Propagator run their respective requirements.txt
 file on the respective folder as shown 
@@ -196,11 +202,23 @@ INFO:werkzeug:127.0.0.1 - - [26/Jul/2022 11:21:52] "POST /event HTTP/1.1" 200 -
 
 To cancel either of the services when both are running locally and you are happy press `CTRL+C`.
 
+You can also run both services on one terminal window by heading to root directory and running **Makefile** command:
+```
+make services
+```
+The output of it will look something like this:
+```
+127.0.0.1 - - [27/Jul/2022 11:05:00] "POST /event HTTP/1.1" 200 -
+{"event_payload":"Jack","event_type":"user_joined"}
+
+127.0.0.1 - - [27/Jul/2022 11:05:05] "POST /event HTTP/1.1" 200 -
+{"event_payload":"greetings","event_type":"message"}
+```
+
 <br><sup>1</sup> The output of running Event Consumer API may differ like on what server you are running</br>
 <br><sup>2</sup> The output of Event Propagator can differ from example above as it takes events randomly. </br>
 <br><sup>3</sup> The output of Event Consumer can differ from example above as it might print output 
 in different order.</br>
-
 
 # Docker
 [(Back to top)](#table-of-contents)
@@ -211,7 +229,8 @@ for Consumer Event and
 [here](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/Dockerfile) 
 for Propagator Event.
 
-`IMPORTANT NOTE:` - You will need to create docker network as shown through the docker run usage of it. 
+`IMPORTANT NOTE:` - You will need to create docker network as shown through the docker run usage of it. If you do not 
+have a network you will need to create it by running `docker network create some_network` before running events.
 
 Before running events on Docker, you will need to make a bit of changes in `.env` file:
 - Refer to [Configuration](#configuration) for instructions to change **ENDPOINT** (particularly)
@@ -251,9 +270,19 @@ the 4<sup>th</sup> terminal window and enter directories of API:
 ```
 >>> cat events.json
 ```
+
+`IMPORTANT NOTE` You can also run services though Docker on two terminal windows by heading to root directory and running **Makefile** commands:
+```
+make event_consumer
+```
+and:
+```
+make event_propagator
+```
+
 Be aware that if you run by Docker, the input and target paths need to be defined for the docker container are not your
 local system specifically. By executing `>>> docker exec -it api_service bash` or `>>> docker exec -it propagator bash` 
-then go to where `events.json1` is and by running in terminal `>>> pwd` you may update TARGET_FILE_LOCATION or 
+then go to where `events.json` is and by running in terminal `>>> pwd` you may update TARGET_FILE_LOCATION or 
 INPUT_FILE_LOCATION at respective `.env` files. It could look something like this
 `'/ServicesCommunication/EventConsumer/output/events.json'`for Event Consumer `.env` file and for EventPropagator `.env`
 file like this `'/ServicesCommunication/EventPropagator/events.json'`.
@@ -282,6 +311,11 @@ Test folder to check the functionality of a created Event Consumer API can be fo
 one can run this test command:
 ``` 
 >>> python -m pytest tests/tests.py
+```
+
+You can also run tests through **Makefile** command while at root:
+```
+make tests/tests.py
 ```
 
 <br><sup>1</sup> **Event Propagator** does not have tests as everything defined there is built-in used by

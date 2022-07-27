@@ -1,23 +1,19 @@
-all: event_consumer event_propagator
-
-servers:
+services:
 	make -j 2 event_consumer event_propagator
 
-event_consumer: setup
+event_consumer:
+	pip install -r EventConsumer/requirements.txt
 	python EventConsumer/main.py
 
 event_propagator:
 	sleep 5
-	python EventPropagator/propagate.py
-
-setup:
-	pip install -r EventConsumer/requirements.txt
 	pip install -r EventPropagator/requirements.txt
+	python EventPropagator/propagate.py
 
 test:
 	python -m pytest EventConsumer/tests/tests.py
 
-# Need to update ENDPOINT environment variable api_service instead of 127.0.0.1 a
+# Need to update ENDPOINT environment variable api_service instead of 127.0.0.1
 docker_consumer:
 	docker build -t eventconsumer EventConsumer/.
 	docker run --name api_service --network some_network -p 4444:4444 eventconsumer
