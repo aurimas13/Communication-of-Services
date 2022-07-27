@@ -120,8 +120,8 @@ and vice versa. This could look like this: `PORT=4444` and `ENDPOINT = 'http://1
 
 `IMPORTANT NOTE:` You will need to 1<sup>st</sup> run the API before the propagator. 
 
-After the requirements are met, the package is set at your directory and two terminal windows are run you are ready to make the communication between two services.  
-- For the 1<sup>st</sup> terminal window to run an Event Consumer (Flask API) you will need to provide the python file with no arguments:<sup>1</sup> 
+After the requirements are met, the package is set at your directory, you go to specific folders (`EventConsumer/` or `EventPropagator/`) and two terminal windows are run you are ready to make the communication between two services.  
+- First go to EventConsumer direcory (`cd EventConsumer`) For the 1<sup>st</sup> terminal window to run an Event Consumer (Flask API) you will need to provide the python file with no arguments:<sup>1</sup> 
 ```
 >>> python main.py
  * Serving Flask app 'main' (lazy loading)
