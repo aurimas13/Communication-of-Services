@@ -3,13 +3,16 @@ all: event_consumer event_propagator
 servers:
 	make -j 2 event_consumer event_propagator
 
-event_consumer:
-	pip install -r EventConsumer/requirements.txt
+event_consumer: setup
 	python EventConsumer/main.py
 
 event_propagator:
-	pip install -r EventPropagator/requirements.txt
+	sleep 5
 	python EventPropagator/propagate.py
+
+setup:
+	pip install -r EventConsumer/requirements.txt
+	pip install -r EventPropagator/requirements.txt
 
 test:
 	python -m pytest EventConsumer/tests/tests.py
