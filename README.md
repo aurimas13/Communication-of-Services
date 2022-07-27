@@ -240,7 +240,7 @@ for Consumer Event and
 for Propagator Event.
 
 `IMPORTANT NOTE:` You will need to create docker network as shown through the docker run usage of it. If you do not 
-have a network you will need to create it by running `docker network create some_network` before running events.
+have a network you will need to create it by running `docker network create some_network`.
 
 Before running events on Docker, you will need to make a bit of changes in `.env` file:
 - Refer to [Configuration](#configuration) for instructions to change **ENDPOINT** (particularly)
