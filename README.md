@@ -100,7 +100,7 @@ will be used in the applications globally. To configure the [Event Propagator](#
 `PORT` - define the port number for the Flask API &
 `TARGET_FILE_LOCATION` - define where write the output file.
 
-If you do not configure the variables, the applications will use defaults.
+`IMPORTANT NOTE:` If you do not configure the variables, the applications will use defaults.
 
 Dependent on whether you run the application via Docker or not, there is an important detail to consider for the value
 of the **ENDPOINT** environment variable.  If you run without Docker, in Event Propagator's `.env` file 
