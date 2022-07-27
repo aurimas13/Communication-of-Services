@@ -167,7 +167,7 @@ To cancel either of the services when both are running locally and you are happy
 
 You can also run both services on one terminal window by heading to root directory and running **Makefile** command:
 ```
-make services
+>>> make services
 ```
 The output of it will look something like this:
 ```
@@ -239,11 +239,11 @@ the EventConsumer folder locally and run:
 
 `IMPORTANT NOTE` You can also run services though Docker on two terminal windows by heading to root directory and running **Makefile** commands:
 ```
-make docker_consumer
+>>> make docker_consumer
 ```
 and:
 ```
-make docker_propagator
+>>> make docker_propagator
 ```
 `ADDITIONAL IMPORTANT NOTE:` If you want to run Docker via Makefile and do not want to use the default ports, you will need to update the Makefile command. A future improvement is to replace this with a variable in the Makefile so you do not need to configure it.
 
@@ -277,7 +277,7 @@ Test folder to check the functionality of a created Event Consumer API can be fo
 
 You can also run tests through **Makefile** command while at root:
 ```
-make test
+>>> make test
 ```
 
 <br><sup>1</sup> **Event Propagator** does not have tests as everything defined there is built-in used by[**propagator.py**](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) module. </br>
