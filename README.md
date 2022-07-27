@@ -240,11 +240,11 @@ the EventConsumer folder locally and run:
 
 `IMPORTANT NOTE` You can also run services though Docker on two terminal windows by heading to root directory and running **Makefile** commands:
 ```
-make event_consumer
+make docker_consumer
 ```
 and:
 ```
-make event_propagator
+make docker_propagator
 ```
 
 Be aware that if you run by Docker, the input and target paths need to be defined for the docker container are not your local system specifically. By executing `docker exec -it api_service bash` or `docker exec -it propagator bash` 
@@ -277,7 +277,7 @@ Test folder to check the functionality of a created Event Consumer API can be fo
 
 You can also run tests through **Makefile** command while at root:
 ```
-make tests/tests.py
+make test
 ```
 
 <br><sup>1</sup> **Event Propagator** does not have tests as everything defined there is built-in used by[**propagator.py**](https://github.com/aurimas13/Communication-of-services/blob/main/EventPropagator/propagate.py) module. </br>
