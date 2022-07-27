@@ -316,7 +316,7 @@ as extracted from the
 [(Back to top)](#table-of-contents)
 
 Test folder to check the functionality of a created Event Consumer API can be found 
-[here](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer/tests).<br><sup>1</sup>  Then by going to 
+[here](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer/tests).<sup>1</sup> Then by going to 
 [Event Consumer's](https://github.com/aurimas13/Communication-of-services/tree/main/EventConsumer) folder, 
 one can run this test command:
 ``` 
