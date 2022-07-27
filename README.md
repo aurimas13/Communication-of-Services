@@ -74,9 +74,9 @@ on your machine. </br>
 
 You can configure each of the application via their `.env` files. The environment variables that you will pass
 will be used in the applications globally. To configure the [Event Propagator](#event-propagator), these are the configuration variables:<sup>1,2,3</sup>
-`WAIT_SECONDS` - set the time period with which to send requests from the propagator to the API, `ENDPOINT` - define the endpoint &`INPUT_FILE_LOCATION` - define the input event JSON file.
+`WAIT_SECONDS` - set the time period with which to send requests from the propagator to the API, `ENDPOINT` - define the endpoint & `INPUT_FILE_LOCATION` - define the input event JSON file.
 To configure the [Event Consumer](#event-consumer), these are the variables of configuration:<sup>4,5</sup> 
-`PORT` - define the port number for the Flask API &`TARGET_FILE_LOCATION` - define where write the output file.
+`PORT` - define the port number for the Flask API & `TARGET_FILE_LOCATION` - define where write the output file.
 
 `IMPORTANT NOTE:` If you do not configure the variables, the applications will use defaults.
 
