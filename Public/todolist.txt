@@ -5,4 +5,4 @@ DONE 4) Update and make nice README.md
 DONE 5) Write to do with docker and locally without
 DONE 6) Update funcs with doc strings
 DONE 7) Added Makefile
-8) In Makefile docker commands use vaiables so that it is possible to give PORT somehow through that env file
+8) In Makefile docker commands use variables so that it is possible to give PORT somehow through that env file
