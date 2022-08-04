@@ -309,7 +309,6 @@ and run:
 [(Back to top)](#table-of-contents)
 
 Public folder contains three files: 
-- [task](https://github.com/aurimas13/Communication-of-services/blob/main/Public/Task.md) - the problem or task overview.
 - [todolist](https://github.com/aurimas13/Communication-of-services/blob/main/Public/todolist.txt) - the TO DO List.
 - [photo](https://github.com/aurimas13/Communication-of-services/blob/main/Public/Photo) - the Photo folder.
 
